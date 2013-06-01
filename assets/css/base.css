@@ -1,0 +1,194 @@
+html
+{
+	margin-bottom: 0px;
+}
+
+body {
+    padding-top: 20px;
+    padding-bottom: 60px;
+    text-align: center;
+ }
+
+a:hover
+{
+	text-decoration: none;
+}
+
+.logo
+{
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+#maincontent
+{
+	padding-top: 10px;
+}
+
+.usercontrol
+{
+	position: absolute;
+	right: 10px;
+	top: 20px;
+	font-weight: bold;
+}
+
+.schedulecontrolicons-options
+{
+	position: absolute;
+	right: -60px;
+	top: 20px;
+	width: 50px;
+}
+
+.schedulecontrolicons-highlights
+{
+	position: absolute;
+	right: -90px;
+	top: 20px;
+	width: 50px;
+}
+
+
+.header
+{
+	position: relative;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.headeradjuster
+{
+	text-align:center;
+}
+
+.space-right
+{
+	margin-right: 8px;
+}
+
+.bulb-yellow
+{
+	color: #FFB700;
+}
+
+.options-blacken
+{
+	color: #000;
+}
+
+.schedule
+{
+	text-align: center;
+	position: relative;
+}
+
+.schedule-main-table
+{
+	margin: 0 auto; 
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.schedule-main-table td
+{
+	border: 1px solid black;
+	width: 100px;
+}
+
+.schedule-main-table-top-row td
+{
+	height: 30px;
+	margin-bottom: -10px;
+}
+
+td.schedule-main-table-first-column
+{
+	width: 50px;
+	text-align: center;
+	font-weight: bold;
+}
+
+td.schedule-main-table-corner
+{
+	width: 50px;
+	height: 30px;
+	border: none;
+}
+
+td.schedule-main-table-normal-cell
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+td.schedule-main-table-invalid-cell
+{
+	background-color: #DDDDDD;
+}
+
+td.schedule-main-table-current-time-cell
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	line-height: 12px;
+	background-color: #74C2E1;
+}
+
+td.schedule-main-table-old-time-cell
+{
+	padding-left: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-size: 12px;
+	line-height: 12px;
+	color: #777777;
+}
+
+.date-aligner
+{
+	margin-bottom: -10px;
+}
+
+.large-date
+{
+	font-size: 32px;
+}
+
+.small-day
+{
+	font-size: 10px;
+}
+
+.schedule-previous
+{
+	position: absolute;
+	top: 300px;
+	left: -40px;
+}
+
+.schedule-next
+{
+	position: absolute;
+	top: 300px;
+	right: -40px;
+}
+
+.footer
+{
+	margin-top: 25px;
+	text-align: center;
+	font-size: 10px;
+}
+
+#maincontent
+{
+	display: inline-block;
+	margin: 0 auto;
+}

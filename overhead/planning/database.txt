@@ -1,0 +1,39 @@
+session
+- title
+- scheduleType (r=repeating weekly, s=static)
+- startDate
+- endDate
+- startTime
+- endTime
+- timeIncrementAmount
+- isActive
+- isLocked
+- groupId
+
+hour
+- userId
+- sessionId
+- time
+- date (mutually exclusive)
+- day (mutually exclusive)
+
+user
+- FirstName
+- LastName
+- ucid
+- itusername
+
+shift
+- hourId
+- status (a=awaiting coverage, c=covered, L=locked)
+- coveredBy
+
+group
+- id
+- name
+- supervisorId
+
+userGroup
+- id
+- userId
+- groupId

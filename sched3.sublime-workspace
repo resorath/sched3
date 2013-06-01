@@ -1,0 +1,303 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"font-",
+				"font-variant"
+			],
+			[
+				"style",
+				"list-style"
+			],
+			[
+				"check",
+				"checkIfInFullView"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "application/controllers/populatetestdata.php",
+			"settings":
+			{
+				"buffer_size": 1746,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.php",
+			"settings":
+			{
+				"buffer_size": 6357,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 0.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/xampp/htdocs/sched3/assets/css/base.css",
+		"/E/xampp/htdocs/sched3/assets/css/bootstrap-overrides.css",
+		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
+		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
+		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/master.php",
+		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
+		"/E/xampp/htdocs/sched3/application/views/schedule.php",
+		"/E/xampp/htdocs/sched3/application/views/test.php",
+		"/E/xampp/htdocs/sched3/application/models/schedule_expert.php",
+		"/E/xampp/htdocs/sched3/application/controllers/populatetestdata.php",
+		"/E/xampp/htdocs/sched3/application/models/person_expert.php",
+		"/E/xampp/htdocs/sched3/application/models/session_expert.php",
+		"/E/xampp/htdocs/sched3/application/config/autoload.php",
+		"/E/xampp/htdocs/sched3/application/config/routes.php",
+		"/E/xampp/htdocs/sched3/application/controllers/test/populatetestdata.php",
+		"/E/xampp/htdocs/sched3/application/controllers/error.php",
+		"/E/xampp/htdocs/three.weareuprising.com/application/core/MY_Exceptions.php",
+		"/E/xampp/htdocs/three.weareuprising.com/application/controllers/error.php",
+		"/E/xampp/htdocs/three.weareuprising.com/application/config/routes.php",
+		"/E/xampp/htdocs/sched3/application/errors/error_404.php",
+		"/E/xampp/htdocs/sched3/application/config/database.php",
+		"/E/xampp/htdocs/sched3/application/controllers/front.php",
+		"/E/xampp/htdocs/sched3/application/models/Schedule_Expert.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
+		"/E/xampp/htdocs/sched3/index.php",
+		"/E/xampp/htdocs/sched3/.htaccess",
+		"/E/xampp/htdocs/sched3/application/.htaccess",
+		"/E/xampp/htdocs/sched3/application/views/front.php",
+		"/E/xampp/htdocs/sched3/application/controllers/test.php",
+		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface",
+		"/E/xampp/htdocs/sched3/assets/css/bootstrap.css",
+		"/C/Users/Sean/AppData/Local/Temp/Rar$DR79.288/bootstrap/css/bootstrap.css",
+		"/E/xampp/htdocs/sched3/assets/js/base.css",
+		"/C/Users/Sean/AppData/Local/Temp/Rar$DI94.992/welcome.php",
+		"/C/Users/Sean/AppData/Local/Temp/Rar$DI00.992/welcome.php",
+		"/E/xampp/htdocs/sched3/application/assets/js/bootstrap.js",
+		"/E/xampp/htdocs/ugod/application/config/autoload.php",
+		"/E/xampp/htdocs/ugod/application/config/config.php",
+		"/E/xampp/htdocs/sched3/application/core/MY_Exceptions.php",
+		"/E/xampp/htdocs/sched3/application/config/config.php",
+		"/E/xampp/htdocs/ugod/application/controllers/front.php",
+		"/E/xampp/htdocs/ugod/application/config/routes.php",
+		"/E/xampp/htdocs/ugod/application/core/MY_Controller.php",
+		"/E/xampp/htdocs/ugod/application/core/MY_Exceptions.php",
+		"/E/xampp/htdocs/ugod/application/config/constants.php",
+		"/E/xampp/htdocs/ugod/application/config/database.php",
+		"/E/xampp/htdocs/ugod/application/config/doctypes.php",
+		"/E/xampp/htdocs/ugod/application/config/foreign_chars.php",
+		"/E/xampp/htdocs/ugod/application/config/hooks.php",
+		"/E/xampp/htdocs/ugod/application/config/index.html",
+		"/E/xampp/htdocs/ugod/application/config/migration.php",
+		"/E/xampp/htdocs/ugod/application/config/mimes.php",
+		"/E/xampp/htdocs/ugod/application/config/profiler.php",
+		"/E/xampp/htdocs/ugod/application/config/smileys.php",
+		"/E/xampp/htdocs/ugod/application/config/user_agents.php",
+		"/E/xampp/htdocs/seanfeilcom/index.php",
+		"/E/xampp/htdocs/seanfeilcom/com.seanfeil.js",
+		"/E/xampp/htdocs/seanfeilcom/style.css",
+		"/E/xampp/htdocs/vortex.tophatandmonocle.com/index.php",
+		"/E/xampp/htdocs/seanfeilcom/jquery.parallax.js",
+		"/E/xampp/htdocs/seanfeilcom/jquery.localscroll-min.js",
+		"/E/xampp/htdocs/seanfeilcom/jquery.scrollTo-min.js",
+		"/E/xampp/htdocs/seanfeilcom/jquery.color.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".schedule",
+			".schedule{",
+			"40px",
+			"25px",
+			"line-height: 25",
+			"line-height: 40",
+			"line-height: 25",
+			"line-height",
+			"masthead",
+			".nav"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "application/controllers/populatetestdata.php",
+					"settings":
+					{
+						"buffer_size": 1746,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								431,
+								431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "index.php",
+					"settings":
+					{
+						"buffer_size": 6357,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.718841427736,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 211.0,
+	"status_bar_visible": true
+}
