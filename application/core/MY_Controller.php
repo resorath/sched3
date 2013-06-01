@@ -20,11 +20,11 @@ class MY_Controller extends CI_Controller {
         // Title
         if(key_exists('title', $data))
             $data['title'] .= " - ";
-        @$data['title'] .= "Uprising Guild of Doomhammer";
+        @$data['title'] .= "IT Scheduler";
         
         // Navigation
-        if(!key_exists('nav', $data))
-            $data['nav'] = "none";
+        //if(!key_exists('nav', $data))
+        //    $data['nav'] = "none";
         
         $data['content'] = $this->load->view($content_view, $data, true);
         $this->load->view('templates/master', $data);

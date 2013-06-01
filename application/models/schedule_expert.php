@@ -17,7 +17,7 @@ class Schedule_expert extends CI_Model
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `date` <= ? AND `date` >= ?";
 		$week = week_range($date);
 
-		return $this->db->query($sql, array($sessionId, $week[0], $weak[1]));
+		return $this->db->query($sql, array($sessionId, $week[0], $week[1]));
 
 	}
 
@@ -33,9 +33,10 @@ class Schedule_expert extends CI_Model
 		$this->db->query($sql);
 	}
 
-	private function week_range($date) 
+	
+	function week_range($date) 
 	{
-	    $ts = strtotime($date);
+	    $ts = $date;
 	    $start = (date('w', $ts) == 0) ? $ts : strtotime('last sunday', $ts);
 	    return array(date('Y-m-d', $start),
 	                 date('Y-m-d', strtotime('next saturday', $start)));

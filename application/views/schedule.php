@@ -1,7 +1,9 @@
 <div class="container" id="maincontent">
 <div class="headeradjuster">
 	<div class="header">
-		<h3>Summer 2013 Schedule</h3>
+		<?php print_r($sessiondata); ?>
+		<?php print_r($firstcolumn); ?>
+		<h3><?=$sessiondata->title ?></h3>
     	<div class="schedulecontrolicons-options">
 		    <div class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list icon-large options-blacken"></i></a>
@@ -36,17 +38,35 @@
 
 <div class="schedule">
 	<table class="schedule-main-table">
+		<!-- Top Date/Days -->
 		<tr class="schedule-main-table-top-row">
 			<td class="schedule-main-table-corner"></td>
-			<td><div class="date-aligner"><span class="large-date">7</span> <span class="small-day">Sunday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">8</span> <span class="small-day">Monday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">9</span> <span class="small-day">Tuesday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">10</span> <span class="small-day">Wednesday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">11</span> <span class="small-day">Thursday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">12</span> <span class="small-day">Friday</span></div></td>
-			<td><div class="date-aligner"><span class="large-date">13</span> <span class="small-day">Saturday</span></div></td>
+			<?php for($i = 0; $i<sizeof($toprow['days']); $i++) { ?>
+			<td><div class="date-aligner"><span class="large-date"><?=$toprow['date'][$i] ?></span> <span class="small-day"><?=$toprow['days'][$i] ?></span></div></td>
+			<?php } ?>
 		</tr>
-		<!-- 8:00 -->
+		<!-- END Top Date/Days -->
+
+		<!-- Time/Schedule Rows -->
+		<?php for($i=0; $i<sizeof($firstcolumn); $i++) { ?>
+				
+		<tr>
+			<td class="schedule-main-table-first-column"><?=$firstcolumn[$i] ?></td>
+
+				<?php for($j = 0; $j<sizeof($toprow['date']); $j++) { ?>
+				<td class="schedule-main-table-normal-cell">
+					somedata
+				</td>
+
+
+				<?php } // end of rows "for" loop ?>
+
+		</tr>
+		<?php } // end of columns "for" loop ?>
+
+
+
+		<!-- 8:00 
 		<tr>
 			<td class="schedule-main-table-first-column">8:00</td>
 			<td class="schedule-main-table-invalid-cell">
@@ -89,7 +109,7 @@
 			<td class="schedule-main-table-invalid-cell">
 			</td>
 		</tr>
-		<!-- 9:00 -->
+		 9:00 
 		<tr>
 			<td class="schedule-main-table-first-column">9:00</td>
 			<td class="schedule-main-table-invalid-cell">
@@ -132,7 +152,7 @@
 			<td class="schedule-main-table-invalid-cell">
 			</td>
 		</tr>
-		<!-- 10:00 -->
+		10:00
 		<tr>
 			<td class="schedule-main-table-first-column">10:00</td>
 			<td class="schedule-main-table-normal-cell">
@@ -185,7 +205,7 @@
 				George W<br/>
 			</td>
 		</tr>
-		<!-- 11:00 -->
+		11:00
 		<tr>
 			<td class="schedule-main-table-first-column">11:00</td>
 			<td class="schedule-main-table-normal-cell">
@@ -238,7 +258,7 @@
 				George W<br/>
 			</td>
 		</tr>
-		<!-- 12:00 -->
+		12:00
 		<tr>
 			<td class="schedule-main-table-first-column">12:00</td>
 			<td class="schedule-main-table-normal-cell">
@@ -291,7 +311,7 @@
 				George W<br/>
 			</td>
 		</tr>
-		<!-- 1:00 -->
+		1:00
 		<tr>
 			<td class="schedule-main-table-first-column">1:00</td>
 			<td class="schedule-main-table-normal-cell">
@@ -344,7 +364,7 @@
 				George W<br/>
 			</td>
 		</tr>
-		<!-- 2:00 -->
+		2:00
 		<tr>
 			<td class="schedule-main-table-first-column">2:00</td>
 			<td class="schedule-main-table-invalid-cell">
@@ -387,7 +407,7 @@
 			<td class="schedule-main-table-invalid-cell">
 			</td>
 		</tr>
-		<!-- 3:00 -->
+		3:00
 		<tr>
 			<td class="schedule-main-table-first-column">3:00</td>
 			<td class="schedule-main-table-invalid-cell">
@@ -430,7 +450,7 @@
 			<td class="schedule-main-table-invalid-cell">
 			</td>
 		</tr>
-		<!-- 4:00 -->
+		4:00
 		<tr>
 			<td class="schedule-main-table-first-column">4:00</td>
 			<td class="schedule-main-table-invalid-cell">
@@ -473,5 +493,6 @@
 			<td class="schedule-main-table-invalid-cell">
 			</td>
 		</tr>
+		-->
 	</table>
 </div>

@@ -38,8 +38,8 @@ class Populatetestdata extends CI_Controller {
 	{
 		$this->Session_expert->truncate_sessions();
 
-		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367301600', '1373868000', '800', '1700', '1', 'true', 'false', 1);
-		$this->Session_expert->add_session('Test Session Summer 2013', 'r', '1373954400', '1377669600', '800', '1700', '1', 'false', 'false', 1);
+		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367301600', '1373868000', '800', '1700', '1', '1', '1', '0', 1);
+		$this->Session_expert->add_session('Test Session Summer 2013', 'r', '1373954400', '1377669600', '800', '1700', '1', '0', '0', '0', 1);
 	}
 
 	private function load_groups()
@@ -73,7 +73,7 @@ class Populatetestdata extends CI_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(1, 1, $i, null, $day);
+				$this->Schedule_expert->add_hour(1, 1, $i."00", null, $day);
 			}
 
 		}
@@ -81,6 +81,3 @@ class Populatetestdata extends CI_Controller {
 	}
 
 }
-
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
