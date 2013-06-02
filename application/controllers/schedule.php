@@ -4,9 +4,6 @@ class Schedule extends MY_Controller {
 
 	public function index()
 	{
-		//$this->load->model('News_expert');
-		
-		//$data['newsdata'] = $this->News_expert->get_news();
 		$data['sessiondata'] = $this->Session_expert->get_primary_session(1); // change me later
 		
 		// set variables
@@ -27,7 +24,18 @@ class Schedule extends MY_Controller {
 		//@todo this is for weekly only
 		// index[i,j] = members: objects(name, shiftdata)
 		$scheduledata = $this->Schedule_expert->get_current_weekly_schedule($sessionId);
-		//print_r($scheduledata);
+		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
+
+		//$hello = new models\Cell("Sean");
+
+		foreach($scheduledata as $row)
+		{
+			$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']]);
+		}
+
+		print_r($schedule);
+
+		return $schedule;
 
 
 
@@ -46,6 +54,7 @@ class Schedule extends MY_Controller {
 		if($sessionType == "r")
 		{
 			$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+			$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
 
 			$date = strtotime($weekrange[0]); // first date of this week
 			foreach($returnVal['days'] as $day)
@@ -72,7 +81,7 @@ class Schedule extends MY_Controller {
 
 		while($time < $endTime)
 		{
-			$returnVal[] = strrev(substr_replace(strrev($time), ":", 2, 0)); // Add colon character to time
+			$returnVal[] = $time; // Add colon character to time
 
 			$increment = $timeIncrementAmount * 60;
 			$time += ($increment >= 60 ? 100 : $increment);

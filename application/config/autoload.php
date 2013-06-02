@@ -52,7 +52,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('database', 'session', 'xmlrpc');
 */
 
-$autoload['libraries'] = array('database', 'session');
+$autoload['libraries'] = array('database', 'session', 'customAutoLoader');
 
 
 /*
@@ -110,7 +110,6 @@ $autoload['language'] = array();
 */
 
 $autoload['model'] = array('Schedule_expert', 'Person_expert', 'Session_expert', 'Group_expert');
-
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

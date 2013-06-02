@@ -46,14 +46,15 @@
 		<!-- END Top Date/Days -->
 
 		<!-- Time/Schedule Rows -->
-		<?php for($i=0; $i<sizeof($firstcolumn); $i++) { ?>
+		<?php foreach($firstcolumn as $columntime) { ?>
 				
 		<tr>
-			<td class="schedule-main-table-first-column"><?=$firstcolumn[$i] ?></td>
+			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
 
-				<?php for($j = 0; $j<sizeof($toprow['date']); $j++) { ?>
+				<?php //for($j = 0; $j<sizeof($toprow['date']); $j++) { ?>
+				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
 				<td class="schedule-main-table-normal-cell">
-					somedata
+					<?= $schedule[$columntime][$rowdate][0]->realname ?>
 				</td>
 
 

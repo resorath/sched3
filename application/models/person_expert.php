@@ -31,6 +31,24 @@ class Person_expert extends CI_Model
 		$this->db->query($sql);
 	}
 
+	function getPeopleAsCellFormat()
+	{
+		$sql = "SELECT `id`, `firstName`, `lastName` FROM `user`";
+		$result = $this->db->query($sql);
+		if($result->num_rows() > 0)
+		{
+			$rdata = $result->result_array();
+
+			foreach($rdata as $pdata)
+			{
+				$returnVal[$pdata['id']] = $pdata['firstName'] . " " . substr($pdata['lastName'], 0, 1);
+			}
+
+			return $returnVal;
+		}
+		return "";
+	}
+
 	function getUserId($itusername)
 	{
 		$sql = "SELECT `id` FROM `user` WHERE `itUsername` = ?";
