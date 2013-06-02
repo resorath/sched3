@@ -38,8 +38,8 @@ class Populatetestdata extends CI_Controller {
 	{
 		$this->Session_expert->truncate_sessions();
 
-		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367301600', '1373868000', '800', '1700', '1', '1', '1', '0', 1);
-		$this->Session_expert->add_session('Test Session Summer 2013', 'r', '1373954400', '1377669600', '800', '1700', '1', '0', '0', '0', 1);
+		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '1', '0', 1);
+		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '0', '0', '0', 1);
 	}
 
 	private function load_groups()
@@ -74,6 +74,30 @@ class Populatetestdata extends CI_Controller {
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
 				$this->Schedule_expert->add_hour(1, 1, $i."00", null, $day);
+			}
+
+		}
+
+		//gford works Tuesdays and Thursdays
+		$days = array("tu", "th");
+		foreach($days as $day)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(2, 1, $i."00", null, $day);
+			}
+
+		}
+
+		//rregan works 10 to 2 every day
+		$days = array("su", "mo", "tu", "we", "th", "fr", "sa");
+		$bottomhour = 10;
+		$tophour = 14;
+		foreach($days as $day)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(5, 1, $i."00", null, $day);
 			}
 
 		}

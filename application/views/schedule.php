@@ -51,10 +51,11 @@
 		<tr>
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
 
-				<?php //for($j = 0; $j<sizeof($toprow['date']); $j++) { ?>
 				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
 				<td class="schedule-main-table-normal-cell">
-					<?= $schedule[$columntime][$rowdate][0]->realname ?>
+					<?php foreach($schedule[$columntime][$rowdate] as $cell) { ?>
+						<div class="cell"><span class="cell-name"><?= $cell->realname ?></span></div>
+					<?php } // end members of a timeslot "for" loop ?>
 				</td>
 
 

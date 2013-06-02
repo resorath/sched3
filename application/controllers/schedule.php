@@ -33,8 +33,6 @@ class Schedule extends MY_Controller {
 			$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']]);
 		}
 
-		print_r($schedule);
-
 		return $schedule;
 
 
@@ -44,6 +42,7 @@ class Schedule extends MY_Controller {
 	private function buildTopRow($sessionType, $startDate, $endDate)
 	{
 		$now = time();
+		
 		/* first we need to know the schedule type
 			r = repeating weekly
 			s = static
@@ -62,7 +61,7 @@ class Schedule extends MY_Controller {
 				if($date > $endDate)
 					break;
 
-				$returnVal['date'][] = date('d', $date);
+				$returnVal['date'][] = date('j', $date);
 
 				$date = strtotime("tomorrow", $date);
 			}
