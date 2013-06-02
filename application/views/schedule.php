@@ -1,8 +1,6 @@
-<div class="container" id="maincontent">
+<div id="maincontent">
 <div class="headeradjuster">
 	<div class="header">
-		<?php print_r($sessiondata); ?>
-		<?php print_r($firstcolumn); ?>
 		<h3><?=$sessiondata->title ?></h3>
     	<div class="schedulecontrolicons-options">
 		    <div class="dropdown">

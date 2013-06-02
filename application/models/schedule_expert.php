@@ -9,15 +9,20 @@ class Schedule_expert extends CI_Model
 
 	function get_current_weekly_schedule($sessionId)
 	{
-		get_weekly_schedule($sessionId, time());
+		$this->get_weekly_schedule($sessionId, time());
 	}
 
 	function get_weekly_schedule($sessionId, $date)
 	{
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `date` <= ? AND `date` >= ?";
-		$week = week_range($date);
+		$week = $this->week_range($date);
 
-		return $this->db->query($sql, array($sessionId, $week[0], $week[1]));
+		$result = $this->db->query($sql, array($sessionId, $week[0], $week[1]));
+
+		if($result->num_rows() > 0)
+		{
+			return $result->row();
+		}
 
 	}
 

@@ -46,7 +46,7 @@
 			    </div>
 	    	</div>
 
-	    <div class="container" id="maincontent">
+	    <div id="maincontent">
 	    	<div class="headeradjuster">
 		    	<div class="header">
 		    		<h3>Summer 2013 Schedule</h3>

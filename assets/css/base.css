@@ -191,4 +191,5 @@ td.schedule-main-table-old-time-cell
 {
 	display: inline-block;
 	margin: 0 auto;
+	position: relative;
 }

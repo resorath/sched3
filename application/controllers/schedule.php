@@ -16,8 +16,21 @@ class Schedule extends MY_Controller {
 		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate);
 		$data['firstcolumn'] = $this->buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
+		$data['schedule'] = $this->buildSchedule(1);
+
 		$this->loadview('schedule', $data);
 		
+	}
+
+	private function buildSchedule($sessionId)
+	{
+		//@todo this is for weekly only
+		// index[i,j] = members: objects(name, shiftdata)
+		$scheduledata = $this->Schedule_expert->get_current_weekly_schedule($sessionId);
+		//print_r($scheduledata);
+
+
+
 	}
 
 	private function buildTopRow($sessionType, $startDate, $endDate)
