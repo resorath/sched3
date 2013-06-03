@@ -84,6 +84,10 @@ class Authenticate extends MY_Controller {
                         return;
                 }
 
+                // Add roles to session
+                $_SESSION['roles'] = $this->Role_expert->getRoles($userid);
+
+
 		// @todo send user to their configured destination
                 if(isset($_SESSION['destination']))
                         redirect($_SESSION['destination']);

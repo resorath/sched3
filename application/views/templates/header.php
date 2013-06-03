@@ -16,23 +16,27 @@
 		<div class="logo">
 			<img src="<?php echo(base_url()); ?>assets/img/uofc-verticalcrest.png">
 		</div>
+
+		<?php if(user_has_role("CANLOGIN")): ?>
 		<div class="container" id="navcontainer">
 	        <div class="navbar">
 	          <div class="navbar-inner">
 	            <div class="container">
 	              <ul class="nav">
-	                <li class="active"><a href="#">My Dashboard</a></li>
-	                <li><a href="#">Schedule</a></li>
-	                <li><a href="#">Available Shifts</a></li>
-	                <li><a href="#">My Shifts</a></li>
-	                <li><a href="#">My Metrics</a></li>
+	                <?php if(user_has_role("HASSCHEDULE")): ?><li class="active"><a href="#">My Dashboard</a></li><?php endif ?>
+	                <?php if(user_has_role("CANLOGIN")): ?><li><a href="#">Schedule</a></li><?php endif ?>
+	                <?php if(user_has_role("CANLOGIN")): ?><li><a href="#">Available Shifts</a></li><?php endif ?>
+	                <?php if(user_has_role("HASSCHEDULE")): ?><li><a href="#">My Shifts</a></li><?php endif ?>
+	                <?php if(user_has_role("HASSCHEDULE")): ?><li><a href="#">My Metrics</a></li><?php endif ?>
 	              
 	              </ul>
 	            </div>
 	          </div>
 		    </div>
 		</div>
-
+		<?php endif ?>
+		
+		<?php if(user_has_role("CANLOGIN")): ?>
 	    <div class="usercontrol">
 	    	<span class="muted">Hello </span> <?=$userfullname ?>  
 	    	<div class="btn-group">
@@ -43,6 +47,8 @@
 			    <li class="divider"></li>
 			    <li><a href="<?=base_url("authenticate/logout") ?>"><i class="icon-signout"></i> Log Out</a></li>
 			    </ul>
-			    </div>
-	    	</div>
+			</div>
+			<?php endif ?>
+	   	</div>
+
 	    	<!-- End of header -->
