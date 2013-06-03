@@ -58,7 +58,17 @@ class Authenticate extends MY_Controller {
 
 	function backdoor_verify()
 	{
-                $_SESSION['userid'] = $this->input->post('itusername'); 
+                $username = $this->input->post('itusername'); 
+
+                $userid = $this->Person_expert->getUserId($username);
+
+                if($userid != "")
+                        $_SESSION['userid'] = $userid;
+                else
+                {
+                        $this->backdoor_login("Username not found");
+                        return;
+                }
 
 		// @todo send user to their configured destination
                 if(isset($_SESSION['destination']))
@@ -67,9 +77,10 @@ class Authenticate extends MY_Controller {
                         redirect("schedule");
 	}
 
-	private function backdoor_login()
+	private function backdoor_login($error=null)
 	{
-		$this->loadview('backdoorlogin.php');
+                $data['error'] = $error;
+		$this->loadview('backdoorlogin.php', $data);
 	}
 
 }

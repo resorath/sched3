@@ -65,7 +65,9 @@ class MY_Controller extends CI_Controller {
             $data['title'] .= " - ";
         @$data['title'] .= "IT Scheduler";
 
-        $data['userfullname'] = $this->Person_expert->getFullName($_SESSION['userid']);
+        @$data['userfullname'] = $this->Person_expert->getFullName($_SESSION['userid']);
+
+        @$data['userroles'] = $this->Role_expert->getRoles($_SESSION['userid']);
         
         // Navigation
         //if(!key_exists('nav', $data))

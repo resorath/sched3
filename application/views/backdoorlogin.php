@@ -1,4 +1,12 @@
-<div id="maincontent">
+<div id="maincontent" class="container">
+	<?php 
+		if(isset($error)) {
+	?>
+	<div class="alert alert-error">
+	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+	    <?=$error ?>
+    </div>
+	<?php } ?>
 	<div class="headeradjuster">
 		<div class="header">
 			<h3>Scheduler Login</h3>
