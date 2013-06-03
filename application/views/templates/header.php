@@ -23,8 +23,8 @@
 	          <div class="navbar-inner">
 	            <div class="container">
 	              <ul class="nav">
-	                <?php if(user_has_role("HASSCHEDULE")): ?><li class="active"><a href="#">My Dashboard</a></li><?php endif ?>
-	                <?php if(user_has_role("CANLOGIN")): ?><li><a href="#">Schedule</a></li><?php endif ?>
+	                <?php if(user_has_role("HASSCHEDULE")): ?><li><a href="#">My Dashboard</a></li><?php endif ?>
+	                <?php if(user_has_role("CANLOGIN")): ?><li class="active"><a href="#">Schedule</a></li><?php endif ?>
 	                <?php if(user_has_role("CANLOGIN")): ?><li><a href="#">Available Shifts</a></li><?php endif ?>
 	                <?php if(user_has_role("HASSCHEDULE")): ?><li><a href="#">My Shifts</a></li><?php endif ?>
 	                <?php if(user_has_role("HASSCHEDULE")): ?><li><a href="#">My Metrics</a></li><?php endif ?>
@@ -35,7 +35,7 @@
 		    </div>
 		</div>
 		<?php endif ?>
-		
+
 		<?php if(user_has_role("CANLOGIN")): ?>
 	    <div class="usercontrol">
 	    	<span class="muted">Hello </span> <?=$userfullname ?>  
