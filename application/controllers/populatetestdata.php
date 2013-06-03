@@ -8,6 +8,7 @@ class Populatetestdata extends CI_Controller {
 		$this->load_users();
 		$this->load_sessions();
 		$this->load_groups();
+		$this->load_roles();
 		$this->load_schedules();
 		
 		//$data['newsdata'] = $this->News_expert->get_news();
@@ -32,6 +33,7 @@ class Populatetestdata extends CI_Controller {
 		$this->Person_expert->add_person('00100206', 'Harry', 'Truman', 'htruman');
 		$this->Person_expert->add_person('00100207', 'Richard', 'Nixon', 'rnixon');
 		$this->Person_expert->add_person('00100208', 'Franklin Delano', 'Roosevelt', 'fdroosev');
+		$this->Person_expert->add_person('00282497', 'Sean', 'Feil', 'sfeil');
 	}
 
 	private function load_sessions()
@@ -58,6 +60,14 @@ class Populatetestdata extends CI_Controller {
 		$this->Person_expert->add_person_to_group(6, 1);
 		$this->Person_expert->add_person_to_group(7, 1);
 		$this->Person_expert->add_person_to_group(8, 1);
+		$this->Person_expert->add_person_to_group(9, 1);
+	}
+
+	private function load_roles()
+	{
+		$this->Role_expert->truncate_roles();
+
+		
 	}
 
 	private function load_schedules()

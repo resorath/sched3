@@ -52,9 +52,9 @@
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
 
 				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
-				<td class="schedule-main-table-normal-cell">
+				<td class="schedule-main-table-normal-cell" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
 					<?php foreach($schedule[$columntime][$rowdate] as $cell) { ?>
-						<div class="cell"><span class="cell-name"><?= $cell->realname ?></span></div>
+						<div class="cell"><span class="cell-name cell-userid-<?= $cell->userid ?>"><?= $cell->realname ?></span></div>
 					<?php } // end members of a timeslot "for" loop ?>
 				</td>
 

@@ -38,3 +38,18 @@ userGroup
 - id
 - userId
 - groupId
+
+role
+- id
+- roleName
+- roleDescription
+
+userRole
+- id
+- userId
+- roleId
+
+controllerRole
+- id
+- controllerName
+- roleId

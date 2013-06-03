@@ -30,7 +30,7 @@ class Schedule extends MY_Controller {
 
 		foreach($scheduledata as $row)
 		{
-			$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']]);
+			$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId']);
 		}
 
 		return $schedule;
