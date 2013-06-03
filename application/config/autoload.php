@@ -109,7 +109,7 @@ $autoload['language'] = array();
 |
 */
 
-$autoload['model'] = array('Schedule_expert', 'Person_expert', 'Session_expert', 'Group_expert');
+$autoload['model'] = array('Schedule_expert', 'Person_expert', 'Session_expert', 'Group_expert', 'Role_expert');
 
 /* End of file autoload.php */
 /* Location: ./application/config/autoload.php */

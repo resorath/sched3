@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Populatetestdata extends CI_Controller {
+class Populatetestdata extends MY_Controller {
 
 	public function index()
 	{
@@ -14,10 +14,11 @@ class Populatetestdata extends CI_Controller {
 		//$data['newsdata'] = $this->News_expert->get_news();
 		
 		// set variables
-		$data['title'] = "Load Test Data";
-		$data['message'] = "Loaded Test Data";
+		$data['messageheader'] = "Load Test Data";
+		$data['messagetext'] = "Loaded Test Data</br>Load Date: " . date("Y-m-d H:m:s");
+		$data['messagetype'] = "success";
 
-		//$this->loadview('front', $data);
+		$this->loadview('message', $data);
 		
 	}
 
@@ -66,6 +67,20 @@ class Populatetestdata extends CI_Controller {
 	private function load_roles()
 	{
 		$this->Role_expert->truncate_roles();
+
+		$this->Role_expert->add_role("CANLOGIN", "User can log into the scheduler");
+		$this->Role_expert->add_role("HASSCHEDULE", "User has a unique schedule");
+		$this->Role_expert->add_role("ISSUPER", "User is a super user and can control sensitive aspects of scheduler");
+		$this->Role_expert->add_role("CANCHANGEUSERS", "User can add, remove and change users");
+		$this->Role_expert->add_role("CANCHANGESESSIONS", "User can add, remove and change sessions");
+
+		$this->Role_expert->set_role(9, 1);
+		$this->Role_expert->set_role(9, 2);
+		$this->Role_expert->set_role(9, 3);
+		$this->Role_expert->set_role(9, 4);
+		$this->Role_expert->set_role(9, 5);
+
+		$this->Role_expert->add_controller_role(3, "testSuperController");
 
 		
 	}

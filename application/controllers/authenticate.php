@@ -5,7 +5,7 @@ class Authenticate extends MY_Controller {
 	public function index()
 	{
 		// check if we are already authenticated, if so do nothing
-		if($this->session->userdata('userid') !== FALSE)
+		if(isset($_SESSION['userid']))
 		{
 			redirect('schedule');
 		}
@@ -58,7 +58,13 @@ class Authenticate extends MY_Controller {
 
 	function backdoor_verify()
 	{
-		print_r($this->input->post('itusername'));
+                $_SESSION['userid'] = $this->input->post('itusername'); 
+
+		// @todo send user to their configured destination
+                if(isset($_SESSION['destination']))
+                        redirect($_SESSION['destination']);
+                else
+                        redirect("schedule");
 	}
 
 	private function backdoor_login()

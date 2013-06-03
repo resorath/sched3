@@ -49,6 +49,18 @@ class Person_expert extends CI_Model
 		return "";
 	}
 
+	function getFullName($itusername)
+	{
+		$sql = "SELECT `firstName`, `lastName` FROM `user` WHERE `itusername` = ?";
+		$result = $this->db->query($sql, array($itusername));
+		if($result->num_rows() > 0)
+		{
+			$row = $result->row();
+			return $row->firstName . " " . $row->lastName;
+		}
+		return "";
+	}
+
 	function getUserId($itusername)
 	{
 		$sql = "SELECT `id` FROM `user` WHERE `itUsername` = ?";

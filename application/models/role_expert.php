@@ -25,6 +25,12 @@ class Role_expert extends CI_Model
 		$this->db->query($sql, array($roleName, $roleDescription));
 	}
 
+	function add_controller_role($roleId, $controllerName)
+	{
+		$sql = "INSERT INTO `controllerRole` (`id`, `roleId`, `controllerName`) VALUES (NULL, ?, ?)";
+		$this->db->query($sql, array($roleId, $controllerName));
+	}
+
 	function getRoles($userId)
 	{
 		$sql = "SELECT `role`.`roleName` FROM `role` JOIN `userRole` ON `role`.`id` = `userRole`.`roleId` WHERE `userId` = ?";

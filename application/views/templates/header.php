@@ -34,7 +34,7 @@
 		</div>
 
 	    <div class="usercontrol">
-	    	<span class="muted">Hello </span> Sean Feil  
+	    	<span class="muted">Hello </span> <?=$userfullname ?>  
 	    	<div class="btn-group">
 			    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#" id="settings-cog-button"><i class="icon-cog" id="settings-cog"></i></a>
 			    <ul class="dropdown-menu pull-right">

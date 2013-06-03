@@ -3,13 +3,16 @@
 class MY_Controller extends CI_Controller {
 
     private $_controller;
-    private $_modules;
 
     function __construct()
     {
         parent::__construct();
 
+        $this->_controller = $this->router->fetch_class();
+
         $this->bootstrap();
+
+        $this->checkLogin();
 
         $this->checkRoles();
         
@@ -23,12 +26,33 @@ class MY_Controller extends CI_Controller {
         {
             die("Sorry, Scheduler can't be run in CLI mode");
         }
+
+        session_start();
+    }
+
+    // Make sure user is logged in
+    private function checkLogin()
+    {
+        // save the user's destination in case we direct them to authenticate
+        if($this->_controller != "authenticate")
+           $_SESSION['destination'] = $this->_controller;
+
+        // whitelist authentication mechanisms
+        if($this->_controller == "authenticate")
+            return;
+
+
+        if(!isset($_SESSION['userid']))
+        {
+            redirect('authenticate');
+        }
+
     }
 
     // Check if the user has permission to view a page
     private function checkRoles()
     {
-        
+        //@todo
     }
         
     // overrides $this->load->view()
@@ -40,6 +64,8 @@ class MY_Controller extends CI_Controller {
         if(key_exists('title', $data))
             $data['title'] .= " - ";
         @$data['title'] .= "IT Scheduler";
+
+        $data['userfullname'] = $this->Person_expert->getFullName($_SESSION['userid']);
         
         // Navigation
         //if(!key_exists('nav', $data))
@@ -47,7 +73,7 @@ class MY_Controller extends CI_Controller {
         
         $data['content'] = $this->load->view($content_view, $data, true);
         $this->load->view('templates/master', $data);
-        
+
     }
 
     
