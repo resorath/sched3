@@ -17,6 +17,7 @@ hour
 - time
 - date (mutually exclusive)
 - day (mutually exclusive)
+- isScheduled
 
 user
 - FirstName

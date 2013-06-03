@@ -56,6 +56,20 @@ class Authenticate extends MY_Controller {
         }
 	}
 
+        function logout()
+        {
+                session_destroy();
+
+                redirect('/schedule'); // TEMP
+                // Redirect to cas logout
+                //redirect("https://cas.ucalgary.ca/cas/logout?service=thislocation"); 
+        }
+
+        function logoutcomplete()
+        {
+
+        }
+
 	function backdoor_verify()
 	{
                 $username = $this->input->post('itusername'); 

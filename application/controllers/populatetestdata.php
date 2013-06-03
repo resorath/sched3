@@ -98,7 +98,7 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(1, 1, $i."00", null, $day);
+				$this->Schedule_expert->add_hour(1, 1, $i."00", null, $day, TRUE);
 			}
 
 		}
@@ -109,7 +109,7 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(2, 1, $i."00", null, $day);
+				$this->Schedule_expert->add_hour(2, 1, $i."00", null, $day, TRUE);
 			}
 
 		}
@@ -122,10 +122,25 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(5, 1, $i."00", null, $day);
+				$this->Schedule_expert->add_hour(5, 1, $i."00", null, $day, TRUE);
 			}
 
 		}
+
+
+		//sfeil works 8 to 12 every day
+		$days = array("su", "mo", "tu", "we", "th", "fr", "sa");
+		$bottomhour = 8;
+		$tophour = 12;
+		foreach($days as $day)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(9, 1, $i."00", null, $day, TRUE);
+			}
+
+		}
+
 
 	}
 
