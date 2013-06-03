@@ -13,6 +13,10 @@
 	</head>
 	<body>
 
+		<div class="alert alert-block alert-info modal_message" id="loading_box">
+		    <img src="<?=base_url() ?>assets/img/ajax-loader.gif">
+		</div>
+
 		<div class="logo">
 			<img src="<?php echo(base_url()); ?>assets/img/uofc-verticalcrest.png">
 		</div>

@@ -84,16 +84,23 @@ class Authenticate extends MY_Controller {
                         return;
                 }
 
+                $this->process_login();
+	}
+
+        function process_login()
+        {
+                $userid = $_SESSION['userid'];
+
                 // Add roles to session
                 $_SESSION['roles'] = $this->Role_expert->getRoles($userid);
 
 
-		// @todo send user to their configured destination
+                // @todo send user to their configured destination
                 if(isset($_SESSION['destination']))
                         redirect($_SESSION['destination']);
                 else
                         redirect("schedule");
-	}
+        }
 
 	private function backdoor_login($error=null)
 	{

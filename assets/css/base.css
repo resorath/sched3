@@ -193,3 +193,25 @@ td.schedule-main-table-old-time-cell
 	margin: 0 auto;
 	position: relative;
 }
+
+.modal_message
+{
+	position: absolute;
+	top: 100px;
+	left: 50%;
+	margin-left: -75px;
+	padding-left: 40px;
+	width: 80px;
+	display: none;
+	text-align: center;
+	height: 80px;
+	z-index: 999;
+	padding-top: 40px;
+}
+
+.modal_message_text
+{
+	position: absolute;
+	top: 10px;
+	text-align: left;
+}

@@ -7,6 +7,12 @@ $(document).ready(function(){
 	$('#settings-cog-button').hover(
 		function() { $('#settings-cog').addClass('icon-spin') },
 		function() { $('#settings-cog').removeClass('icon-spin') }
-	)
+	);
+
+	$('a').click(function(){
+		setTimeout(function() {
+			$('#loading_box').show();
+		}, 1500);
+	});
 
 });
