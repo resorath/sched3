@@ -209,9 +209,27 @@ td.schedule-main-table-old-time-cell
 	padding-top: 40px;
 }
 
-.modal_message_text
+.tutbg img
 {
-	position: absolute;
-	top: 10px;
-	text-align: left;
+	max-width: 100%;
+	height: 100%;
+}
+
+.imgfiller
+{
+	width: 100%;
+	background-color: red;
+}
+
+@media \0screen {
+  .tutbg img { 
+  	width: auto; /* for ie 8 */
+  }
+}
+
+
+
+.404span
+{
+	text-align: center;
 }
