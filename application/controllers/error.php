@@ -7,10 +7,10 @@ class Error extends MY_Controller {
             print_r($_SESSION);
 	}
         
-    public function h404()
+    public function h404($page)
     {
-        $data[] = Array();
+        $data['errorpage'] = $page;
         
-        $this->loadview("404");
+        $this->loadview("404", $data);
     }
 }

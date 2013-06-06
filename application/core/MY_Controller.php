@@ -41,20 +41,22 @@ class MY_Controller extends CI_Controller {
     private function checkLogin()
     {
         // save the user's destination in case we direct them to authenticate
-        $this->slogger->slog("controller is " . $this->_controller, SLOG_DEBUG);
-
-        //@todo @bug authentication bounces off error controller for some reason
-        if($this->_controller != "authenticate" && $this->_controller != "error")
-           $_SESSION['destination'] = $this->_controller;
 
         // whitelist authentication mechanisms
         if($this->_controller == "authenticate")
             return;
 
-
         if(!isset($_SESSION['userid']))
         {
+            // Don't redirect the user to an error page just in principle
+            // @todo possible @bug why would it do this?
+            if($this->_controller != "error")
+            {
+                $this->slogger->slog("saving destination to " . $this->_controller, SLOG_DEBUG);
+                $_SESSION['destination'] = $this->_controller;
+            }
             redirect('authenticate');
+
         }
 
     }

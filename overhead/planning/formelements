@@ -1,0 +1,9 @@
+<div class="squaredOne">
+	<input type="checkbox" value="None" id="squaredOne" name="check" />
+	<label for="squaredOne"></label>
+</div>
+
+<div class="roundedOne">
+	<input type="checkbox" value="None" id="roundedOne" name="check" />
+	<label for="roundedOne"></label>
+</div>

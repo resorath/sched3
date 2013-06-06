@@ -10,6 +10,6 @@
 	</div>
 	<br/>
 	<span class="muted">
-		yet
+		yet (<?=$errorpage ?>)
 	</span>
 </div>
