@@ -17,7 +17,7 @@
 			    				?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
 			    				foreach($sessiongroup as $sesgroupindex => $session)
 			    				{
-			    					?><li><a href="#"><?=$session['title'] ?></a></li><?php
+			    					?><li><a href="<?=base_url("schedule/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
 			    				}
 			    				if(++$i !== count($availablesessions))
 			    				{

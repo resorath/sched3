@@ -29,7 +29,7 @@ class MY_Controller extends CI_Controller {
             die("Sorry, Scheduler can't be run in CLI mode");
         }
 
-        session_start();
+        @session_start();
 
         // start the logger
         $this->slogger = Slogger::getInstance();

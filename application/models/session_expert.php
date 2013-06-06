@@ -19,14 +19,14 @@ class Session_expert extends CI_Model
 		$this->db->query($sql);
 	}
 
-	function get_session($scheduleId)
+	function get_session($sessionId)
 	{
-		$sql = "SELECT `id` FROM `session` WHERE `id` = ?";
-		$result = $this->db->query($sql, array($scheduleId));
+		$sql = "SELECT * FROM `session` WHERE `id` = ?";
+		$result = $this->db->query($sql, array($sessionId));
 		if($result->num_rows() > 0)
 		{
 			$row = $result->row();
-			return $row->id;
+			return $row;
 		}
 		return "";
 	}
@@ -45,7 +45,7 @@ class Session_expert extends CI_Model
 
 	function get_all_active_sessions_for_user($userId)
 	{
-		$sql = "SELECT *, `group`.`name` AS `groupname` FROM `session` INNER JOIN `group` ON `session`.`groupId` = `group`.`id` WHERE `groupId` IN (SELECT DISTINCT `groupId` FROM `userGroup` WHERE `userId` = ?) AND `isActive` = ? ORDER BY `groupId` ASC";
+		$sql = "SELECT *, `group`.`name` AS `groupname`, `session`.`id` as `sessionId` FROM `session` INNER JOIN `group` ON `session`.`groupId` = `group`.`id` WHERE `groupId` IN (SELECT DISTINCT `groupId` FROM `userGroup` WHERE `userId` = ?) AND `isActive` = ? ORDER BY `groupId` ASC";
 		$result = $this->db->query($sql, array($userId, 1));
 		if($result->num_rows() > 0)
 		{

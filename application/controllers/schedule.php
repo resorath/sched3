@@ -4,7 +4,10 @@ class Schedule extends MY_Controller {
 
 	public function index()
 	{
-		$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']); // change me later
+		if(!isset($_SESSION['sessionId']))
+			$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']); // change me later
+		else
+			$data['sessiondata'] = $this->Session_expert->get_session($_SESSION['sessionId']);
 
 		// set variables
 		$data['title'] = "Schedule";
@@ -40,6 +43,13 @@ class Schedule extends MY_Controller {
 
 
 	}
+
+	public function changesession($sessionid)
+	{
+		$_SESSION['sessionId'] = $sessionid;
+		$this->index();
+	}
+
 
 	private function buildSessionTree($sessionArray)
 	{
