@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: mysql.tophatandmonocle.com
--- Generation Time: Jun 02, 2013 at 05:49 PM
+-- Generation Time: Jun 05, 2013 at 11:30 PM
 -- Server version: 5.1.56
 -- PHP Version: 5.2.17
 
@@ -22,21 +22,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cisessions`
---
-
-CREATE TABLE IF NOT EXISTS `cisessions` (
-  `session_id` varchar(40) NOT NULL DEFAULT '0',
-  `ip_address` varchar(16) NOT NULL DEFAULT '0',
-  `user_agent` varchar(50) NOT NULL,
-  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
-  `user_data` text NOT NULL,
-  PRIMARY KEY (`session_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='codeigniter sessions, not to be confused with session';
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `controllerRole`
 --
 
@@ -45,7 +30,7 @@ CREATE TABLE IF NOT EXISTS `controllerRole` (
   `controllerName` varchar(50) NOT NULL,
   `roleId` smallint(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -58,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `group` (
   `name` varchar(200) NOT NULL,
   `supervisorId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -73,8 +58,9 @@ CREATE TABLE IF NOT EXISTS `hour` (
   `time` varchar(64) NOT NULL,
   `date` varchar(64) DEFAULT NULL,
   `day` varchar(12) DEFAULT NULL,
+  `isScheduled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=117 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=152 ;
 
 -- --------------------------------------------------------
 
@@ -87,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `role` (
   `roleName` varchar(64) NOT NULL,
   `roleDescription` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 -- --------------------------------------------------------
 
@@ -109,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `session` (
   `isLocked` tinyint(1) NOT NULL,
   `groupId` smallint(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -139,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `ucid` varchar(8) NOT NULL,
   `itUsername` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 -- --------------------------------------------------------
 
@@ -151,8 +137,9 @@ CREATE TABLE IF NOT EXISTS `userGroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` mediumint(9) NOT NULL,
   `groupId` smallint(6) NOT NULL,
+  `isPrimary` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 -- --------------------------------------------------------
 
@@ -165,4 +152,4 @@ CREATE TABLE IF NOT EXISTS `userRole` (
   `userId` mediumint(9) NOT NULL,
   `roleId` smallint(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
