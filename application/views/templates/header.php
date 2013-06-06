@@ -27,6 +27,7 @@
 	          <div class="navbar-inner">
 	            <div class="container">
 	              <ul class="nav">
+	              	<?php // @todo this should be moved out of the view code ?>
 	                <?php if(user_has_role("HASSCHEDULE")): ?><li<?php if(strtolower($this->router->fetch_class()) == "dashboard"): ?> class="active"<?php endif ?>><a href="<?=base_url("dashboard") ?>">My Dashboard</a></li><?php endif ?>
 	                <?php if(user_has_role("CANLOGIN")): ?><li<?php if(strtolower($this->router->fetch_class()) == "schedule"): ?> class="active"<?php endif ?>><a href="<?=base_url("schedule") ?>">Schedule</a></li><?php endif ?>
 	                <?php if(user_has_role("CANLOGIN")): ?><li<?php if(strtolower($this->router->fetch_class()) == "availableshifts"): ?> class="active"<?php endif ?>><a href="<?=base_url("availableshifts") ?>">Available Shifts</a></li><?php endif ?>
@@ -52,7 +53,6 @@
 			    <li><a href="<?=base_url("authenticate/logout") ?>"><i class="icon-signout"></i> Log Out</a></li>
 			    </ul>
 			</div>
-			<?php endif ?>
 	   	</div>
-
+		<?php endif ?>
 	    	<!-- End of header -->

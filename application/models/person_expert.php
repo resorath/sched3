@@ -13,10 +13,10 @@ class Person_expert extends CI_Model
 		$this->db->query($sql, array($ucid, $firstname, $lastname, $itusername));
 	}
 
-	function add_person_to_group($userId, $groupId)
+	function add_person_to_group($userId, $groupId, $isPrimary = TRUE)
 	{
-		$sql = "INSERT INTO `userGroup` (`id`,  `userId`, `groupId`) VALUES (NULL, ?, ?)";
-		$this->db->query($sql, array($userId, $groupId));
+		$sql = "INSERT INTO `userGroup` (`id`,  `userId`, `groupId`, `isPrimary`) VALUES (NULL, ?, ?, ?)";
+		$this->db->query($sql, array($userId, $groupId, $isPrimary));
 	}
 
 	function truncate_people()
@@ -47,6 +47,19 @@ class Person_expert extends CI_Model
 			return $returnVal;
 		}
 		return "";
+	}
+
+	function getPrimaryGroup($userid)
+	{
+		$sql = "SELECT `groupId` FROM `userGroup` WHERE `userId` = ? AND `isPrimary` = ?";
+		$result = $this->db->query($sql, array($userid, 1));
+
+		if($result->num_rows() > 0)
+		{
+			$row = $result->row();
+			return $row->groupId;
+		}
+		return "NOGROUP";
 	}
 
 	function getFullName($userid)

@@ -4,13 +4,13 @@ class Error extends MY_Controller {
 
 	public function index()
 	{
-            echo "index";
+            print_r($_SESSION);
 	}
         
-        public function h404()
-        {
-            $data[] = Array();
-            
-            $this->loadview("404");
-        }
+    public function h404()
+    {
+        $data[] = Array();
+        
+        $this->loadview("404");
+    }
 }

@@ -43,6 +43,28 @@ class Session_expert extends CI_Model
 		return "no results";
 	}
 
+	function get_all_active_sessions_for_user($userId)
+	{
+		$sql = "SELECT *, `group`.`name` AS `groupname` FROM `session` INNER JOIN `group` ON `session`.`groupId` = `group`.`id` WHERE `groupId` IN (SELECT DISTINCT `groupId` FROM `userGroup` WHERE `userId` = ?) AND `isActive` = ? ORDER BY `groupId` ASC";
+		$result = $this->db->query($sql, array($userId, 1));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return array();
+	}
+
+	function get_all_active_sessions($groupId)
+	{
+		$sql = "SELECT * FROM `session` WHERE `groupId` = ? AND `isActive` = ?";
+		$result = $this->db->query($sql, array($groupId, 1));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return array();
+	}
+
 
 }
 

@@ -4,8 +4,8 @@ class Schedule extends MY_Controller {
 
 	public function index()
 	{
-		$data['sessiondata'] = $this->Session_expert->get_primary_session(1); // change me later
-		
+		$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']); // change me later
+
 		// set variables
 		$data['title'] = "Schedule";
 
@@ -13,7 +13,9 @@ class Schedule extends MY_Controller {
 		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate);
 		$data['firstcolumn'] = $this->buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
-		$data['schedule'] = $this->buildSchedule(1);
+		$data['schedule'] = $this->buildSchedule($data['sessiondata']->id); // sessionId
+
+		$data['availablesessions'] = $this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']);
 
 		$this->loadview('schedule', $data);
 		

@@ -1,4 +1,4 @@
-<div id="maincontent">
+<?php print_r($availablesessions); ?><div id="maincontent">
 <div class="headeradjuster">
 	<div class="header">
 		<h3><?=$sessiondata->title ?></h3>
@@ -8,7 +8,18 @@
 			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 			    	<li><a href="#"><i class="icon-fixed-width icon-map-marker"></i> Jump to Today</a></li>
 			    	<li><a href="#"><i class="icon-fixed-width icon-screenshot"></i> Jump to...</a></li>
-			    	<li><a href="#"><i class="icon-fixed-width icon-calendar"></i> View a Different Calendar</a></li>
+			    	<li class="dropdown-submenu">
+			    		<a href="#" tabindex="-1"><i class="icon-fixed-width icon-calendar"></i> View a Different Calendar</a>
+			    		<ul class="dropdown-menu">
+			    			<li class="disabled"><a href="#">IT Support Centre</a></li>
+			    			<li><a href="#">Summer 2000</a></li>
+			    			<li class="divider"></li>
+			    			<li class="disabled"><a href="#">Reznet</a></li>
+			    			<li><a href="#">Summer 2000!</a></li>
+
+
+			    		</ul>
+			   		</li>
 			    </ul>
 			</div>
 		</div>

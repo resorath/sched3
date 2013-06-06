@@ -42,7 +42,8 @@ class Populatetestdata extends MY_Controller {
 		$this->Session_expert->truncate_sessions();
 
 		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '1', '0', 1);
-		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '0', '0', '0', 1);
+		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 1);
+		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 2);
 	}
 
 	private function load_groups()
@@ -50,18 +51,21 @@ class Populatetestdata extends MY_Controller {
 		$this->Group_expert->truncate_groups();
 
 		$this->Group_expert->add_group('Test Group', 7);
+		$this->Group_expert->add_group('Cowbells Only', 7);
 
 		$this->Person_expert->truncate_userGroups();
 
-		$this->Person_expert->add_person_to_group(1, 1);
-		$this->Person_expert->add_person_to_group(2, 1);
-		$this->Person_expert->add_person_to_group(3, 1);
-		$this->Person_expert->add_person_to_group(4, 1);
-		$this->Person_expert->add_person_to_group(5, 1);
-		$this->Person_expert->add_person_to_group(6, 1);
-		$this->Person_expert->add_person_to_group(7, 1);
-		$this->Person_expert->add_person_to_group(8, 1);
-		$this->Person_expert->add_person_to_group(9, 1);
+		$this->Person_expert->add_person_to_group(1, 1, TRUE);
+		$this->Person_expert->add_person_to_group(2, 1, TRUE);
+		$this->Person_expert->add_person_to_group(3, 1, TRUE);
+		$this->Person_expert->add_person_to_group(4, 1, TRUE);
+		$this->Person_expert->add_person_to_group(5, 1, TRUE);
+		$this->Person_expert->add_person_to_group(6, 1, TRUE);
+		$this->Person_expert->add_person_to_group(7, 1, TRUE);
+		$this->Person_expert->add_person_to_group(8, 1, TRUE);
+
+		$this->Person_expert->add_person_to_group(9, 1, TRUE);
+		$this->Person_expert->add_person_to_group(9, 2, TRUE);
 	}
 
 	private function load_roles()

@@ -4,6 +4,8 @@ class MY_Controller extends CI_Controller {
 
     private $_controller;
 
+    public $slogger;
+
     function __construct()
     {
         parent::__construct();
@@ -28,13 +30,21 @@ class MY_Controller extends CI_Controller {
         }
 
         session_start();
+
+        // start the logger
+        $this->slogger = Slogger::getInstance();
+        $this->slogger->setController($this->_controller);
+
     }
 
     // Make sure user is logged in
     private function checkLogin()
     {
         // save the user's destination in case we direct them to authenticate
-        if($this->_controller != "authenticate")
+        $this->slogger->slog("controller is " . $this->_controller, SLOG_DEBUG);
+
+        //@todo @bug authentication bounces off error controller for some reason
+        if($this->_controller != "authenticate" && $this->_controller != "error")
            $_SESSION['destination'] = $this->_controller;
 
         // whitelist authentication mechanisms

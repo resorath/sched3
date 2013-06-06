@@ -39,6 +39,7 @@ userGroup
 - id
 - userId
 - groupId
+- isPrimary
 
 role
 - id
