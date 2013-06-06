@@ -15,7 +15,7 @@ class Schedule extends MY_Controller {
 
 		$data['schedule'] = $this->buildSchedule($data['sessiondata']->id); // sessionId
 
-		$data['availablesessions'] = $this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']);
+		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
 
 		$this->loadview('schedule', $data);
 		
@@ -39,6 +39,18 @@ class Schedule extends MY_Controller {
 
 
 
+	}
+
+	private function buildSessionTree($sessionArray)
+	{
+		$returnVal = array();
+
+		foreach($sessionArray as $session)
+		{
+			$returnVal[$session['groupname']][] = $session;
+		}
+
+		return $returnVal;
 	}
 
 	private function buildTopRow($sessionType, $startDate, $endDate)

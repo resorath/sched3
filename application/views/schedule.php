@@ -1,4 +1,4 @@
-<?php print_r($availablesessions); ?><div id="maincontent">
+<div id="maincontent">
 <div class="headeradjuster">
 	<div class="header">
 		<h3><?=$sessiondata->title ?></h3>
@@ -11,11 +11,21 @@
 			    	<li class="dropdown-submenu">
 			    		<a href="#" tabindex="-1"><i class="icon-fixed-width icon-calendar"></i> View a Different Calendar</a>
 			    		<ul class="dropdown-menu">
-			    			<li class="disabled"><a href="#">IT Support Centre</a></li>
-			    			<li><a href="#">Summer 2000</a></li>
-			    			<li class="divider"></li>
-			    			<li class="disabled"><a href="#">Reznet</a></li>
-			    			<li><a href="#">Summer 2000!</a></li>
+			    			<?php
+			    			$i = 0;
+			    			foreach($availablesessions as $sessiongroupname => $sessiongroup) {
+			    				?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
+			    				foreach($sessiongroup as $sesgroupindex => $session)
+			    				{
+			    					?><li><a href="#"><?=$session['title'] ?></a></li><?php
+			    				}
+			    				if(++$i !== count($availablesessions))
+			    				{
+			    					?><li class="divider"></li><?php
+			    				}
+			    			}
+			    			?>
+
 
 
 			    		</ul>

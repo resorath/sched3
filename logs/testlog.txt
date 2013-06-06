@@ -82,3 +82,11 @@
 2013-06-05 21:06:47 [DEBUG] (error) controller is error
 2013-06-05 21:06:53 [DEBUG] (schedule) controller is schedule
 2013-06-05 21:06:54 [DEBUG] (error) controller is error
+2013-06-05 21:06:29 [DEBUG] (schedule) controller is schedule
+2013-06-05 21:06:30 [DEBUG] (error) controller is error
+2013-06-05 21:06:23 [DEBUG] (schedule) controller is schedule
+2013-06-05 21:06:24 [DEBUG] (error) controller is error
+2013-06-05 21:06:03 [DEBUG] (schedule) controller is schedule
+2013-06-05 21:06:04 [DEBUG] (error) controller is error
+2013-06-05 21:06:16 [DEBUG] (schedule) controller is schedule
+2013-06-05 21:06:17 [DEBUG] (error) controller is error
