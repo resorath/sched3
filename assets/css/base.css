@@ -100,7 +100,7 @@ a:hover
 .schedule-main-table-top-row td
 {
 	height: 30px;
-	margin-bottom: -10px;
+	margin-bottom: -20px;
 }
 
 td.schedule-main-table-first-column
@@ -124,6 +124,7 @@ td.schedule-main-table-normal-cell
 	padding-bottom: 5px;
 	font-size: 12px;
 	line-height: 12px;
+	height: 30px;
 }
 
 td.schedule-main-table-invalid-cell
@@ -227,7 +228,10 @@ td.schedule-main-table-old-time-cell
   }
 }
 
-
+.container-nav-adjust
+{
+	width: 800px;
+}
 
 .404span
 {

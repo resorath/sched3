@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title><?=$title ?></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 		<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 		<link href="<?php echo(base_url()); ?>assets/css/base.css" rel="stylesheet" media="screen">
@@ -37,6 +37,15 @@
 	              </ul>
 	            </div>
 	          </div>
+		    </div>
+		</div>
+		<?php endif ?> 
+
+		<?php if(isset($headermessage)): ?>
+		<div class="container container-nav-adjust">
+			<div class="alert alert-<?=$headermessagetype ?>">
+			    <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    <?=$headermessage ?>
 		    </div>
 		</div>
 		<?php endif ?>

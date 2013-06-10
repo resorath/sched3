@@ -32,6 +32,8 @@ class Schedule extends MY_Controller {
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
 		//$hello = new models\Cell("Sean");
+		if(empty($scheduledata))
+			return NULL;
 
 		foreach($scheduledata as $row)
 		{

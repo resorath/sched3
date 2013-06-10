@@ -9,13 +9,14 @@ class Populatetestdata extends MY_Controller {
 		$this->load_sessions();
 		$this->load_groups();
 		$this->load_roles();
-		$this->load_schedules();
+		$this->load_repeating_schedule();
+		$this->load_static_schedule();
 		
 		//$data['newsdata'] = $this->News_expert->get_news();
 		
 		// set variables
 		$data['messageheader'] = "Load Test Data";
-		$data['messagetext'] = "Loaded Test Data</br>Load Date: " . date("Y-m-d H:m:s");
+		$data['messagetext'] = "Loaded Test Data</br>Load Date: " . date("Y-m-d H:i:s");
 		$data['messagetype'] = "success";
 
 		$this->loadview('message', $data);
@@ -43,7 +44,7 @@ class Populatetestdata extends MY_Controller {
 
 		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '1', '0', 1);
 		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 1);
-		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 2);
+		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 2);
 	}
 
 	private function load_groups()
@@ -89,7 +90,30 @@ class Populatetestdata extends MY_Controller {
 		
 	}
 
-	private function load_schedules()
+	private function load_static_schedule()
+	{
+		for($i=1; $i < 30; $i++)
+		{
+			$datespre[] = "June $i, 2013";
+		}
+
+		$dates = array_map("strtotime", $datespre);
+
+		$bottomhour = 8;
+		$tophour = 16;
+
+		//alincoln works all June
+		foreach($dates as $date)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(2, 1, $i."00", $date, null, TRUE);
+			}
+		}
+
+	}
+
+	private function load_repeating_schedule()
 	{
 		$this->Schedule_expert->truncate_hours();
 

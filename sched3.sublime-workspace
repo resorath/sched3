@@ -20,18 +20,10 @@
 	"buffers":
 	[
 		{
-			"file": "application/controllers/populatetestdata.php",
-			"settings":
-			{
-				"buffer_size": 2604,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "application/models/schedule_expert.php",
 			"settings":
 			{
-				"buffer_size": 1125,
+				"buffer_size": 1447,
 				"line_ending": "Windows"
 			}
 		},
@@ -39,7 +31,15 @@
 			"file": "application/models/person_expert.php",
 			"settings":
 			{
-				"buffer_size": 1067,
+				"buffer_size": 2077,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/models/role_expert.php",
+			"settings":
+			{
+				"buffer_size": 2225,
 				"line_ending": "Windows"
 			}
 		},
@@ -47,7 +47,7 @@
 			"file": "application/models/session_expert.php",
 			"settings":
 			{
-				"buffer_size": 792,
+				"buffer_size": 2113,
 				"line_ending": "Windows"
 			}
 		},
@@ -55,7 +55,39 @@
 			"file": "application/models/group_expert.php",
 			"settings":
 			{
-				"buffer_size": 452,
+				"buffer_size": 453,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/schedule.php",
+			"settings":
+			{
+				"buffer_size": 2914,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/schedule.php",
+			"settings":
+			{
+				"buffer_size": 12447,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/templates/header.php",
+			"settings":
+			{
+				"buffer_size": 3165,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/populatetestdata.php",
+			"settings":
+			{
+				"buffer_size": 4673,
 				"line_ending": "Windows"
 			}
 		},
@@ -63,7 +95,31 @@
 			"file": "overhead/planning/database.txt",
 			"settings":
 			{
-				"buffer_size": 447,
+				"buffer_size": 604,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/core/MY_Controller.php",
+			"settings":
+			{
+				"buffer_size": 2449,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
+			"settings":
+			{
+				"buffer_size": 1377,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "assets/css/base.css",
+			"settings":
+			{
+				"buffer_size": 8443,
 				"line_ending": "Windows"
 			}
 		}
@@ -71,11 +127,23 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 81.0,
 		"selected_items":
 		[
+			[
+				"settings",
+				"Preferences: Settings - Default"
+			],
+			[
+				"save",
+				"File: Save All"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			]
 		],
-		"width": 0.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -92,35 +160,58 @@
 	},
 	"file_history":
 	[
-		"/E/xampp/htdocs/sched3/application/config/autoload.php",
-		"/E/xampp/htdocs/sched3/index.php",
-		"/E/xampp/htdocs/sched3/assets/css/base.css",
-		"/E/xampp/htdocs/sched3/assets/css/bootstrap-overrides.css",
-		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
-		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
-		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/master.php",
-		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
-		"/E/xampp/htdocs/sched3/application/views/schedule.php",
-		"/E/xampp/htdocs/sched3/application/views/test.php",
-		"/E/xampp/htdocs/sched3/application/models/schedule_expert.php",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/E/xampp/htdocs/sched3/application/controllers/populatetestdata.php",
+		"/E/xampp/htdocs/sched3/application/controllers/authenticate.php",
+		"/F/tcpview/logs/dwsupport/iknowtrio5178CA5C-1.flv",
+		"/E/xampp/htdocs/sched3/MY_Exceptions.php",
+		"/E/xampp/htdocs/sched3/application/controllers/error.php",
+		"/E/xampp/htdocs/sched3/application/views/404.php",
+		"/E/xampp/htdocs/sched3/application/config/routes.php",
+		"/E/xampp/htdocs/sched3/overhead/planning/session",
+		"/E/xampp/htdocs/sched3/application/core/MY_Exceptions.php",
+		"/E/xampp/htdocs/sched3/application/config/profiler.php",
+		"/E/xampp/htdocs/sched3/overhead/planning/formelements",
+		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
+		"/E/xampp/htdocs/sched3/application/.htaccess",
+		"/E/xampp/htdocs/sched3/application/errors/error_general.php",
+		"/E/xampp/htdocs/sched3/application/helpers/log_helper.php",
+		"/E/xampp/htdocs/sched3/application/config/autoload.php",
+		"/E/xampp/htdocs/sched3/application/views/schedule.php",
+		"/E/xampp/htdocs/sched3/.htaccess",
+		"/E/xampp/htdocs/sched3/.gitignore",
+		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
+		"/E/xampp/htdocs/sched3/application/helpers/role_helper.php",
+		"/E/xampp/htdocs/sched3/application/helpers/index.html",
+		"/E/xampp/htdocs/sched3/application/views/message.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
+		"/E/xampp/htdocs/sched3/application/errors/error_404.php",
+		"/E/xampp/htdocs/sched3/application/views/backdoorlogin.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/master.php",
+		"/E/xampp/htdocs/sched3/application/config/config.php",
+		"/E/xampp/htdocs/sched3/assets/css/base.css",
+		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
+		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
+		"/E/xampp/apache/conf/httpd.conf",
+		"/E/xampp/htdocs/sched3/application/models/Cell.php",
+		"/E/xampp/htdocs/sched3/application/config/hooks.php",
+		"/E/xampp/htdocs/sched3/application/libraries/CustomAutoLoader.php",
+		"/E/xampp/htdocs/sched3/application/objects/cell.php",
+		"/E/xampp/htdocs/sched3/application/views/test.php",
+		"/E/xampp/htdocs/sched3/index.php",
+		"/E/xampp/htdocs/sched3/assets/css/bootstrap-overrides.css",
+		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
+		"/E/xampp/htdocs/sched3/application/models/schedule_expert.php",
 		"/E/xampp/htdocs/sched3/application/models/person_expert.php",
 		"/E/xampp/htdocs/sched3/application/models/session_expert.php",
-		"/E/xampp/htdocs/sched3/application/config/routes.php",
 		"/E/xampp/htdocs/sched3/application/controllers/test/populatetestdata.php",
-		"/E/xampp/htdocs/sched3/application/controllers/error.php",
 		"/E/xampp/htdocs/three.weareuprising.com/application/core/MY_Exceptions.php",
 		"/E/xampp/htdocs/three.weareuprising.com/application/controllers/error.php",
 		"/E/xampp/htdocs/three.weareuprising.com/application/config/routes.php",
-		"/E/xampp/htdocs/sched3/application/errors/error_404.php",
 		"/E/xampp/htdocs/sched3/application/config/database.php",
 		"/E/xampp/htdocs/sched3/application/controllers/front.php",
 		"/E/xampp/htdocs/sched3/application/models/Schedule_Expert.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
-		"/E/xampp/htdocs/sched3/.htaccess",
-		"/E/xampp/htdocs/sched3/application/.htaccess",
 		"/E/xampp/htdocs/sched3/application/views/front.php",
 		"/E/xampp/htdocs/sched3/application/controllers/test.php",
 		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface",
@@ -132,8 +223,6 @@
 		"/E/xampp/htdocs/sched3/application/assets/js/bootstrap.js",
 		"/E/xampp/htdocs/ugod/application/config/autoload.php",
 		"/E/xampp/htdocs/ugod/application/config/config.php",
-		"/E/xampp/htdocs/sched3/application/core/MY_Exceptions.php",
-		"/E/xampp/htdocs/sched3/application/config/config.php",
 		"/E/xampp/htdocs/ugod/application/controllers/front.php",
 		"/E/xampp/htdocs/ugod/application/config/routes.php",
 		"/E/xampp/htdocs/ugod/application/core/MY_Controller.php",
@@ -164,9 +253,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			"E:\\xampp\\htdocs\\sched3\\application",
+			"E:\\xampp\\htdocs\\sched3"
 		]
 	},
 	"find_state":
@@ -174,6 +265,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"spell_check",
+			"$_SESSION[",
+			"get_session(",
+			"error",
+			"base_url()",
+			"80",
 			".schedule",
 			".schedule{",
 			"40px",
@@ -201,50 +298,23 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 8,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/controllers/populatetestdata.php",
-					"settings":
-					{
-						"buffer_size": 2604,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2112,
-								2112
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 45.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "application/models/schedule_expert.php",
 					"settings":
 					{
-						"buffer_size": 1125,
+						"buffer_size": 1447,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								766,
-								766
+								394,
+								394
 							]
 						],
 						"settings":
@@ -259,19 +329,46 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "application/models/person_expert.php",
 					"settings":
 					{
-						"buffer_size": 1067,
+						"buffer_size": 2077,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								429,
-								429
+								1502,
+								1502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 495.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/models/role_expert.php",
+					"settings":
+					{
+						"buffer_size": 2225,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								966,
+								966
 							]
 						],
 						"settings":
@@ -290,15 +387,42 @@
 					"file": "application/models/session_expert.php",
 					"settings":
 					{
-						"buffer_size": 792,
+						"buffer_size": 2113,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								691,
-								691
+								1121,
+								1121
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/models/group_expert.php",
+					"settings":
+					{
+						"buffer_size": 453,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								211,
+								211
 							]
 						],
 						"settings":
@@ -313,19 +437,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "application/models/group_expert.php",
+					"buffer": 5,
+					"file": "application/controllers/schedule.php",
 					"settings":
 					{
-						"buffer_size": 452,
+						"buffer_size": 2914,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7,
-								7
+								508,
+								508
 							]
 						],
 						"settings":
@@ -338,27 +462,111 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
+				},
 				{
-					"buffer": 5,
-					"file": "overhead/planning/database.txt",
+					"buffer": 6,
+					"file": "application/views/schedule.php",
 					"settings":
 					{
-						"buffer_size": 447,
+						"buffer_size": 12447,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								174,
-								174
+								1320,
+								1320
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 386.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/views/templates/header.php",
+					"settings":
+					{
+						"buffer_size": 3165,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								586,
+								586
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/controllers/populatetestdata.php",
+					"settings":
+					{
+						"buffer_size": 4673,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								643,
+								643
+							]
+						],
+						"settings":
+						{
+							"spell_check": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 9,
+					"file": "overhead/planning/database.txt",
+					"settings":
+					{
+						"buffer_size": 604,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								484,
+								484
 							]
 						],
 						"settings":
@@ -367,6 +575,88 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/core/MY_Controller.php",
+					"settings":
+					{
+						"buffer_size": 2449,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1095,
+								1095
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
+					"settings":
+					{
+						"buffer_size": 1377,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								137,
+								137
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "assets/css/base.css",
+					"settings":
+					{
+						"buffer_size": 8443,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4783,
+								4783
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3904.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -402,7 +692,7 @@
 		"cols":
 		[
 			0.0,
-			0.660327677005,
+			0.534849379799,
 			1.0
 		],
 		"rows":
