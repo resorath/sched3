@@ -46,6 +46,10 @@ class MY_Controller extends CI_Controller {
         if($this->_controller == "authenticate")
             return;
 
+        // whitelist database reload
+        if($this->_controller == "populatetestdata")
+            return;
+
         if(!isset($_SESSION['userid']))
         {
             // Don't redirect the user to an error page just in principle

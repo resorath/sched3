@@ -43,7 +43,7 @@ class Populatetestdata extends MY_Controller {
 		$this->Session_expert->truncate_sessions();
 
 		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '1', '0', 1);
-		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 1);
+		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', strtotime("July 1st, 2013"), strtotime("July 30th, 2013"), '800', '1700', '1', '1', '0', '0', 1);
 		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 2);
 	}
 
@@ -94,7 +94,7 @@ class Populatetestdata extends MY_Controller {
 	{
 		for($i=1; $i < 30; $i++)
 		{
-			$datespre[] = "June $i, 2013";
+			$datespre[] = "July $i, 2013";
 		}
 
 		$dates = array_map("strtotime", $datespre);
@@ -102,7 +102,7 @@ class Populatetestdata extends MY_Controller {
 		$bottomhour = 8;
 		$tophour = 16;
 
-		//alincoln works all June
+		//alincoln works all JuLy
 		foreach($dates as $date)
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
@@ -137,7 +137,7 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(2, 1, $i."00", null, $day, TRUE);
+				$this->Schedule_expert->add_hour(1,2 , $i."00", null, $day, TRUE);
 			}
 
 		}
@@ -150,7 +150,7 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(5, 1, $i."00", null, $day, TRUE);
+				$this->Schedule_expert->add_hour(1, 5, $i."00", null, $day, TRUE);
 			}
 
 		}
@@ -164,7 +164,7 @@ class Populatetestdata extends MY_Controller {
 		{
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
-				$this->Schedule_expert->add_hour(9, 1, $i."00", null, $day, TRUE);
+				$this->Schedule_expert->add_hour(1, 9, $i."00", null, $day, TRUE);
 			}
 
 		}

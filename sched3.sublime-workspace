@@ -60,18 +60,10 @@
 			}
 		},
 		{
-			"file": "application/controllers/schedule.php",
-			"settings":
-			{
-				"buffer_size": 2914,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "application/views/schedule.php",
 			"settings":
 			{
-				"buffer_size": 12447,
+				"buffer_size": 3632,
 				"line_ending": "Windows"
 			}
 		},
@@ -79,15 +71,39 @@
 			"file": "application/views/templates/header.php",
 			"settings":
 			{
-				"buffer_size": 3165,
+				"buffer_size": 3684,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/01 - Hiigara",
+			"settings":
+			{
+				"buffer_size": 2793042,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
+			"settings":
+			{
+				"buffer_size": 4930082,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "application/controllers/populatetestdata.php",
 			"settings":
 			{
-				"buffer_size": 4673,
+				"buffer_size": 5113,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/schedule.php",
+			"settings":
+			{
+				"buffer_size": 2957,
 				"line_ending": "Windows"
 			}
 		},
@@ -103,7 +119,7 @@
 			"file": "application/core/MY_Controller.php",
 			"settings":
 			{
-				"buffer_size": 2449,
+				"buffer_size": 2560,
 				"line_ending": "Windows"
 			}
 		},
@@ -119,8 +135,34 @@
 			"file": "assets/css/base.css",
 			"settings":
 			{
-				"buffer_size": 8443,
+				"buffer_size": 8498,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/config/database.php",
+			"settings":
+			{
+				"buffer_size": 3765,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "assets/css/bootstrap-combined.no-icons.min.css",
+			"settings":
+			{
+				"buffer_size": 118500,
+				"line_ending": "Windows",
+				"name": "/*!"
+			}
+		},
+		{
+			"file": "assets/css/font-awesome.css",
+			"settings":
+			{
+				"buffer_size": 23644,
+				"line_ending": "Windows",
+				"name": "/*!"
 			}
 		}
 	],
@@ -160,6 +202,9 @@
 	},
 	"file_history":
 	[
+		"/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
+		"/E/xampp/htdocs/sched3/overhead/sched3.sql",
+		"/E/xampp/htdocs/sched3/.gitignore",
 		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/E/xampp/htdocs/sched3/application/controllers/populatetestdata.php",
@@ -180,7 +225,6 @@
 		"/E/xampp/htdocs/sched3/application/config/autoload.php",
 		"/E/xampp/htdocs/sched3/application/views/schedule.php",
 		"/E/xampp/htdocs/sched3/.htaccess",
-		"/E/xampp/htdocs/sched3/.gitignore",
 		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
 		"/E/xampp/htdocs/sched3/application/helpers/role_helper.php",
 		"/E/xampp/htdocs/sched3/application/helpers/index.html",
@@ -253,7 +297,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 90.0,
+		"height": 0.0,
 		"where_history":
 		[
 			"E:\\xampp\\htdocs\\sched3\\application",
@@ -265,6 +309,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"D0 07",
+			"D0 07 00 00 00 00 00 00 64 00 00 00 0E 00",
+			"D0 07",
+			"D007",
+			"D0 07",
+			"D007 0000",
+			"D007",
+			"D007 0000 0000 0000 6400 000 00E00",
+			"D007000000000000640000000E00",
+			"D0 07 00 00 00 00 00 00 64 00 00 00 0E 00",
+			"default",
+			"schedule",
 			"spell_check",
 			"$_SESSION[",
 			"get_session(",
@@ -288,6 +344,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"local"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -313,8 +370,8 @@
 						"selection":
 						[
 							[
-								394,
-								394
+								632,
+								632
 							]
 						],
 						"settings":
@@ -404,7 +461,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 315.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -421,8 +478,8 @@
 						"selection":
 						[
 							[
-								211,
-								211
+								446,
+								446
 							]
 						],
 						"settings":
@@ -438,45 +495,46 @@
 				},
 				{
 					"buffer": 5,
-					"file": "application/controllers/schedule.php",
+					"file": "application/views/schedule.php",
 					"settings":
 					{
-						"buffer_size": 2914,
+						"buffer_size": 3632,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								508,
-								508
+								2467,
+								2467
 							]
 						],
 						"settings":
 						{
+							"spell_check": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 750.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "application/views/schedule.php",
+					"file": "application/views/templates/header.php",
 					"settings":
 					{
-						"buffer_size": 12447,
+						"buffer_size": 3684,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1320,
-								1320
+								452,
+								452
 							]
 						],
 						"settings":
@@ -486,53 +544,77 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 386.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 7,
-					"file": "application/views/templates/header.php",
+					"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/01 - Hiigara",
 					"settings":
 					{
-						"buffer_size": 3165,
+						"buffer_size": 2793042,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								586,
-								586
+								1648400,
+								1648404
 							]
 						],
 						"settings":
 						{
-							"spell_check": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 617643.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "application/controllers/populatetestdata.php",
+					"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
 					"settings":
 					{
-						"buffer_size": 4673,
+						"buffer_size": 4930082,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								643,
-								643
+								1648402,
+								1648402
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 617587.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "application/controllers/populatetestdata.php",
+					"settings":
+					{
+						"buffer_size": 5113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								521,
+								521
 							]
 						],
 						"settings":
@@ -542,7 +624,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 90.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -550,11 +632,38 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 7,
 			"sheets":
 			[
 				{
-					"buffer": 9,
+					"buffer": 10,
+					"file": "application/controllers/schedule.php",
+					"settings":
+					{
+						"buffer_size": 2957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								435,
+								435
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
 					"file": "overhead/planning/database.txt",
 					"settings":
 					{
@@ -565,8 +674,8 @@
 						"selection":
 						[
 							[
-								484,
-								484
+								404,
+								404
 							]
 						],
 						"settings":
@@ -580,19 +689,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 12,
 					"file": "application/core/MY_Controller.php",
 					"settings":
 					{
-						"buffer_size": 2449,
+						"buffer_size": 2560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1095,
-								1095
+								1184,
+								1184
 							]
 						],
 						"settings":
@@ -602,13 +711,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 135.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 13,
 					"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
 					"settings":
 					{
@@ -635,19 +744,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "assets/css/base.css",
 					"settings":
 					{
-						"buffer_size": 8443,
+						"buffer_size": 8498,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4783,
-								4783
+								2585,
+								2585
 							]
 						],
 						"settings":
@@ -656,7 +765,89 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3904.0,
+						"translation.y": 3049.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "application/config/database.php",
+					"settings":
+					{
+						"buffer_size": 3765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2560,
+								2560
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "assets/css/bootstrap-combined.no-icons.min.css",
+					"settings":
+					{
+						"buffer_size": 118500,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								118500,
+								118500
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/*!",
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "assets/css/font-awesome.css",
+					"settings":
+					{
+						"buffer_size": 23644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22860,
+								22860
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/*!",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -704,7 +895,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":

@@ -77,7 +77,6 @@
 				
 		<tr>
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
-
 				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
 				<td class="schedule-main-table-normal-cell" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
 					<?php if($schedule[$columntime][$rowdate] != null) foreach($schedule[$columntime][$rowdate] as $cell) { ?>

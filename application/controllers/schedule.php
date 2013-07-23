@@ -16,7 +16,7 @@ class Schedule extends MY_Controller {
 		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate);
 		$data['firstcolumn'] = $this->buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
-		$data['schedule'] = $this->buildSchedule($data['sessiondata']->id); // sessionId
+		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id); // sessionId
 
 		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
 
@@ -24,11 +24,11 @@ class Schedule extends MY_Controller {
 		
 	}
 
-	private function buildSchedule($sessionId)
+	private function buildSchedule($sessionType, $sessionId)
 	{
 		//@todo this is for weekly only
 		// index[i,j] = members: objects(name, shiftdata)
-		$scheduledata = $this->Schedule_expert->get_current_weekly_schedule($sessionId);
+		$scheduledata = $this->Schedule_expert->get_current_weekly_schedule($sessionType, $sessionId);
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
 		//$hello = new models\Cell("Sean");
@@ -41,9 +41,6 @@ class Schedule extends MY_Controller {
 		}
 
 		return $schedule;
-
-
-
 	}
 
 	public function changesession($sessionid)
@@ -76,8 +73,8 @@ class Schedule extends MY_Controller {
 
 		$weekrange = $this->Schedule_expert->week_range($now);
 
-		if($sessionType == "r")
-		{
+//		if($sessionType == "r")
+//		{
 			$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 			$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
 
@@ -92,11 +89,23 @@ class Schedule extends MY_Controller {
 				$date = strtotime("tomorrow", $date);
 			}
 
-			return $returnVal;
+/*		}
+		else
+		{
+			$date = $startDate;
+			while($date <= $endDate)
+			{
+				$returnVal['days'][] = date("l", $date);
+				$returnVal['dayindex'][] = substr(date("l", $date), 0, 2);
 
-		}
+				$returnVal['date'][] = date('j', $date);
 
-		// @todo NON-REPEATING WEEKLY
+				$date = strtotime("tomorrow", $date);
+
+			}
+		}*/
+
+		return $returnVal;
 
 	}
 
