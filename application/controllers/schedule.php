@@ -4,16 +4,26 @@ class Schedule extends MY_Controller {
 
 	public function index()
 	{
+
 		if(!isset($_SESSION['sessionId']))
-			$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']); // change me later
+		{
+			$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']);
+			$_SESSION['sessionId'] = $data['sessiondata']->id;
+		}
 		else
+		{
 			$data['sessiondata'] = $this->Session_expert->get_session($_SESSION['sessionId']);
+		}
+
+		if(!isset($_SESSION['displayDate']))
+			$_SESSION['displayDate'] = time();
+
 
 		// set variables
 		$data['title'] = "Schedule";
 
 		// Build top schedule row
-		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate);
+		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
 		$data['firstcolumn'] = $this->buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
 		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id); // sessionId
@@ -26,9 +36,8 @@ class Schedule extends MY_Controller {
 
 	private function buildSchedule($sessionType, $sessionId)
 	{
-		//@todo this is for weekly only
 		// index[i,j] = members: objects(name, shiftdata)
-		$scheduledata = $this->Schedule_expert->get_current_weekly_schedule($sessionType, $sessionId);
+		$scheduledata = $this->Schedule_expert->get_weekly_schedule($sessionType, $sessionId, $_SESSION['displayDate']);
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
 		//$hello = new models\Cell("Sean");
@@ -45,8 +54,30 @@ class Schedule extends MY_Controller {
 
 	public function changesession($sessionid)
 	{
+		// need some group security here
 		$_SESSION['sessionId'] = $sessionid;
-		$this->index();
+		
+		redirect('schedule');
+	}
+
+	public function advanceWeek()
+	{
+		if(!isset($_SESSION['displayDate']))
+			$_SESSION['displayDate'] = strtotime("next week", time());
+		else
+			$_SESSION['displayDate'] = strtotime("next week", $_SESSION['displayDate']);
+		
+		redirect('schedule');
+	}
+
+	public function recedeWeek()
+	{
+		if(!isset($_SESSION['displayDate']))
+			$_SESSION['displayDate'] = strtotime("last week", time());
+		else
+			$_SESSION['displayDate'] = strtotime("last week", $_SESSION['displayDate']);
+		
+		redirect('schedule');
 	}
 
 
@@ -62,23 +93,27 @@ class Schedule extends MY_Controller {
 		return $returnVal;
 	}
 
-	private function buildTopRow($sessionType, $startDate, $endDate)
-	{
-		$now = time();
-		
+	private function buildTopRow($sessionType, $startDate, $endDate, $displayDate)
+	{		
 		/* first we need to know the schedule type
 			r = repeating weekly
 			s = static
 		*/
 
-		$weekrange = $this->Schedule_expert->week_range($now);
+		$weekrange = $this->Schedule_expert->week_range($displayDate);
 
 //		if($sessionType == "r")
 //		{
-			$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-			$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
+			//$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+			//$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
 
 			$date = strtotime($weekrange[0]); // first date of this week
+
+			// if session starts after the first day of the week
+			if($date < $startDate)
+				$date = $startDate;
+
+			/*
 			foreach($returnVal['days'] as $day)
 			{
 				if($date > $endDate)
@@ -87,6 +122,19 @@ class Schedule extends MY_Controller {
 				$returnVal['date'][] = date('j', $date);
 
 				$date = strtotime("tomorrow", $date);
+			}*/
+
+			$endOfWeek = strtotime($weekrange[1]);
+
+			while($date <= $endDate && $date <= $endOfWeek)
+			{
+				$returnVal['days'][] = date("l", $date);
+				$returnVal['dayindex'][] = strtolower(substr(date("l", $date), 0, 2));
+
+				$returnVal['date'][] = date('j', $date);
+
+				$date = strtotime("tomorrow", $date);
+
 			}
 
 /*		}

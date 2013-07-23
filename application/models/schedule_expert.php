@@ -9,10 +9,16 @@ class Schedule_expert extends CI_Model
 
 	function get_current_weekly_schedule($sessionType, $sessionId)
 	{
+		return $this->get_weekly_schedule($sessionType, $sessionId, time());
+
+	}
+
+	function get_weekly_schedule($sessionType, $sessionId, $date)
+	{
 		if($sessionType == "r") // repeating weekly
 			$schedule = $this->get_current_weekly_repeating_schedule($sessionId);
 		else // static
-			$schedule =  $this->get_current_weekly_static_schedule($sessionId, time());
+			$schedule =  $this->get_current_weekly_static_schedule($sessionId, $date);
 
 		// Add days to dates
 		if($schedule != null && $sessionType != "r")
