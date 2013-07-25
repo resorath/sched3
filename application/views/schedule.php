@@ -48,11 +48,11 @@
 </div>
 
 <?php if($schedule != NULL): ?>
-<div class="schedule-previous">
+<div class="schedule-previous" id="schedule-previous">
 	<a href="<?=base_url("schedule/recedeWeek"); ?>"><i class="icon-chevron-left icon-2x"></i></a>
 </div>
 
-<div class="schedule-next">
+<div class="schedule-next" id="schedule-next">
 	<a href="<?=base_url("schedule/advanceWeek"); ?>"><i class="icon-chevron-right icon-2x"></i></a>
 
 </div>
@@ -102,4 +102,18 @@
 		yet
 	</div>
 	<?php endif ?>
+
+	<?php if(isset($flash_left_arrow)): ?>
+		<script>
+			blinkForTime('#schedule-previous > a', 1400, '#ff0000');
+		</script>
+	<?php endif ?>
+
+	<?php if(isset($flash_right_arrow)): ?>
+		<script>
+			$(document).ready(function() { blinkForTime('#schedule-next > a', 1400, '#ff0000'); });
+		</script>
+	<?php endif ?>
+
+
 </div>

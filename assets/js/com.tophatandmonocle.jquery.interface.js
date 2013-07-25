@@ -56,5 +56,31 @@ $(document).ready(function(){
 	    }
 	}
 
-
 });
+
+// blinking elements
+var idArray = [];
+var defaultColor = '#000000';
+
+function toggleColor(id, color) {
+    var e = $(id);
+    var currentColor = $(id).css('color');
+    if (currentColor == defaultColor) {
+      $(id).css('color', color);
+    }
+    else {
+      $(id).css('color', defaultColor);
+    }
+}
+
+function stopBlinking(id) {
+    clearInterval(idArray[id]);
+    $(id).css('color', defaultColor);
+}
+
+function blinkForTime(id, blinkTime, blinkColor) {
+	defaultColor = $(id).css('color');
+    idArray[id] = setInterval(function() {toggleColor(id, blinkColor)}, 200);
+    setTimeout(function() {stopBlinking(id)}, blinkTime);
+}
+// /blinking elements

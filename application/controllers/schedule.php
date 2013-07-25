@@ -30,6 +30,12 @@ class Schedule extends MY_Controller {
 
 		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
 
+		if($this->input->get('start') !== FALSE)
+			$data['flash_left_arrow'] = TRUE;
+
+		if($this->input->get('end') !== FALSE)
+			$data['flash_right_arrow'] = TRUE;
+
 		$this->loadview('schedule', $data);
 		
 	}
@@ -57,7 +63,7 @@ class Schedule extends MY_Controller {
 		// need some group security here
 		$_SESSION['sessionId'] = $sessionid;
 		
-		redirect('schedule');
+		redirect($this->router->class);
 	}
 
 	public function advanceWeek()
@@ -66,8 +72,18 @@ class Schedule extends MY_Controller {
 			$_SESSION['displayDate'] = strtotime("next week", time());
 		else
 			$_SESSION['displayDate'] = strtotime("next week", $_SESSION['displayDate']);
+
+		// Check if we went later than the end of session, and if we did, revert the change
+		$session = $this->Session_expert->get_session($_SESSION['sessionId']);
+		$week = $this->Schedule_expert->week_range($_SESSION['displayDate']);
+
+		if($session->endDate < strtotime($week[0]))
+		{
+			$_SESSION['displayDate'] = strtotime("last week", $_SESSION['displayDate']);
+			redirect($this->router->class . "?end");
+		}
 		
-		redirect('schedule');
+		redirect($this->router->class);
 	}
 
 	public function recedeWeek()
@@ -76,8 +92,18 @@ class Schedule extends MY_Controller {
 			$_SESSION['displayDate'] = strtotime("last week", time());
 		else
 			$_SESSION['displayDate'] = strtotime("last week", $_SESSION['displayDate']);
+
+		// Check if we went later than the end of session, and if we did, revert the change
+		$session = $this->Session_expert->get_session($_SESSION['sessionId']);
+		$week = $this->Schedule_expert->week_range($_SESSION['displayDate']);
+
+		if($session->startDate > strtotime($week[1]))
+		{
+			$_SESSION['displayDate'] = strtotime("next week", $_SESSION['displayDate']);
+			redirect($this->router->class . "?start");
+		}
 		
-		redirect('schedule');
+		redirect($this->router->class);
 	}
 
 
