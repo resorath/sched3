@@ -7,7 +7,6 @@ $(document).ready(function(){
     	type: "error"
   	}).show();
 */
-
 	// autofocus
 	$("input:text:visible:first").focus();
 
@@ -122,3 +121,4 @@ function nyi()
 {
 	notify("Not yet implemented!", "error");
 }
+

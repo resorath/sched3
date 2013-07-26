@@ -65,6 +65,13 @@ class Session_expert extends CI_Model
 		return array();
 	}
 
+	function get_all_sessions()
+	{
+		$sql = "SELECT * FROM `session` ORDER BY `id` DESC";
+		$result = $this->db->query($sql);
+		return $result->result_array();
+	}
+
 
 }
 
