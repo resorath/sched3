@@ -7,7 +7,10 @@ $(document).ready(function() {
         "bSort": true,
         "bInfo": true,
         "bAutoWidth": true,
-        "aaSorting": [[ 0, "desc" ]]
+        "aaSorting": [[ 0, "desc" ]],
+        "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 6 ] }
+       ]
     } );
 
 });
@@ -20,16 +23,17 @@ $(document).ready(function() {
 		</tr>
 	</thead>
 	<tbody>
-		
+		<?php foreach($sessions as $session): ?>
 		<tr>
-			<td>3</td><td>Hello</td><td>World</td><td><i class="icon-check"></i></td><td><i class="icon-lock"></td><td><i class="icon-flag"></td><td><i class="icon-pencil"></i></td>	
+			<td><?=$session['id'] ?></td>
+			<td><?=$session['title'] ?></td>
+			<td><span style="display: none"><?=$session['startDate'] ?></span><?=date("M d, Y", $session['startDate']) ?></td>
+			<td><span style="display: none"><?=$session['isActive'] ?></span><?php if($session['isActive']): ?><i class="icon-check"></i><?php endif ?></td>
+			<td><span style="display: none"><?=$session['isLocked'] ?></span><?php if($session['isLocked']): ?><i class="icon-lock"></i><?php else: ?><i class="icon-unlock"></i><?php endif ?></td>
+			<td><span style="display: none"><?=$session['isPrimary'] ?></span><?php if($session['isPrimary']): ?><i class="icon-flag"></i><?php endif ?></td>
+			<td><i class="icon-pencil"></i></td>	
 		</tr>
-		<tr>
-			<td>2</td><td>Hello</td><td>World</td><td><i class="icon-check"></i></td><td><i class="icon-lock"></td><td></td><td><i class="icon-pencil"></i></td>	
-		</tr>
-		<tr>
-			<td>5</td><td>Hello</td><td>World</td><td><i class="icon-check"></i></td><td><i class="icon-unlock"></td><td></td><td><i class="icon-pencil"></i></td>	
-		</tr>
+		<?php endforeach ?>
 	</tbody>
 	</table>
 </div>
