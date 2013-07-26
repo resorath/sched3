@@ -19,7 +19,7 @@ $(document).ready(function() {
 	<table class="table table-striped table-condensed table-hover table-bordered display" id="sessionTable">
 	<thead>
 		<tr>
-			<th style="width: 90px;">Session ID</th><th>Session Title</th><th>Effective</th><th style="width: 60px;">Active</th><th style="width: 60px;">Locked</th><th style="width: 70px;">Default</th><th style="width: 20px;"></th>
+			<th style="width: 90px;">Session ID</th><th>Session Title</th><th>Effective</th><th style="width: 60px;">Active</th><th style="width: 70px;">Locked</th><th style="width: 70px;">Default</th><th style="width: 20px;"></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -28,10 +28,10 @@ $(document).ready(function() {
 			<td><?=$session['id'] ?></td>
 			<td><?=$session['title'] ?></td>
 			<td><span style="display: none"><?=$session['startDate'] ?></span><?=date("M d, Y", $session['startDate']) ?></td>
-			<td><span style="display: none"><?=$session['isActive'] ?></span><?php if($session['isActive']): ?><i class="icon-check"></i><?php endif ?></td>
-			<td><span style="display: none"><?=$session['isLocked'] ?></span><?php if($session['isLocked']): ?><i class="icon-lock"></i><?php else: ?><i class="icon-unlock"></i><?php endif ?></td>
-			<td><span style="display: none"><?=$session['isPrimary'] ?></span><?php if($session['isPrimary']): ?><i class="icon-flag"></i><?php endif ?></td>
-			<td><i class="icon-pencil"></i></td>	
+			<td style="text-align: center;"><span style="display: none"><?=$session['isActive'] ?></span><?php if($session['isActive']): ?><i class="icon-check"></i><?php endif ?></td>
+			<td style="text-align: center;"><span style="display: none"><?=$session['isLocked'] ?></span><?php if($session['isLocked']): ?><i class="icon-lock"></i><?php else: ?><i class="icon-unlock"></i><?php endif ?></td>
+			<td style="text-align: center;"><span style="display: none"><?=$session['isPrimary'] ?></span><?php if($session['isPrimary']): ?><i class="icon-flag"></i><?php endif ?></td>
+			<td style="text-align: center;"><a href="#"><i class="icon-pencil"></i></a></td>	
 		</tr>
 		<?php endforeach ?>
 	</tbody>
