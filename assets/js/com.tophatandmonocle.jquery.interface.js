@@ -1,5 +1,13 @@
 $(document).ready(function(){
 
+	// notify
+	/*
+	$('.notify').notify({
+    	message: { text: 'Aw yeah, It works!' },
+    	type: "error"
+  	}).show();
+*/
+
 	// autofocus
 	$("input:text:visible:first").focus();
 
@@ -84,3 +92,33 @@ function blinkForTime(id, blinkTime, blinkColor) {
     setTimeout(function() {stopBlinking(id)}, blinkTime);
 }
 // /blinking elements
+
+function highlightHours(userid)
+{
+	$('.' + userid).parent().parent().css('background-color', 'yellow');
+	$.ajax({
+		url: config.base + "/settingscapture/updatehighlight/1"
+	});
+}
+
+function stophighlightHours(userid)
+{
+	$('.' + userid).parent().parent().css('background-color', '');
+	$.ajax({
+		url: config.base + "/settingscapture/updatehighlight/0"
+	});
+}
+
+
+function notify(message, type)
+{
+	$('.notify').notify({
+    	message: { text: message },
+    	type: type
+  	}).show();
+}
+
+function nyi()
+{
+	notify("Not yet implemented!", "error");
+}

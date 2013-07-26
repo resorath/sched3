@@ -106,6 +106,13 @@ class Schedule extends MY_Controller {
 		redirect($this->router->class);
 	}
 
+	public function today()
+	{
+		$_SESSION['displayDate'] = now();
+
+		redirect($this->router->class);
+	}
+
 
 	private function buildSessionTree($sessionArray)
 	{

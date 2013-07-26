@@ -13,8 +13,13 @@
 		<!-- header scripts -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="<?php echo(base_url()); ?>assets/js/bootstrap.min.js"></script>
+		<script src="<?php echo(base_url()); ?>assets/js/bootstrap-notify.js"></script>
 		<script src="<?php echo(base_url()); ?>assets/js/com.tophatandmonocle.jquery.interface.js"></script>
-
+		<script>
+		var config = {
+		     base: "<?php echo base_url(); ?>"
+		 };
+		 </script>
 
 	</head>
 	<body>
@@ -69,5 +74,16 @@
 			    </ul>
 			</div>
 	   	</div>
+		<?php endif ?>
+
+		<div class='notifications top-center notify'></div>
+
+		<?php if(isset($notify_message)): ?>
+		<script>
+		$('.notify').notify({
+	    	message: { text: '<?=$notify_message ?>' }
+	    	<?php if(isset($notify_type)): ?>,type: "<?=$notify_type ?>" <?php endif ?>
+	  	}).show();
+		</script>
 		<?php endif ?>
 	    	<!-- End of header -->

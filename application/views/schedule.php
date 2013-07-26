@@ -6,8 +6,8 @@
 		    <div class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list icon-large options-blacken"></i></a>
 			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			    	<li><a href="#"><i class="icon-fixed-width icon-map-marker"></i> Jump to Today</a></li>
-			    	<li><a href="#"><i class="icon-fixed-width icon-screenshot"></i> Jump to...</a></li>
+			    	<li><a href="<?=base_url("schedule/today") ?>"><i class="icon-fixed-width icon-map-marker"></i> Jump to Today</a></li>
+			    	<li><a href="#" onClick="nyi()"><i class="icon-fixed-width icon-screenshot"></i> Jump to...</a></li>
 			    	<li class="dropdown-submenu">
 			    		<a href="#" tabindex="-1"><i class="icon-fixed-width icon-calendar"></i> View a Different Calendar</a>
 			    		<ul class="dropdown-menu">
@@ -37,10 +37,10 @@
 			<div class="dropdown">
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-lightbulb icon-large bulb-yellow"></i></i></a>
 			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			    	<li><a href="#"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
-			    	<li><a href="#"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
+			    	<li><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
+			    	<li><a href="#" onClick="nyi()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
 			    	<li class="divider"></li>
-			    	<li><a href="#"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
+			    	<li><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
 			    </ul>
 			</div>
     	</div>
@@ -103,17 +103,25 @@
 	</div>
 	<?php endif ?>
 
-	<?php if(isset($flash_left_arrow)): ?>
-		<script>
-			blinkForTime('#schedule-previous > a', 1400, '#ff0000');
-		</script>
-	<?php endif ?>
-
-	<?php if(isset($flash_right_arrow)): ?>
-		<script>
-			$(document).ready(function() { blinkForTime('#schedule-next > a', 1400, '#ff0000'); });
-		</script>
-	<?php endif ?>
-
 
 </div>
+
+<!-- extra script calls -->
+<?php if(isset($flash_left_arrow)): ?>
+	<script>
+		blinkForTime('#schedule-previous > a', 1400, '#ff0000');
+	</script>
+<?php endif ?>
+
+<?php if(isset($flash_right_arrow)): ?>
+	<script>
+		$(document).ready(function() { blinkForTime('#schedule-next > a', 1400, '#ff0000'); });
+	</script>
+<?php endif ?>
+
+<?php if(isset($_SESSION['highlighthours']) && $_SESSION['highlighthours'] == TRUE): ?>
+	<script>
+		highlightHours('cell-userid-<?=$_SESSION['userid']?>');
+	</script>
+<?php endif ?>
+<!-- END extra script calls -->
