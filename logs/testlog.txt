@@ -42,3 +42,5 @@
 2013-07-25 20:07:25 [DEBUG] (schedule) saving destination to schedule
 2013-07-25 20:07:35 [DEBUG] (schedule) saving destination to schedule
 2013-07-25 20:07:00 [DEBUG] (schedule) saving destination to schedule
+2013-07-26 22:07:49 [DEBUG] (schedule) saving destination to schedule
+2013-07-28 20:07:36 [DEBUG] (schedule) saving destination to schedule

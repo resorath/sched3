@@ -16,6 +16,48 @@ class Managesessions extends MY_Controller {
 		$this->loadview('managesessions/select', $data);
 		
 	}
+
+	public function edit($session)
+	{
+		$data['session'] = $this->Session_expert->get_session($session);
+
+		if($data['session'] == null)
+		{
+			$this->create();
+			return;
+		}
+
+		$_SESSION['sessionedit'] = $session;
+
+		$data['title'] = $data['session']->title . " - Manage Sessions";
+
+		$this->loadview('managesessions/edit', $data);
+
+	}
+
+	public function create()
+	{
+
+
+	}
+
+	public function editpost()
+	{
+		$this->load->library('form_validation');
+		$data['session'] = $this->Session_expert->get_session($_SESSION['sessionedit']);
+		$data['title'] = $data['session']->title . " - Manage Sessions";
+
+		if($this->form_validation->run() === FALSE)
+		{
+			$this->loadview('managesessions/edit', $data);
+		}
+		else
+		{
+			echo("success");
+
+		}
+
+	}
 }
 
 /* End of file welcome.php */

@@ -8,17 +8,20 @@
 		<link href="<?php echo(base_url()); ?>assets/css/bootstrap-combined.no-icons.min.css" rel="stylesheet" media="screen">
 		<link href="<?php echo(base_url()); ?>assets/css/jquery.dataTables.css" rel="stylesheet" media="screen">
 		<link href="<?php echo(base_url()); ?>assets/css/jquery.dataTables_themeroller.css" rel="stylesheet" media="screen">
+				<link href="<?php echo(base_url()); ?>assets/css/datepicker.css" rel="stylesheet" media="screen">
 		<!--<link href="<?php echo(base_url()); ?>assets/css/font-awesome.css" rel="stylesheet" media="screen">-->
-		<link href="<?php echo(base_url()); ?>assets/css/base.css" rel="stylesheet" media="screen">
 		<link href="<?php echo(base_url()); ?>assets/css/bootstrap-overrides.css" rel="stylesheet" media="screen">
-
+		<link href="<?php echo(base_url()); ?>assets/css/base.css" rel="stylesheet" media="screen">
+		
 		<!-- header scripts -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="<?php echo(base_url()); ?>assets/js/bootstrap.min.js"></script>
-		<script src="<?php echo(base_url()); ?>assets/js/bootstrap-notify.js"></script>
+		<script src="<?php echo(base_url()); ?>assets/js/bootstrap-datepicker.js"></script>
 		<script src="<?php echo(base_url()); ?>assets/js/bootstrap-notify.js"></script>
 		
 		<script src="<?php echo(base_url()); ?>assets/js/jquery.dataTables.min.js"></script>
+
+		<script src="<?php echo(base_url()); ?>assets/js/com.tophatandmonocle.jquery.interface.js"></script>
 		<script>
 		var config = {
 		     base: "<?php echo base_url(); ?>"

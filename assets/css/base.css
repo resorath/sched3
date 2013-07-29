@@ -313,7 +313,7 @@ td.schedule-main-table-old-time-cell
 	opacity: 1;
 }
 /* end square one */
-
+/*
 input[type=radio] {
 	visibility: hidden;
 }
@@ -321,8 +321,8 @@ input[type=radio] {
 input[type=checkbox] {
 	visibility: hidden;
 }
-
-/* ROUNDED ONE */
+*/
+/* ROUNDED ONE *//*
 .roundedOne {
 	width: 28px;
 	height: 28px;
@@ -407,4 +407,11 @@ input[type=checkbox] {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 	filter: alpha(opacity=100);
 	opacity: 1;
+}*/
+
+.standard
+{
+	text-align: left;
+	width: 800px;
+
 }

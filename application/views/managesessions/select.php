@@ -31,7 +31,7 @@ $(document).ready(function() {
 			<td style="text-align: center;"><span style="display: none"><?=$session['isActive'] ?></span><?php if($session['isActive']): ?><i class="icon-check"></i><?php endif ?></td>
 			<td style="text-align: center;"><span style="display: none"><?=$session['isLocked'] ?></span><?php if($session['isLocked']): ?><i class="icon-lock"></i><?php else: ?><i class="icon-unlock"></i><?php endif ?></td>
 			<td style="text-align: center;"><span style="display: none"><?=$session['isPrimary'] ?></span><?php if($session['isPrimary']): ?><i class="icon-flag"></i><?php endif ?></td>
-			<td style="text-align: center;"><a href="#"><i class="icon-pencil"></i></a></td>	
+			<td style="text-align: center;"><a href="<?=base_url("/managesessions/edit/" . $session['id']) ?>"><i class="icon-pencil"></i></a></td>	
 		</tr>
 		<?php endforeach ?>
 	</tbody>
