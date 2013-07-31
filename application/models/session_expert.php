@@ -7,10 +7,16 @@ class Session_expert extends CI_Model
 		parent::__construct();
 	}
 
-	function add_session($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $isActive, $isPrimary, $isLocked, $groupId)
+	function add_session($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $groupId, $isActive=0, $isPrimary=0, $isLocked=0)
 	{
-		$sql = "INSERT INTO `session` (`id`,  `title`, `scheduleType`, `startDate`, `endDate`, `startTime`, `endTime`, `timeIncrementAmount`, `isActive`, `isPrimary`, `isLocked`, `groupId`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-		$this->db->query($sql, array($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $isActive, $isPrimary, $isLocked, $groupId));
+		$sql = "INSERT INTO `session` (`id`,  `title`, `scheduleType`, `startDate`, `endDate`, `startTime`, `endTime`, `timeIncrementAmount`, `groupId`, `isActive`, `isPrimary`, `isLocked`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$this->db->query($sql, array($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $groupId, $isActive, $isPrimary, $isLocked));
+	}
+
+	function edit_session($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $sessionId)
+	{
+		$sql = "UPDATE `session` SET `title` = ?, `scheduleType` = ?, `startDate` = ?, `endDate` = ?, `startTime` = ?, `endTime` = ?, `timeIncrementAmount` = ? WHERE `id` = ?";
+		$this->db->query($sql, array($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $sessionId));
 	}
 
 	function truncate_sessions()
@@ -70,6 +76,35 @@ class Session_expert extends CI_Model
 		$sql = "SELECT * FROM `session` ORDER BY `id` DESC";
 		$result = $this->db->query($sql);
 		return $result->result_array();
+	}
+
+	function set_flag($session, $flag, $value)
+	{
+		$sql = "UPDATE `session` SET `". $this->db->escape_str($flag) ."` = ? WHERE `id` = ?";
+		$this->db->query($sql, array($value, $session));
+	}
+
+	function get_flag($session, $flag)
+	{
+		$sql = "SELECT * FROM `session` WHERE `id` = ?";
+		$result = $this->db->query($sql, array($session));
+		if($result->num_rows() > 0)
+		{
+			$row = $result->row();
+			return $row->$flag;
+		}
+		return NULL;
+	}
+
+	function make_primary($session)
+	{
+		$groupId = $this->get_flag($session, "groupId");
+
+		$sql = "UPDATE `session` SET `isPrimary` = '0' WHERE `groupId` = ?";
+		$this->db->query($sql, array($groupId));
+
+		$sql = "UPDATE `session` SET `isPrimary` = '1' WHERE `id` = ?";
+		$this->db->query($sql, array($session));
 	}
 
 

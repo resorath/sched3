@@ -415,3 +415,18 @@ input[type=checkbox] {
 	width: 800px;
 
 }
+
+.form-text-alignment
+{
+	padding-left: 170px;
+}
+
+.pad-top
+{
+	padding-top: 10px;
+}
+
+.pad-bottom
+{
+	padding-bottom: 20px;
+}

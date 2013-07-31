@@ -122,3 +122,11 @@ function nyi()
 	notify("Not yet implemented!", "error");
 }
 
+
+function apply_action(action, value)
+{
+	$.ajax({
+		url: config.base + "/formchange/" + action + "/" + value
+	});
+
+}

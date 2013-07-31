@@ -42,9 +42,9 @@ class Populatetestdata extends MY_Controller {
 	{
 		$this->Session_expert->truncate_sessions();
 
-		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '1', '0', 1);
-		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', strtotime("July 1st, 2013"), strtotime("July 30th, 2013"), '800', '1700', '1', '1', '0', '0', 1);
-		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 'r', '1367388000', '1375336800', '800', '1700', '1', '1', '0', '0', 2);
+		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', 1,  '1', '1', '0');
+		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', strtotime("July 1st, 2013"), strtotime("July 30th, 2013"), '800', '1700', '1', 1, '1', '0', '0');
+		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 'r', '1367388000', '1375336800', '800', '1700', '1', 2, '1', '0', '0');
 	}
 
 	private function load_groups()

@@ -17,7 +17,7 @@ class Managesessions extends MY_Controller {
 		
 	}
 
-	public function edit($session)
+	public function edit($session, $postedit = FALSE)
 	{
 		$data['session'] = $this->Session_expert->get_session($session);
 
@@ -30,6 +30,12 @@ class Managesessions extends MY_Controller {
 		$_SESSION['sessionedit'] = $session;
 
 		$data['title'] = $data['session']->title . " - Manage Sessions";
+
+		if($postedit)
+		{
+			$data['notify_message'] = "Save Successful";
+			$data['notify_type'] = "success";
+		}
 
 		$this->loadview('managesessions/edit', $data);
 
@@ -47,15 +53,49 @@ class Managesessions extends MY_Controller {
 		$data['session'] = $this->Session_expert->get_session($_SESSION['sessionedit']);
 		$data['title'] = $data['session']->title . " - Manage Sessions";
 
+		$this->form_validation->set_rules('title', 'Session Name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('scheduletype', 'Session Type', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('startdate', 'First Day', 'trim|required|callback_validation_is_date|xss_clean');
+		$this->form_validation->set_rules('enddate', 'Last Day', 'trim|required|callback_validation_is_date|callback_validation_date_after_another_Date['. $_POST['startdate'] .']|xss_clean');
+		$this->form_validation->set_rules('starttime', 'Start Time of First Shift', 'trim|required|is_natural|xss_clean');
+		$this->form_validation->set_rules('endtime', 'End Time of First Shift', 'trim|required|is_natural|xss_clean');
+		$this->form_validation->set_rules('timeincrementamount', 'Hours Per Shift', 'trim|required|is_natural|xss_clean');
+
+
 		if($this->form_validation->run() === FALSE)
 		{
 			$this->loadview('managesessions/edit', $data);
 		}
 		else
 		{
-			echo("success");
+			$this->Session_expert->edit_session($_POST['title'], $_POST['scheduletype'], strtotime($_POST['startdate']), strtotime($_POST['enddate']), $_POST['starttime'], $_POST['endtime'], $_POST['timeincrementamount'], $data['session']->id);
+			$this->edit($data['session']->id, TRUE);
 
 		}
+
+	}
+
+	public function validation_is_date($str)
+	{
+		if(strtotime($str) !== FALSE)
+			return TRUE;
+		else
+		{
+			$this->form_validation->set_message('validation_is_date', 'The %s field must be a valid date.');
+			return FALSE;
+		}
+	}
+
+	public function validation_date_after_another_date($newer, $older)
+	{
+		if(strtotime($newer) > strtotime($older))
+			return true;
+		else
+		{
+			$this->form_validation->set_message('validation_date_after_another_Date', 'The %s field must be after the start date.');
+			return false;
+		}
+
 
 	}
 }
