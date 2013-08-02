@@ -200,25 +200,6 @@ $(document).ready(function(){
 	setButtonIsLocked("<?=$session->isLocked ?>");
 
 
-	// alert for changed data
-	dirty=false;
-
-	$('#starttime').on("input", function() { dirty = true; });
-	$('#endtime').on("input", function() { dirty = true; });
-	$('#startdate').on("input", function() { dirty = true; });
-	$('#enddate').on("input", function() { dirty = true; });
-	$('#timeincrementamount').on("input", function() { dirty = true; });
-	$('.icon-calendar').on("click", function() { dirty = true; });
-
-
-	$('#editpostform').bind("reset", function() { dirty = false; });
-
-	$('#editpostform').submit(function() {
-		if(dirty)
-			return confirm('Warning\n\nChanging the date, time or shift length may cause existing submitted hours to be out of range.\n\nDo you want to continue?');
-	});
-	// end alert
-
 	$('#isactive').click(function() {
 		$.ajax({
 			type: "GET",
@@ -256,6 +237,25 @@ $(document).ready(function(){
 	});
 
 
+
+	// alert for changed data
+	dirty=false;
+
+	$('#starttime').on("input", function() { dirty = true; });
+	$('#endtime').on("input", function() { dirty = true; });
+	$('#startdate').on("input", function() { dirty = true; });
+	$('#enddate').on("input", function() { dirty = true; });
+	$('#timeincrementamount').on("input", function() { dirty = true; });
+	$('.icon-calendar').on("click", function() { dirty = true; });
+
+
+	$('#editpostform').bind("reset", function() { dirty = false; });
+
+	$('#editpostform').submit(function() {
+		if(dirty)
+			return confirm('Warning\n\nChanging the date, time or shift length may cause existing submitted hours to be out of range.\n\nDo you want to continue?');
+	});
+	// end alert
 
 
 });

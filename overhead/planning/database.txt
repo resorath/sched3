@@ -50,6 +50,7 @@ userRole
 - id
 - userId
 - roleId
+- groupId
 
 controllerRole
 - id

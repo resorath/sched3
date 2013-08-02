@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 3.3.10.4
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
--- Host: mysql.tophatandmonocle.com
--- Generation Time: Jun 05, 2013 at 11:30 PM
--- Server version: 5.1.56
--- PHP Version: 5.2.17
+-- Host: localhost
+-- Generation Time: Aug 02, 2013 at 07:01 AM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -22,10 +23,10 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `controllerRole`
+-- Table structure for table `controllerrole`
 --
 
-CREATE TABLE IF NOT EXISTS `controllerRole` (
+CREATE TABLE IF NOT EXISTS `controllerrole` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `controllerName` varchar(50) NOT NULL,
   `roleId` smallint(6) NOT NULL,
@@ -60,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `hour` (
   `day` varchar(12) DEFAULT NULL,
   `isScheduled` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=152 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=413 ;
 
 -- --------------------------------------------------------
 
@@ -130,10 +131,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userGroup`
+-- Table structure for table `usergroup`
 --
 
-CREATE TABLE IF NOT EXISTS `userGroup` (
+CREATE TABLE IF NOT EXISTS `usergroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` mediumint(9) NOT NULL,
   `groupId` smallint(6) NOT NULL,
@@ -144,12 +145,17 @@ CREATE TABLE IF NOT EXISTS `userGroup` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `userRole`
+-- Table structure for table `userrole`
 --
 
-CREATE TABLE IF NOT EXISTS `userRole` (
+CREATE TABLE IF NOT EXISTS `userrole` (
   `id` mediumint(9) NOT NULL AUTO_INCREMENT,
   `userId` mediumint(9) NOT NULL,
   `roleId` smallint(6) NOT NULL,
+  `groupId` int(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

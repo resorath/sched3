@@ -37,6 +37,14 @@ class Session_expert extends CI_Model
 		return "";
 	}
 
+	function get_session_group($sessionId)
+	{
+		$session = $this->get_session($sessionId);
+		echo("SESSION@");
+		print_r($session);
+		return $session->groupId;
+	}
+
 	function get_primary_session($groupId)
 	{
 		$sql = "SELECT * FROM `session` WHERE `groupId` = ? AND `isPrimary` = ?";

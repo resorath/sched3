@@ -75,9 +75,12 @@ class Authenticate extends MY_Controller {
                 $username = $this->input->post('itusername'); 
 
                 $userid = $this->Person_expert->getUserId($username);
+                $groupid = $this->Person_expert->getPrimaryGroup($userid);
 
                 if($userid != "")
+                {
                         $_SESSION['userid'] = $userid;
+                }
                 else
                 {
                         $this->backdoor_login("Username not found");
@@ -92,9 +95,9 @@ class Authenticate extends MY_Controller {
                 $userid = $_SESSION['userid'];
 
                 // Add roles to session
-                $_SESSION['roles'] = $this->Role_expert->getRoles($userid);
-
                 $_SESSION['groupid'] = $this->Person_expert->getPrimaryGroup($userid);
+
+                $_SESSION['roles'] = $this->Role_expert->getRoles($userid, $_SESSION['groupid']);
 
 
                 // @todo send user to their configured destination

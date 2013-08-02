@@ -7,16 +7,16 @@ class Role_expert extends CI_Model
 		parent::__construct();
 	}
 
-	function set_role($userId, $roleId)
+	function set_role($userId, $roleId, $groupId)
 	{
-		$sql = "INSERT INTO `userRole` (`id`, `userId`, `roleId`) VALUES (NULL, ?, ?)";
-		$this->db->query($sql, array($userId, $roleId));
+		$sql = "INSERT INTO `userRole` (`id`, `userId`, `roleId`, `groupId`) VALUES (NULL, ?, ?, ?)";
+		$this->db->query($sql, array($userId, $roleId, $groupId));
 	}
 
-	function remove_role($userId, $roleId)
+	function remove_role($userId, $roleId, $groupId)
 	{
-		$sql = "DELETE FROM `userRole` WHERE `userId` = ? AND `roleId` = ?";
-		$this->db->query($sql, array($userId, $roleId));
+		$sql = "DELETE FROM `userRole` WHERE `userId` = ? AND `roleId` = ? AND `groupId` = ?";
+		$this->db->query($sql, array($userId, $roleId, $groupId));
 	}
 
 	function add_role($roleName, $roleDescription)
@@ -33,7 +33,7 @@ class Role_expert extends CI_Model
 
 	function getRoles($userId)
 	{
-		$sql = "SELECT `role`.`roleName` FROM `role` JOIN `userRole` ON `role`.`id` = `userRole`.`roleId` WHERE `userId` = ?";
+		$sql = "SELECT `role`.`roleName`, `userRole`.`groupId` FROM `role` JOIN `userRole` ON `role`.`id` = `userRole`.`roleId` WHERE `userId` = ?";
 
 		$result = $this->db->query($sql, array($userId));
 
@@ -41,12 +41,11 @@ class Role_expert extends CI_Model
 
 		if($result->num_rows() > 0)
 		{
-			foreach($result->result_array() as $rolename)
+			foreach($result->result_array() as $roledata)
 			{
-				$returnVal[] = $rolename;
+				$returnVal[$roledata['groupId']][] = $roledata['roleName'];
 			}
 		}
-
 		return $returnVal;
 
 	}

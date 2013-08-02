@@ -66,7 +66,7 @@ class Populatetestdata extends MY_Controller {
 		$this->Person_expert->add_person_to_group(8, 1, TRUE);
 
 		$this->Person_expert->add_person_to_group(9, 1, TRUE);
-		$this->Person_expert->add_person_to_group(9, 2, TRUE);
+		$this->Person_expert->add_person_to_group(9, 2, FALSE);
 	}
 
 	private function load_roles()
@@ -79,11 +79,13 @@ class Populatetestdata extends MY_Controller {
 		$this->Role_expert->add_role("CANCHANGEUSERS", "User can add, remove and change users");
 		$this->Role_expert->add_role("CANCHANGESESSIONS", "User can add, remove and change sessions");
 
-		$this->Role_expert->set_role(9, 1);
-		$this->Role_expert->set_role(9, 2);
-		$this->Role_expert->set_role(9, 3);
-		$this->Role_expert->set_role(9, 4);
-		$this->Role_expert->set_role(9, 5);
+		$this->Role_expert->set_role(9, 1, 1);
+		$this->Role_expert->set_role(9, 2, 1);
+		$this->Role_expert->set_role(9, 3, 1);
+		$this->Role_expert->set_role(9, 4, 1);
+		$this->Role_expert->set_role(9, 5, 1);
+
+		$this->Role_expert->set_role(9, 1, 2);
 
 		$this->Role_expert->add_controller_role(3, "testSuperController");
 

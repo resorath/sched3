@@ -62,7 +62,8 @@ class Schedule extends MY_Controller {
 	{
 		// need some group security here
 		$_SESSION['sessionId'] = $sessionid;
-		
+		$_SESSION['groupid'] = $this->Session_expert->get_session_group($sessionid);
+
 		redirect($this->router->class);
 	}
 

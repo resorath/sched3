@@ -68,6 +68,8 @@ class MY_Controller extends CI_Controller {
     // Check if the user has permission to view a page
     private function checkRoles()
     {
+        // populate roles
+        $_SESSION['roles'] = $this->Role_expert->getRoles($_SESSION['userid'], $_SESSION['groupid']);
         //@todo
     }
         
