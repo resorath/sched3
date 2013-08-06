@@ -123,6 +123,27 @@ class Populatetestdata extends MY_Controller {
 	{
 		$this->Schedule_expert->truncate_hours();
 
+		// Do invalid hours
+		$this->Schedule_expert->add_hour(1, 0, "800", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "900", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1500", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1600", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "800", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "900", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1500", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1600", null, "su", TRUE);
+
+		// Wed July 24 is a Holiday for some reason - no one
+		$bottomhour = 8;
+		$tophour = 16;
+		$date = strtotime("July 24, 2013");
+		for($i=$bottomhour;$i<=$tophour;$i++)
+		{
+			// Exception hours
+			$this->Schedule_expert->add_hour(1, 0, $i."00", $date, null, TRUE, TRUE);
+		}
+
+
 		// alincoln always works, floor the table
 		$days = array("su", "mo", "tu", "we", "th", "fr", "sa");
 		$bottomhour = 8;

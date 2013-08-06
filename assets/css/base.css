@@ -248,6 +248,11 @@ td.schedule-main-table-old-time-cell
 	width: 800px;
 }
 
+.invalid-hour
+{
+	background-color: lightgrey;
+}
+
 /* squaredOne */
 .squaredOne {
 	width: 28px;

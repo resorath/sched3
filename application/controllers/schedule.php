@@ -51,7 +51,7 @@ class Schedule extends MY_Controller {
 
 	private function buildSchedule($sessionType, $sessionId)
 	{
-		// index[i,j] = members: objects(name, shiftdata)
+		// index[i,j] = members: objects(name, userid, celltype, shiftData?)
 		$scheduledata = $this->Schedule_expert->get_weekly_schedule($sessionType, $sessionId, $_SESSION['displayDate']);
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
@@ -61,7 +61,19 @@ class Schedule extends MY_Controller {
 
 		foreach($scheduledata as $row)
 		{
-			$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId']);
+			// Handle a invalid hour cell
+			if($row['userId'] == 0)
+			{
+				$schedule[$row['time']][$row['day']] = array();
+				$schedule[$row['time']][$row['day']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID);
+			}
+			// @todo: shift swapped cell
+			// all other cells
+			else
+			{
+				if( !(isset($schedule[$row['time']][$row['day']]) && $schedule[$row['time']][$row['day']][0]->userid == 0) )
+					$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+			}
 		}
 
 		return $schedule;

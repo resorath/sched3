@@ -124,4 +124,13 @@
 		highlightHours('cell-userid-<?=$_SESSION['userid']?>');
 	</script>
 <?php endif ?>
+
+<script>
+	$(document).ready(function(){
+		$(".cell-userid-0").parent().parent().addClass("invalid-hour");
+
+	});
+
+
+</script>
 <!-- END extra script calls -->
