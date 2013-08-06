@@ -39,15 +39,15 @@ class Schedule_expert extends CI_Model
 			$exceptions = $this->get_exception_time($sessionId);
 			if($exceptions != null)
 			{
-				// Iterate through all cells in this weeks schedule
-				foreach($schedule as $cellKey => $cellValue)
+				// Iterate through all exceptions for this session
+				foreach($exceptions as $exception)
 				{
-					// Iterate through all exceptions for this session
-					foreach($exceptions as $exception)
+					// Check if this exception applies to this week
+					$weekrange = $this->week_range($date);
+					if($exception['date'] >= strtotime($weekrange[0]) && $exception ['date'] <= strtotime($weekrange[1]))
 					{
-						// Check if this exception applies to this week
-						$weekrange = $this->week_range($date);
-						if($exception['date'] >= strtotime($weekrange[0]) && $exception ['date'] <= strtotime($weekrange[1]))
+						// Iterate through all cells in this weeks schedule
+						foreach($schedule as $cellKey => $cellValue)
 						{
 							// Convert exception date to day for matching
 							$exception["day"] = substr(strtolower(date("l", $exception["date"])), 0, 2);
