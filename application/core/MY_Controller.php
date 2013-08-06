@@ -69,7 +69,8 @@ class MY_Controller extends CI_Controller {
     private function checkRoles()
     {
         // populate roles
-        $_SESSION['roles'] = $this->Role_expert->getRoles($_SESSION['userid'], $_SESSION['groupid']);
+        if(array_key_exists('userid', $_SESSION))
+            $_SESSION['roles'] = $this->Role_expert->getRoles($_SESSION['userid'], $_SESSION['groupid']);
         //@todo
     }
         

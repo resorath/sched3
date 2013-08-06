@@ -238,6 +238,16 @@ td.schedule-main-table-old-time-cell
 	text-align: center;
 }
 
+.dust
+{
+	color: #B6B6B4;
+	text-align: center;
+	font-style: italic;
+	padding-top: 140px;
+	padding-bottom: 140px;
+	width: 800px;
+}
+
 /* squaredOne */
 .squaredOne {
 	width: 28px;

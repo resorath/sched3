@@ -84,6 +84,13 @@ class Schedule_expert extends CI_Model
 	                 date('Y-m-d', strtotime('next saturday', $start)));
 	}
 
+	function clear($sessionId)
+	{
+		$sql = "DELETE FROM `hour` WHERE `sessionId` = ?";
+		$this->db->query($sql, array($sessionId));
+
+	}
+
 }
 
 ?>

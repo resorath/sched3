@@ -18,6 +18,15 @@ class Schedule extends MY_Controller {
 		if(!isset($_SESSION['displayDate']))
 			$_SESSION['displayDate'] = time();
 
+		if($_SESSION['displayDate'] > $data['sessiondata']->endDate)
+		{
+			$_SESSION['displayDate'] = $data['sessiondata']->endDate;
+			if(time() > $data['sessiondata']->endDate)
+			{
+				$data['notify_message'] = "This session has ended.";
+				$data['notify_type'] = "error";
+			}
+		}
 
 		// set variables
 		$data['title'] = "Schedule";

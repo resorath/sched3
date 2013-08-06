@@ -21,8 +21,7 @@
 
 ?>
 
-
-<div class="standard container">
+<div class="standard container" id="editsession">
 	<h1 style="padding-bottom: 30px;">Editing <?=$session->title ?></h1>
 
 
@@ -47,7 +46,14 @@
 		<div class="control-group">
 		  <label class="control-label">Session Name</label>
 		  <div class="controls">
-		    <input id="title" name="title" placeholder="Session Title" class="input-xlarge" type="text" value="<?=pickValue($session->title, set_value('title')) ?>">
+		    <input id="title" name="title" placeholder="Session Title" class="input-xlarge" type="text"  title="The title this session identifies itself as." value="<?=pickValue($session->title, set_value('title')) ?>">
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <label class="control-label">Group</label>
+		  <div class="controls">
+		    <input id="groupId" name="groupId" placeholder="Group" class="input-xlarge" type="text" value="<?=$session->groupId ?>" disabled="disabled" style="width: 150px;" title="Group can only be set when a session is created.">
 		  </div>
 		</div>
 
@@ -69,8 +75,8 @@
 		  <label class="control-label">First Day</label>
 		  <div class="controls">
 		    <div class="input-append date datepicker" id="startdate" data-date="<?=date("d-m-Y", $session->startDate) ?>" data-date-format="dd-mm-yyyy">
-		    <input class="span2" name="startdate" size="16" type="text" value="<?=date("d-m-Y", $session->startDate) ?>">
-		    <span class="add-on"><i class="icon-calendar"></i></span>
+		    <input title="The first day of the session. (Use the date picker to the right)" class="span2" name="startdate" size="16" type="text" value="<?=date("d-m-Y", $session->startDate) ?>">
+		    <span class="add-on"><i title="The first day of the session." rel="tooltip" class="icon-calendar"></i></span>
 		    </div>
 		  </div>
 		</div>
@@ -79,8 +85,8 @@
 		  <label class="control-label">Last Day</label>
 		  <div class="controls">
 		    <div class="input-append date datepicker" id="enddate" data-date="<?=date("d-m-Y", $session->endDate) ?>" data-date-format="dd-mm-yyyy">
-		    <input class="span2" name="enddate" size="16" type="text" value="<?=date("d-m-Y", $session->endDate) ?>">
-		    <span class="add-on"><i class="icon-calendar"></i></span>
+		    <input title="The last day of the session. (Use the date picker to the right)"  class="span2" name="enddate" size="16" type="text" value="<?=date("d-m-Y", $session->endDate) ?>">
+		    <span class="add-on"><i title="The last day of the session." rel="tooltip" class="icon-calendar"></i></span>
 		    </div>
 		  </div>
 		</div>
@@ -88,21 +94,21 @@
 		<div class="control-group">
 		  <label class="control-label">Start Time of First Shift</label>
 		  <div class="controls">
-		    <input id="starttime" name="starttime" placeholder="HHMM" class="input-xlarge" type="text" value="<?=$session->startTime ?>" style="width: 50px;">
+		    <input id="starttime" title="Format: HHMM" name="starttime" placeholder="HHMM" class="input-xlarge" type="text" value="<?=$session->startTime ?>" style="width: 50px;">
 		  </div>
 		</div>
 
 		<div class="control-group">
 		  <label class="control-label">End Time of Last Shift</label>
 		  <div class="controls">
-		    <input id="endtime" name="endtime" placeholder="HHMM" class="input-xlarge" type="text" value="<?=$session->endTime ?>" style="width: 50px;">
+		    <input id="endtime" title="Format: HHMM" name="endtime" placeholder="HHMM" class="input-xlarge" type="text" value="<?=$session->endTime ?>" style="width: 50px;">
 		  </div>
 		</div>
 
 		<div class="control-group">
 		  <label class="control-label">Hours Per Shift</label>
 		  <div class="controls">
-		    <input id="title" name="timeincrementamount" placeholder="E.g. 1, 0.5, 2" class="input-xlarge" type="text" value="<?=$session->timeIncrementAmount ?>" style="width: 50px;">
+		    <input id="hourspershift" title="E.g. 1, 0.5, 2 (hours)" name="timeincrementamount" placeholder="E.g. 1, 0.5, 2" class="input-xlarge" type="text" value="<?=$session->timeIncrementAmount ?>" style="width: 50px;">
 		  </div>
 		</div>
 
@@ -152,7 +158,7 @@
 		<div class="control-group">
 		  <label class="control-label" for="islocked">Delete Session</label>
 		  <div class="controls">
-		    <button type="button" id="islocked" name="islocked" class="btn btn-danger">Delete Session</button>
+		    <button type="button" id="deletesession" name="deletesession" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Delete Session</button>
 		  </div>
 		</div>
 		
@@ -161,6 +167,32 @@
 
 </div>
 
+
+<!-- Modal delete dialog -->
+<div id="deleteModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="deleteModalLabel">Delete <?=$session->title ?></h3>
+		</div>
+	<div class="modal-body" style="text-align: left">
+		<p><b>Warning!</b></p>
+		<p>Deleting this session will also delete all hours associated with this session, including; </p>
+		<ul>
+			<li>Hours submitted by the employees</li>
+			<li>Schedule of hours</li>
+			<li>Session customized hours (such as hours of operation)</li>
+		</ul>
+		<p>This is an <b>unrecoverable action</b>.</p>
+		<p>You can instead make the session invisible to hide the session from employees.</p>
+
+		<p>Do you really want to delete this session?</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+		<button type="button" id="deleteSessionConfirm" class="btn btn-danger">Delete Session</button>
+	</div>
+</div>
+<!-- END modal delete dialog -->
 
 <script>
 $(document).ready(function(){ 
@@ -195,10 +227,45 @@ $(document).ready(function(){
 			$('#isactive').attr("class", "btn btn-warning").html("Session is Invisible (click to make visible)");
 	}
 
+
+	// can't delete the primary session
+	function checkIsPrimary(force)
+	{
+		if("<?=$session->isPrimary ?>" == "1" || force == true)
+		{
+			$('#deletesession').html("Can't Delete Default Session!").prop('disabled', 'disabled');
+		}
+
+	}
+
 	setButtonIsPrimary("<?=$session->isPrimary ?>");
 	setButtonIsActive("<?=$session->isActive ?>");
 	setButtonIsLocked("<?=$session->isLocked ?>");
+	checkIsPrimary(false);
 
+	$('#deleteSessionConfirm').click(function() {
+		$.ajax({
+			type: "GET",
+			url: config.base + "/formscapture/sessionDelete/<?=$session->id ?>",
+			dataType: "text",
+			success: function(data) {
+				if(data == "1")
+				{
+					$('#deleteModal').modal('hide');
+					$('#editsession').html('<div class="dust">dust</span>');
+					window.setInterval(function() {window.location =  config.base + "/managesessions"}, 1500);
+				}
+				else
+				{
+					alert("Didn't delete, something went wrong! (" + data + ")");
+				}
+			},
+			error: function(request, status, error) {
+				alert("Didn't delete, something went wrong! (AJAX Error: " + error + ")");
+			} 
+		});
+
+	});
 
 	$('#isactive').click(function() {
 		$.ajax({
@@ -234,6 +301,20 @@ $(document).ready(function(){
 
 			}
 		});
+
+		checkIsPrimary(true);
+	});
+
+	$('#isprimary').click(function() {
+		$.ajax({
+			type: "GET",
+			url: config.base + "/formscapture/sessionMakePrimary/<?=$session->id ?>",
+			dataType: "text",
+			success: function(data) {
+				setButtonIsPrimary(data);
+
+			}
+		});
 	});
 
 
@@ -256,6 +337,7 @@ $(document).ready(function(){
 			return confirm('Warning\n\nChanging the date, time or shift length may cause existing submitted hours to be out of range.\n\nDo you want to continue?');
 	});
 	// end alert
+
 
 
 });

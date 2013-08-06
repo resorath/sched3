@@ -38,7 +38,7 @@
 			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-lightbulb icon-large bulb-yellow"></i></i></a>
 			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
 			    	<li><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
-			    	<li><a href="#" onClick="nyi()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
+			    	<li><a href="#" onClick="highlightAvailableShifts()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
 			    	<li class="divider"></li>
 			    	<li><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
 			    </ul>

@@ -115,6 +115,24 @@ class Session_expert extends CI_Model
 		$this->db->query($sql, array($session));
 	}
 
+	function delete($session)
+	{
+		$thisSession = $this->get_session($session);
+
+		if($thisSession == "")
+			return "Session doesn't exist";
+		if($thisSession->isPrimary == TRUE)
+			return "Session is primary";
+
+		$this->Schedule_expert->clear($session);
+
+		$sql = "DELETE FROM `session` WHERE `id` = ?";
+		$this->db->query($sql, array($session));
+
+		return true;
+
+	}
+
 
 }
 

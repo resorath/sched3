@@ -10,6 +10,8 @@ $(document).ready(function(){
 	// autofocus
 	$("input:text:visible:first").focus();
 
+	$(':input, [rel=tooltip]').tooltip();
+
 	// Spinning Gear
 	$('#settings-cog-button').hover(
 		function() { $('#settings-cog').addClass('icon-spin') },
@@ -106,6 +108,11 @@ function stophighlightHours(userid)
 	$.ajax({
 		url: config.base + "/settingscapture/updatehighlight/0"
 	});
+}
+
+function highlightAvailableShifts()
+{
+	nyi();
 }
 
 

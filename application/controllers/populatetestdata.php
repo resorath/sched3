@@ -37,7 +37,7 @@ class Populatetestdata extends MY_Controller {
 		$this->Person_expert->add_person('00100208', 'Franklin Delano', 'Roosevelt', 'fdroosev');
 		$this->Person_expert->add_person('00282497', 'Sean', 'Feil', 'sfeil');
 	}
-
+ 
 	private function load_sessions()
 	{
 		$this->Session_expert->truncate_sessions();
@@ -78,14 +78,18 @@ class Populatetestdata extends MY_Controller {
 		$this->Role_expert->add_role("ISSUPER", "User is a super user and can control sensitive aspects of scheduler");
 		$this->Role_expert->add_role("CANCHANGEUSERS", "User can add, remove and change users");
 		$this->Role_expert->add_role("CANCHANGESESSIONS", "User can add, remove and change sessions");
+		$this->Role_expert->add_role("DEBUGGER", "User is saturated with debugging information");
 
 		$this->Role_expert->set_role(9, 1, 1);
 		$this->Role_expert->set_role(9, 2, 1);
 		$this->Role_expert->set_role(9, 3, 1);
 		$this->Role_expert->set_role(9, 4, 1);
 		$this->Role_expert->set_role(9, 5, 1);
+		$this->Role_expert->set_role(9, 6, 1);
 
 		$this->Role_expert->set_role(9, 1, 2);
+		$this->Role_expert->set_role(9, 6, 2);
+
 
 		$this->Role_expert->add_controller_role(3, "testSuperController");
 

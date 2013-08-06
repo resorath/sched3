@@ -51,4 +51,17 @@ class Formscapture extends MY_Controller {
 		echo "1";
 	}
 
+	public function sessionDelete($sessionId)
+	{
+		if(!user_has_role("CANCHANGESESSIONS"))
+			return false;
+
+		$reason = $this->Session_expert->delete($sessionId);
+
+		if($reason === true)
+			echo "1";
+		else
+			echo $reason;
+	}
+
 }
