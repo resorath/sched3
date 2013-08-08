@@ -1,4 +1,5 @@
 session
+- id
 - title
 - scheduleType (r=repeating weekly, s=static)
 - startDate
@@ -12,12 +13,19 @@ session
 - groupId
 
 hour
+- id
 - userId
 - sessionId
 - time
 - date (mutually exclusive)
 - day (mutually exclusive)
 - isScheduled
+- isException
+
+hourException
+- id
+- sessionId
+- time
 
 user
 - FirstName

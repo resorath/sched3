@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"session_",
+				"session_write_close"
+			],
+			[
 				"font-",
 				"font-variant"
 			],
@@ -23,7 +27,15 @@
 			"file": "application/models/schedule_expert.php",
 			"settings":
 			{
-				"buffer_size": 1447,
+				"buffer_size": 3793,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/models/session_expert.php",
+			"settings":
+			{
+				"buffer_size": 3999,
 				"line_ending": "Windows"
 			}
 		},
@@ -39,79 +51,15 @@
 			"file": "application/models/role_expert.php",
 			"settings":
 			{
-				"buffer_size": 2225,
+				"buffer_size": 2352,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/models/session_expert.php",
+			"file": "application/controllers/authenticate.php",
 			"settings":
 			{
-				"buffer_size": 2113,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/models/group_expert.php",
-			"settings":
-			{
-				"buffer_size": 453,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/schedule.php",
-			"settings":
-			{
-				"buffer_size": 3632,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/templates/header.php",
-			"settings":
-			{
-				"buffer_size": 3684,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/01 - Hiigara",
-			"settings":
-			{
-				"buffer_size": 2793042,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
-			"settings":
-			{
-				"buffer_size": 4930082,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/populatetestdata.php",
-			"settings":
-			{
-				"buffer_size": 5113,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/schedule.php",
-			"settings":
-			{
-				"buffer_size": 2957,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "overhead/planning/database.txt",
-			"settings":
-			{
-				"buffer_size": 604,
+				"buffer_size": 3332,
 				"line_ending": "Windows"
 			}
 		},
@@ -119,7 +67,7 @@
 			"file": "application/core/MY_Controller.php",
 			"settings":
 			{
-				"buffer_size": 2560,
+				"buffer_size": 2742,
 				"line_ending": "Windows"
 			}
 		},
@@ -127,7 +75,7 @@
 			"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
 			"settings":
 			{
-				"buffer_size": 1377,
+				"buffer_size": 2900,
 				"line_ending": "Windows"
 			}
 		},
@@ -135,41 +83,80 @@
 			"file": "assets/css/base.css",
 			"settings":
 			{
-				"buffer_size": 8498,
+				"buffer_size": 8856,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/config/database.php",
+			"file": "application/controllers/populatetestdata.php",
 			"settings":
 			{
-				"buffer_size": 3765,
+				"buffer_size": 6220,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/schedule.php",
+			"settings":
+			{
+				"buffer_size": 6330,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/formscapture.php",
+			"settings":
+			{
+				"buffer_size": 1263,
+				"line_ending": "Windows",
+				"name": "formscapture"
+			}
+		},
+		{
+			"file": "application/views/schedule.php",
+			"settings":
+			{
+				"buffer_size": 4725,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/managesessions/edit.php",
+			"settings":
+			{
+				"buffer_size": 11564,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/helpers/role_helper.php",
+			"settings":
+			{
+				"buffer_size": 666,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/managesessions.php",
+			"settings":
+			{
+				"buffer_size": 3008,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "assets/css/bootstrap-combined.no-icons.min.css",
+			"file": "application/models/Cell.php",
 			"settings":
 			{
-				"buffer_size": 118500,
-				"line_ending": "Windows",
-				"name": "/*!"
-			}
-		},
-		{
-			"file": "assets/css/font-awesome.css",
-			"settings":
-			{
-				"buffer_size": 23644,
-				"line_ending": "Windows",
-				"name": "/*!"
+				"buffer_size": 407,
+				"line_ending": "Windows"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 81.0,
+		"height": 35.0,
 		"selected_items":
 		[
 			[
@@ -202,50 +189,68 @@
 	},
 	"file_history":
 	[
+		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
+		"/E/xampp/htdocs/sched3/application/controllers/populatetestdata.php",
+		"/E/xampp/htdocs/sched3/application/views/test/tooltips.php",
+		"/E/xampp/htdocs/sched3/application/controllers/test.php",
+		"/E/xampp/htdocs/sched3/application/views/test.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
+		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
+		"/E/xampp/htdocs/sched3/application/helpers/role_helper.php",
+		"/E/xampp/htdocs/sched3/application/controllers/authenticate.php",
+		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
+		"/E/xampp/htdocs/sched3/application/models/group_expert.php",
+		"/E/xampp/htdocs/sched3/application/views/managesessions/edit.php",
+		"/E/xampp/htdocs/sched3/application/controllers/settingscapture.php",
+		"/E/xampp/htdocs/sched3/assets/css/base.css",
+		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
+		"/E/xampp/htdocs/sched3/application/controllers/managesessions.php",
+		"/E/xampp/htdocs/sched3/application/views/managesessions/select.php",
+		"/E/xampp/htdocs/sched3/overhead/planning/session",
+		"/C/Users/Sean/AppData/Local/Temp/Rar$DR17.920/datepicker/css/datepicker.css",
+		"/E/xampp/htdocs/sched3/application/config/autoload.php",
+		"/E/xampp/htdocs/sched3/application/views/test/datatables.php",
+		"/E/xampp/htdocs/sched3/assets/css/jquery.dataTables.css",
+		"/E/xampp/htdocs/sched3/assets/css/jquery.dataTables_themeroller.css",
+		"/E/xampp/htdocs/sched3/application/views/front.php",
+		"/E/xampp/htdocs/sched3/assets/js/bootstrap-notify.js",
+		"/E/xampp/htdocs/sched3/assets/css/bootstrap-overrides.css",
+		"/E/xampp/htdocs/sched3/application/config/database.php",
+		"/E/xampp/htdocs/sched3/application/config/constants.php",
+		"/E/xampp/htdocs/sched3/assets/css/font-awesome.css",
+		"/E/xampp/htdocs/sched3/assets/css/bootstrap-combined.no-icons.min.css",
+		"/E/sierra/Cataclysm/SavedGames/SinglePlayer/01 - Hiigara",
 		"/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
 		"/E/xampp/htdocs/sched3/overhead/sched3.sql",
 		"/E/xampp/htdocs/sched3/.gitignore",
 		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Sean/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/E/xampp/htdocs/sched3/application/controllers/populatetestdata.php",
-		"/E/xampp/htdocs/sched3/application/controllers/authenticate.php",
 		"/F/tcpview/logs/dwsupport/iknowtrio5178CA5C-1.flv",
 		"/E/xampp/htdocs/sched3/MY_Exceptions.php",
 		"/E/xampp/htdocs/sched3/application/controllers/error.php",
 		"/E/xampp/htdocs/sched3/application/views/404.php",
 		"/E/xampp/htdocs/sched3/application/config/routes.php",
-		"/E/xampp/htdocs/sched3/overhead/planning/session",
 		"/E/xampp/htdocs/sched3/application/core/MY_Exceptions.php",
 		"/E/xampp/htdocs/sched3/application/config/profiler.php",
 		"/E/xampp/htdocs/sched3/overhead/planning/formelements",
-		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
 		"/E/xampp/htdocs/sched3/application/.htaccess",
 		"/E/xampp/htdocs/sched3/application/errors/error_general.php",
 		"/E/xampp/htdocs/sched3/application/helpers/log_helper.php",
-		"/E/xampp/htdocs/sched3/application/config/autoload.php",
 		"/E/xampp/htdocs/sched3/application/views/schedule.php",
 		"/E/xampp/htdocs/sched3/.htaccess",
 		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
-		"/E/xampp/htdocs/sched3/application/helpers/role_helper.php",
 		"/E/xampp/htdocs/sched3/application/helpers/index.html",
 		"/E/xampp/htdocs/sched3/application/views/message.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
 		"/E/xampp/htdocs/sched3/application/errors/error_404.php",
 		"/E/xampp/htdocs/sched3/application/views/backdoorlogin.php",
 		"/E/xampp/htdocs/sched3/application/views/templates/master.php",
 		"/E/xampp/htdocs/sched3/application/config/config.php",
-		"/E/xampp/htdocs/sched3/assets/css/base.css",
-		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
-		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
 		"/E/xampp/apache/conf/httpd.conf",
 		"/E/xampp/htdocs/sched3/application/models/Cell.php",
 		"/E/xampp/htdocs/sched3/application/config/hooks.php",
 		"/E/xampp/htdocs/sched3/application/libraries/CustomAutoLoader.php",
 		"/E/xampp/htdocs/sched3/application/objects/cell.php",
-		"/E/xampp/htdocs/sched3/application/views/test.php",
 		"/E/xampp/htdocs/sched3/index.php",
-		"/E/xampp/htdocs/sched3/assets/css/bootstrap-overrides.css",
-		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
 		"/E/xampp/htdocs/sched3/application/models/schedule_expert.php",
 		"/E/xampp/htdocs/sched3/application/models/person_expert.php",
 		"/E/xampp/htdocs/sched3/application/models/session_expert.php",
@@ -253,11 +258,8 @@
 		"/E/xampp/htdocs/three.weareuprising.com/application/core/MY_Exceptions.php",
 		"/E/xampp/htdocs/three.weareuprising.com/application/controllers/error.php",
 		"/E/xampp/htdocs/three.weareuprising.com/application/config/routes.php",
-		"/E/xampp/htdocs/sched3/application/config/database.php",
 		"/E/xampp/htdocs/sched3/application/controllers/front.php",
 		"/E/xampp/htdocs/sched3/application/models/Schedule_Expert.php",
-		"/E/xampp/htdocs/sched3/application/views/front.php",
-		"/E/xampp/htdocs/sched3/application/controllers/test.php",
 		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface",
 		"/E/xampp/htdocs/sched3/assets/css/bootstrap.css",
 		"/C/Users/Sean/AppData/Local/Temp/Rar$DR79.288/bootstrap/css/bootstrap.css",
@@ -300,6 +302,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"E:\\xampp\\htdocs\\sched3",
 			"E:\\xampp\\htdocs\\sched3\\application",
 			"E:\\xampp\\htdocs\\sched3"
 		]
@@ -309,6 +312,29 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"150px",
+			"PRINT_R",
+			"$_SESSION['roles']",
+			"$_SESSION['groupid']",
+			"$_SESSION['roles']",
+			"$_SESSION['userid']",
+			"$_SESSION['user'] = ",
+			"userrole",
+			"ole_helper",
+			"role_helper",
+			"Availability",
+			":",
+			"?>\n",
+			"images",
+			"style",
+			"images",
+			"=\"#\" ",
+			"week",
+			"changesession",
+			"$_SESSION['sessionId']",
+			"unset",
+			"$_SESSION['sessionId']",
+			"sessionId",
 			"D0 07",
 			"D0 07 00 00 00 00 00 00 64 00 00 00 0E 00",
 			"D0 07",
@@ -344,6 +370,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"img/dataTables",
+			"images/dataTables",
+			"$_SESSION['cobblestone']",
+			"sessId",
 			"local"
 		],
 		"reverse": false,
@@ -355,7 +385,7 @@
 	"groups":
 	[
 		{
-			"selected": 8,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -363,15 +393,15 @@
 					"file": "application/models/schedule_expert.php",
 					"settings":
 					{
-						"buffer_size": 1447,
+						"buffer_size": 3793,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								632,
-								632
+								666,
+								666
 							]
 						],
 						"settings":
@@ -380,13 +410,40 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "application/models/session_expert.php",
+					"settings":
+					{
+						"buffer_size": 3999,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1962,
+								1966
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
 					"file": "application/models/person_expert.php",
 					"settings":
 					{
@@ -397,8 +454,8 @@
 						"selection":
 						[
 							[
-								1502,
-								1502
+								1159,
+								1159
 							]
 						],
 						"settings":
@@ -407,52 +464,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "application/models/role_expert.php",
-					"settings":
-					{
-						"buffer_size": 2225,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								966,
-								966
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 312.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "application/models/session_expert.php",
+					"file": "application/models/role_expert.php",
 					"settings":
 					{
-						"buffer_size": 2113,
+						"buffer_size": 2352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1121,
-								1121
+								379,
+								379
 							]
 						],
 						"settings":
@@ -468,80 +498,79 @@
 				},
 				{
 					"buffer": 4,
-					"file": "application/models/group_expert.php",
+					"file": "application/controllers/authenticate.php",
 					"settings":
 					{
-						"buffer_size": 453,
+						"buffer_size": 3332,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								446,
-								446
+								2258,
+								2258
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 8,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 507.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "application/views/schedule.php",
+					"file": "application/core/MY_Controller.php",
 					"settings":
 					{
-						"buffer_size": 3632,
+						"buffer_size": 2742,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2467,
-								2467
+								1095,
+								1095
 							]
 						],
 						"settings":
 						{
-							"spell_check": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 750.0,
+						"translation.y": 390.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "application/views/templates/header.php",
+					"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
 					"settings":
 					{
-						"buffer_size": 3684,
+						"buffer_size": 2900,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								452,
-								452
+								1122,
+								1122
 							]
 						],
 						"settings":
 						{
-							"spell_check": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -551,80 +580,54 @@
 				},
 				{
 					"buffer": 7,
-					"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/01 - Hiigara",
+					"file": "assets/css/base.css",
 					"settings":
 					{
-						"buffer_size": 2793042,
+						"buffer_size": 8856,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1648400,
-								1648404
+								2817,
+								2817
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 617643.0,
+						"translation.y": 2694.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "/E/sierra/Cataclysm/SavedGames/SinglePlayer/06 -06",
-					"settings":
-					{
-						"buffer_size": 4930082,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1648402,
-								1648402
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 617587.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
 					"file": "application/controllers/populatetestdata.php",
 					"settings":
 					{
-						"buffer_size": 5113,
+						"buffer_size": 6220,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								521,
-								521
+								4183,
+								4183
 							]
 						],
 						"settings":
 						{
-							"spell_check": false,
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 90.0,
+						"translation.y": 1131.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -632,27 +635,55 @@
 			]
 		},
 		{
-			"selected": 7,
+			"selected": 0,
 			"sheets":
 			[
 				{
-					"buffer": 10,
+					"buffer": 9,
 					"file": "application/controllers/schedule.php",
 					"settings":
 					{
-						"buffer_size": 2957,
+						"buffer_size": 6330,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								435,
-								435
+								1793,
+								1793
 							]
 						],
 						"settings":
 						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 390.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "application/controllers/formscapture.php",
+					"settings":
+					{
+						"buffer_size": 1263,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								558,
+								558
+							]
+						],
+						"settings":
+						{
+							"auto_name": "formscapture",
 							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
@@ -664,44 +695,73 @@
 				},
 				{
 					"buffer": 11,
-					"file": "overhead/planning/database.txt",
+					"file": "application/views/schedule.php",
 					"settings":
 					{
-						"buffer_size": 604,
+						"buffer_size": 4725,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								404,
-								404
+								3903,
+								3903
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"spell_check": false,
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 702.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 12,
-					"file": "application/core/MY_Controller.php",
+					"file": "application/views/managesessions/edit.php",
 					"settings":
 					{
-						"buffer_size": 2560,
+						"buffer_size": 11564,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1184,
-								1184
+								9350,
+								9350
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2668.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "application/helpers/role_helper.php",
+					"settings":
+					{
+						"buffer_size": 666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								500,
+								500
 							]
 						],
 						"settings":
@@ -711,140 +771,58 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 135.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
-					"settings":
-					{
-						"buffer_size": 1377,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								137,
-								137
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 39.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 14,
-					"file": "assets/css/base.css",
+					"file": "application/controllers/managesessions.php",
 					"settings":
 					{
-						"buffer_size": 8498,
+						"buffer_size": 3008,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2585,
-								2585
+								733,
+								733
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3049.0,
+						"translation.y": 42.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 15,
-					"file": "application/config/database.php",
+					"file": "application/models/Cell.php",
 					"settings":
 					{
-						"buffer_size": 3765,
+						"buffer_size": 407,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2560,
-								2560
+								215,
+								227
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 315.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 16,
-					"file": "assets/css/bootstrap-combined.no-icons.min.css",
-					"settings":
-					{
-						"buffer_size": 118500,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								118500,
-								118500
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*!",
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 17,
-					"file": "assets/css/font-awesome.css",
-					"settings":
-					{
-						"buffer_size": 23644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22860,
-								22860
-							]
-						],
-						"settings":
-						{
-							"auto_name": "/*!",
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -883,7 +861,7 @@
 		"cols":
 		[
 			0.0,
-			0.534849379799,
+			0.498829724985,
 			1.0
 		],
 		"rows":

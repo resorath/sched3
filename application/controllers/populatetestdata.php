@@ -11,6 +11,7 @@ class Populatetestdata extends MY_Controller {
 		$this->load_roles();
 		$this->load_repeating_schedule();
 		$this->load_static_schedule();
+		$this->load_exception_schedule();
 		
 		//$data['newsdata'] = $this->News_expert->get_news();
 		
@@ -119,6 +120,28 @@ class Populatetestdata extends MY_Controller {
 
 	}
 
+	private function load_exception_schedule()
+	{
+		$this->Schedule_expert->truncate_exception_hours();
+
+		// Wed July 23 is a Holiday for some reason -  10 - 2
+		$bottomhour = 10;
+		$tophour = 14;
+		$date = strtotime("July 23, 2013");
+		for($i=$bottomhour;$i<=$tophour;$i++)
+		{
+			// Exception hours
+			$this->Schedule_expert->add_exception_hour(1, 0, $i."00", $date, null, TRUE, TRUE);
+		}
+
+		// Fill the rest with invalid exception hours
+		$this->Schedule_expert->add_hour(1, 0, "800", $date, null, TRUE, TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "900", $date, null, TRUE, TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1500", $date, null, TRUE, TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1600", $date, null, TRUE, TRUE);
+
+	}
+
 	private function load_repeating_schedule()
 	{
 		$this->Schedule_expert->truncate_hours();
@@ -141,6 +164,17 @@ class Populatetestdata extends MY_Controller {
 		{
 			// Exception hours
 			$this->Schedule_expert->add_hour(1, 0, $i."00", $date, null, TRUE, TRUE);
+		}
+
+		// Tues, July 23 only sean and nixon works exception 10 - 2
+		$bottomhour = 10;
+		$tophour = 14;
+		$date = strtotime("July 23, 2013");
+		for($i=$bottomhour;$i<=$tophour;$i++)
+		{
+			// Exception hours
+			$this->Schedule_expert->add_hour(1, 9, $i."00", $date, null, TRUE, TRUE);
+			$this->Schedule_expert->add_hour(1, 7, $i."00", $date, null, TRUE, TRUE);
 		}
 
 
@@ -183,8 +217,8 @@ class Populatetestdata extends MY_Controller {
 		}
 
 
-		//sfeil works 8 to 12 every day
-		$days = array("su", "mo", "tu", "we", "th", "fr", "sa");
+		//sfeil works 8 to 12 every monday
+		$days = array("mo");
 		$bottomhour = 8;
 		$tophour = 12;
 		foreach($days as $day)
