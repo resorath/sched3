@@ -162,6 +162,8 @@ class Schedule extends MY_Controller {
 			//$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
 			//$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
 
+			$returnVal = array();
+
 			$date = strtotime($weekrange[0]); // first date of this week
 
 			// if session starts after the first day of the week

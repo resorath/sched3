@@ -11,6 +11,7 @@ class Session_expert extends CI_Model
 	{
 		$sql = "INSERT INTO `session` (`id`,  `title`, `scheduleType`, `startDate`, `endDate`, `startTime`, `endTime`, `timeIncrementAmount`, `groupId`, `isActive`, `isPrimary`, `isLocked`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$this->db->query($sql, array($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $groupId, $isActive, $isPrimary, $isLocked));
+		return $this->db->insert_id();
 	}
 
 	function edit_session($title, $scheduleType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $sessionId)

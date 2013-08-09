@@ -31,6 +31,20 @@ class Person_expert extends CI_Model
 		$this->db->query($sql);
 	}
 
+	function getGroupsWithUserPriv($userId, $rolename)
+	{
+		// Get all groups the user has privilege of rolename for
+		$sql = "SELECT * FROM `group` INNER JOIN `usergroup` ON `group`.`id` = `usergroup`.`groupid` WHERE `usergroup`.`userId` = ? AND `usergroup`.`groupId` IN (SELECT `groupId` FROM `userrole` JOIN `role` ON `role`.`id` = `userrole`.`roleId` WHERE `role`.`roleName` = ?)";
+		$result = $this->db->query($sql, array($userId, $rolename));
+
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+
+		return null;
+	}
+
 	function getPeopleAsCellFormat()
 	{
 		$sql = "SELECT `id`, `firstName`, `lastName` FROM `user`";

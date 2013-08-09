@@ -43,7 +43,39 @@ class Managesessions extends MY_Controller {
 
 	public function create()
 	{
+		$data['title'] = "Create Session - Manage Sessions";
 
+		$data['groups'] = $this->Person_expert->getGroupsWithUserPriv($_SESSION['userid'], "CANCHANGESESSIONS");
+
+		$this->loadview('managesessions/create', $data);
+	}
+
+	public function createpost()
+	{
+		$data['title'] = "Create Session - Manage Sessions";
+
+		$this->load->library('form_validation');
+
+		$this->form_validation->set_rules('title', 'Session Name', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('groupid', 'Group', 'required|css_clean');
+		$this->form_validation->set_rules('scheduletype', 'Session Type', 'trim|required|xss_clean');
+		$this->form_validation->set_rules('startdate', 'First Day', 'trim|required|callback_validation_is_date|xss_clean');
+		$this->form_validation->set_rules('enddate', 'Last Day', 'trim|required|callback_validation_is_date|callback_validation_date_after_another_Date['. $_POST['startdate'] .']|xss_clean');
+		$this->form_validation->set_rules('starttime', 'Start Time of First Shift', 'trim|required|is_natural|xss_clean');
+		$this->form_validation->set_rules('endtime', 'End Time of First Shift', 'trim|required|is_natural|xss_clean');
+		$this->form_validation->set_rules('timeincrementamount', 'Hours Per Shift', 'trim|required|is_natural|xss_clean');
+
+
+		if($this->form_validation->run() === FALSE)
+		{
+			$this->loadview('managesessions/create', $data);
+		}
+		else
+		{
+			$sessionId = $this->Session_expert->add_session($_POST['title'], $_POST['scheduletype'], strtotime($_POST['startdate']), strtotime($_POST['enddate']), $_POST['starttime'], $_POST['endtime'], $_POST['timeincrementamount'], $_POST['groupid']);
+			$this->edit($sessionId, TRUE);
+
+		}
 
 	}
 

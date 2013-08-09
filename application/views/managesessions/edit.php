@@ -119,7 +119,6 @@
 		  <label class="control-label" for="isactive">Session Visibility</label>
 		  <div class="controls">
 		    <button type="button" id="isactive" name="isactive" class="btn">Loading State...</button>
-		    <!--<button id="button2id" name="button2id" class="btn btn-danger">Scary Button</button>-->
 		  </div>
 		</div>
 
@@ -149,7 +148,14 @@
 		<div class="control-group">
 		  <label class="control-label" for="invalidatehours">Invalidate Hours</label>
 		  <div class="controls">
-		    <button type="button" id="invalidatehours" name="invalidatehours" class="btn">Define Special Exceptions to Hours of Operation</button>
+		    <button type="button" id="invalidatehours" name="invalidatehours" class="btn">Define Exceptions to Hours of Operation</button>
+		  </div>
+		</div>
+
+		<div class="control-group">
+		  <label class="control-label" for="invalidatehours">Holiday Hours</label>
+		  <div class="controls">
+		    <button type="button" id="invalidatehours" name="invalidatehours" class="btn" <?php if($session->scheduleType != "r") { echo "disabled=\"disabled\""; } ?>>Define Daily Exception to Repeating Weekly Schedule</button>
 		  </div>
 		</div>
 
@@ -162,6 +168,7 @@
 		  </div>
 		</div>
 		
+		<div class="spacer-div" style="width: 800px;"></div>
 
 	</div>
 
