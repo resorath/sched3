@@ -152,9 +152,36 @@ td.schedule-main-table-old-time-cell
 	color: #777777;
 }
 
+.cell-invalid-clickable, .cell-valid-clickable
+{
+	cursor: pointer;
+}
+
+.cell-invalid-clickable:hover
+{
+	background-color: #555555;
+}
+
+.cell-valid-clickable:hover
+{
+	background-color: #FF0000;
+}
+
+
 .date-aligner
 {
 	margin-bottom: -10px;
+}
+
+.buffer
+{
+	margin-top: 50px;
+
+}
+
+.date-aligner-large
+{
+	width: 50px;
 }
 
 .large-date
@@ -166,6 +193,12 @@ td.schedule-main-table-old-time-cell
 {
 	font-size: 10px;
 }
+
+.large-day
+{
+	font-size: 18px;
+}
+
 
 .schedule-previous
 {

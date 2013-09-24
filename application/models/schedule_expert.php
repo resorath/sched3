@@ -130,6 +130,18 @@ class Schedule_expert extends CI_Model
 
 	}
 
+
+	function get_regular_invalid_hours($sessionId)
+	{
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `userId` = '0' AND `isException` = '0'";
+		$result = $this->db->query($sql, array($sessionId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}	
+
 	function add_hour($sessionId, $userId, $time, $date, $day, $isScheduled, $isException = FALSE)
 	{
 		$sql = "INSERT INTO `hour` (`id`, `userId`, `sessionId`, `time`, `date`, `day`, `isScheduled`, `isException`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";

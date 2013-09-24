@@ -64,4 +64,11 @@ class Formscapture extends MY_Controller {
 			echo $reason;
 	}
 
+	public function sessionInvalidateHour($sessionId, $hour)
+	{
+
+	}
+
+	public function sessionValidateHour($sessionId, $hour)
+
 }

@@ -5,6 +5,7 @@ class Schedule extends MY_Controller {
 	public function index()
 	{
 
+		// Set the session Id
 		if(!isset($_SESSION['sessionId']))
 		{
 			$data['sessiondata'] = $this->Session_expert->get_primary_session($_SESSION['groupid']);
@@ -32,8 +33,8 @@ class Schedule extends MY_Controller {
 		$data['title'] = "Schedule";
 
 		// Build top schedule row
-		$data['toprow'] = $this->buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
-		$data['firstcolumn'] = $this->buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
+		$data['toprow'] = buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
+		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
 		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id); // sessionId
 
@@ -49,7 +50,7 @@ class Schedule extends MY_Controller {
 		
 	}
 
-	private function buildSchedule($sessionType, $sessionId)
+	public function buildSchedule($sessionType, $sessionId)
 	{
 		// index[i,j] = members: objects(name, userid, celltype, shiftData?)
 		$scheduledata = $this->Schedule_expert->get_weekly_schedule($sessionType, $sessionId, $_SESSION['displayDate']);
@@ -148,86 +149,7 @@ class Schedule extends MY_Controller {
 		return $returnVal;
 	}
 
-	private function buildTopRow($sessionType, $startDate, $endDate, $displayDate)
-	{		
-		/* first we need to know the schedule type
-			r = repeating weekly
-			s = static
-		*/
 
-		$weekrange = $this->Schedule_expert->week_range($displayDate);
-
-//		if($sessionType == "r")
-//		{
-			//$returnVal['days'] = array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
-			//$returnVal['dayindex'] = array("su", "mo", "tu", "we", "th", "fr", "sa");
-
-			$returnVal = array();
-
-			$date = strtotime($weekrange[0]); // first date of this week
-
-			// if session starts after the first day of the week
-			if($date < $startDate)
-				$date = $startDate;
-
-			/*
-			foreach($returnVal['days'] as $day)
-			{
-				if($date > $endDate)
-					break;
-
-				$returnVal['date'][] = date('j', $date);
-
-				$date = strtotime("tomorrow", $date);
-			}*/
-
-			$endOfWeek = strtotime($weekrange[1]);
-
-			while($date <= $endDate && $date <= $endOfWeek)
-			{
-				$returnVal['days'][] = date("l", $date);
-				$returnVal['dayindex'][] = strtolower(substr(date("l", $date), 0, 2));
-
-				$returnVal['date'][] = date('j', $date);
-
-				$date = strtotime("tomorrow", $date);
-
-			}
-
-/*		}
-		else
-		{
-			$date = $startDate;
-			while($date <= $endDate)
-			{
-				$returnVal['days'][] = date("l", $date);
-				$returnVal['dayindex'][] = substr(date("l", $date), 0, 2);
-
-				$returnVal['date'][] = date('j', $date);
-
-				$date = strtotime("tomorrow", $date);
-
-			}
-		}*/
-
-		return $returnVal;
-
-	}
-
-	private function buildFirstColumns($startTime, $endTime, $timeIncrementAmount)
-	{
-		$time = $startTime;
-
-		while($time < $endTime)
-		{
-			$returnVal[] = $time; // Add colon character to time
-
-			$increment = $timeIncrementAmount * 60;
-			$time += ($increment >= 60 ? 100 : $increment);
-		}
-
-		return $returnVal;
-	}
 
 
 }

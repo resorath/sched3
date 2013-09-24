@@ -324,6 +324,10 @@ $(document).ready(function(){
 		});
 	});
 
+	$('#invalidatehours').click(function() {
+		window.location = config.base + "/managesessions/invalidatehours/<?=$session->id ?>";
+	});
+
 
 
 	// alert for changed data
