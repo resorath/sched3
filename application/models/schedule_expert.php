@@ -142,6 +142,18 @@ class Schedule_expert extends CI_Model
 		return null;
 	}	
 
+	function get_exception_hours($sessionId)
+	{
+		$sql = "SELECT * FROM `hourexception` WHERE `sessionId` = ?";
+		$result = $this->db->query($sql, array($sessionId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+
+	}
+
 	function add_hour($sessionId, $userId, $time, $date, $day, $isScheduled, $isException = FALSE)
 	{
 		$sql = "INSERT INTO `hour` (`id`, `userId`, `sessionId`, `time`, `date`, `day`, `isScheduled`, `isException`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)";

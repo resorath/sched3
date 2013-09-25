@@ -79,6 +79,15 @@ class Managesessions extends MY_Controller {
 
 	}
 
+	public function holidayhours($session)
+	{
+		$data['title'] = "Holiday Hours - Manage Sessions";
+		$data['sessiondata'] = $this->Session_expert->get_session($session);
+		$data['holidayhours'] = $this->Schedule_expert->get_exception_hours($session);
+
+		$this->loadview('managesessions/holidayhours', $data);
+	}
+
 	public function invalidatehours($session)
 	{
 

@@ -153,9 +153,9 @@
 		</div>
 
 		<div class="control-group">
-		  <label class="control-label" for="invalidatehours">Holiday Hours</label>
+		  <label class="control-label" for="holidayhours">Holiday Hours</label>
 		  <div class="controls">
-		    <button type="button" id="invalidatehours" name="invalidatehours" class="btn" <?php if($session->scheduleType != "r") { echo "disabled=\"disabled\""; } ?>>Define Daily Exception to Repeating Weekly Schedule</button>
+		    <button type="button" id="holidayhours" name="holidayhours" class="btn" <?php if($session->scheduleType != "r") { echo "disabled=\"disabled\""; } ?>>Define Daily Exception to Repeating Weekly Schedule</button>
 		  </div>
 		</div>
 
@@ -328,6 +328,9 @@ $(document).ready(function(){
 		window.location = config.base + "/managesessions/invalidatehours/<?=$session->id ?>";
 	});
 
+	$('#holidayhours').click(function() {
+		window.location = config.base + "/managesessions/holidayhours/<?=$session->id ?>";
+	});
 
 
 	// alert for changed data

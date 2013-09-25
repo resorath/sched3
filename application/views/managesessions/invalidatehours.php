@@ -4,7 +4,7 @@
 		<tr class="schedule-main-table-top-row">
 			<td class="schedule-main-table-corner"></td>
 			<?php for($i = 0; $i<sizeof($toprow['days']); $i++) { ?>
-			<td><div class="date-aligner date-aligner-large"><span class="small-day"><?php if($sessiondata->scheduleType == "r") { echo($toprow['days'][$i]); } else { echo(date("M d",$toprow['unixdate'][$i])); } ?></span></div></td>
+			<td><div class="date-aligner date-aligner-large"><span class="small-day"><?php if($sessiondata->scheduleType == "r") { echo($toprow['days'][$i]); } else { echo(date("Md",$toprow['unixdate'][$i]) . " " . date("D", $toprow['unixdate'][$i])); } ?></span></div></td>
 			<?php } ?>
 		</tr>
 		<!-- END Top Date/Days -->

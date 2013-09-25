@@ -131,7 +131,7 @@ class Populatetestdata extends MY_Controller {
 		for($i=$bottomhour;$i<=$tophour;$i++)
 		{
 			// Exception hours
-			$this->Schedule_expert->add_exception_hour(1, 0, $i."00", $date, null, TRUE, TRUE);
+			$this->Schedule_expert->add_exception_hour(1, strtotime("July 23, 2013 " . $i . ":00"));
 		}
 
 		// Fill the rest with invalid exception hours
