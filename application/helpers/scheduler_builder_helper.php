@@ -119,8 +119,6 @@ function buildFirstColumns($startTime, $endTime, $timeIncrementAmount)
 
 function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $displayDate)
 {	
-	echo($sessionType . " " . $startDate. " " . $endDate. " " . $startTime. " " . $endTime. " " . $timeIncrementAmount. " " . $displayDate . "<BR>");
-
 	// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
 	$returnVal = array();
 
@@ -140,9 +138,11 @@ function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $e
 
 		while($time < $endTime)
 		{
-			echo($time . " " . $date . "|".realTime($date, $time)."<br>\n");
-			$returnVal[$time][$date] = new models\Cell(null, null, models\Cell::$CELLTYPEVOID);
-			
+			if($sessionType == "s")
+				$returnVal[$time][$date][] = new models\Cell(null, null, models\Cell::$CELLTYPEVOID, realTime($date, $time));
+			else
+				$returnVal[$time][DChop($date)][] = new models\Cell(null, null, models\Cell::$CELLTYPEVOID, realTime($date, $time));
+
 
 			$increment = $timeIncrementAmount * 60;
 			$time += ($increment >= 60 ? 100 : $increment);
@@ -152,6 +152,8 @@ function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $e
 
 	}
 
+	return $returnVal;
+
 }
 
 // takes a date(unix timestamp) and time (hhmm) and converts to unix timestamp
@@ -160,6 +162,14 @@ function realTime($date, $time)
 	$timeparsed = strrev(substr(strrev($time), 0, 2) . ":" . substr(strrev($time), 2));
 	$dateparsed = date("Y-m-d", $date);
 
-	return strtotime($dateparsed . " " . $timeparsed);
+	$rval = strtotime($dateparsed . " " . $timeparsed);
+	
+	return $rval;
+
+}
+
+function DChop($date)
+{
+	return substr(strtolower(date("D", $date)), 0, 2);
 
 }

@@ -15,10 +15,10 @@
 		<tr>
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
 				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
-				<td class="schedule-main-table-normal-cell cell-valid-clickable" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
-					<?php if(isset($schedule[$columntime][$rowdate])): ?>
+				<td class="schedule-main-table-normal-cell cell-valid-clickable" id="<?=$schedule[$columntime][$rowdate][0]->celldate ?>">
+					<?php if(isset($schedule[$columntime][$rowdate]) && $schedule[$columntime][$rowdate][0]->userid === 0): ?>
 						 <div class="cell"><span class="cell-name cell-userid-0"></span></div>
-					<?php else: ?>
+					<?php elseif(isset($schedule[$columntime][$rowdate])): ?>
 						<div class="cell"><span class="cell-name"></span></div>
 					<?php endif ?>
 				</td>
@@ -37,17 +37,25 @@
 	$(document).ready(function(){
 
 		redraw();
-		// TODO BUG This is in a weird state
 
-		$("body").on("click", ".cell-valid-clickable", function(){
+		$("body").on("click", ".cell-valid-clickable", function(e){
 			$(this).removeClass("cell-valid-clickable");
 			$(this).addClass("invalid-hour cell-invalid-clickable");
-
+			$.ajax({
+				type: "GET",
+				url: config.base + "/formscapture/sessionInvalidateHour/<?=$sessiondata->id ?>/" + $(this).attr("id"),
+				dataType: "text"
+			});
 		});
 
 		$("body").on("click", ".cell-invalid-clickable", function(){
 			$(this).removeClass("invalid-hour cell-invalid-clickable");	
 			$(this).addClass("cell-valid-clickable");
+			$.ajax({
+				type: "GET",
+				url: config.base + "/formscapture/sessionValidateHour/<?=$sessiondata->id ?>/" + $(this).attr("id"),
+				dataType: "text"
+			});
 
 		});
 

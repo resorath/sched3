@@ -134,6 +134,32 @@ class Session_expert extends CI_Model
 
 	}
 
+	function validateHour($session, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, 0);
+		
+		foreach($hours as $hour)
+		{
+			$this->Schedule_expert->delete_hour($hour['id']);
+		}
+	}
+
+	function invalidateHour($session, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, 0);
+		
+		if(count($hours) > 0)
+			return;
+
+		$startofday = strtotime(date("Y-m-d", $hour));
+		$hourofday = date("Gi", $hour);
+		$dayofweek = DChop($startofday);
+
+		$this->Schedule_expert->add_hour($session, 0, $hourofday, $startofday, $dayofweek, 1, 0);
+
+	}
+
+
 
 }
 

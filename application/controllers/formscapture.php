@@ -66,9 +66,19 @@ class Formscapture extends MY_Controller {
 
 	public function sessionInvalidateHour($sessionId, $hour)
 	{
+		if(!user_has_role("CANCHANGESESSIONS"))
+			return false;
+
+		$this->Session_expert->invalidateHour($sessionId, $hour);
 
 	}
 
 	public function sessionValidateHour($sessionId, $hour)
+	{
+		if(!user_has_role("CANCHANGESESSIONS"))
+			return false;
+
+		$this->Session_expert->validateHour($sessionId, $hour);
+	}
 
 }

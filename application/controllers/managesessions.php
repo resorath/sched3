@@ -95,12 +95,12 @@ class Managesessions extends MY_Controller {
 
 		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount, $_SESSION['displayDate']);
 
-		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id);
+		$this->buildSchedule($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id);
 
 		$this->loadview('managesessions/invalidatehours', $data);
 	}
 
-	public function buildSchedule($sessionType, $sessionId)
+	public function buildSchedule(&$schedule, $sessionType, $sessionId)
 	{
 		// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
 		$scheduledata =$this->Schedule_expert->get_regular_invalid_hours($sessionId);
@@ -113,8 +113,9 @@ class Managesessions extends MY_Controller {
 			// Handle a invalid hour cell
 			if($row['userId'] == 0)
 			{
-				$schedule[$row['time']][$row['day']] = array();
-				$schedule[$row['time']][$row['day']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID);
+				$schedule[$row['time']][$row['day']][0]->userid = 0;
+				//$schedule[$row['time']][$row['day']] = array();
+				//$schedule[$row['time']][$row['day']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID, );
 			}
 		}
 

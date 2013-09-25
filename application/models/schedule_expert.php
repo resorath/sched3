@@ -184,6 +184,42 @@ class Schedule_expert extends CI_Model
 
 	}
 
+	function delete_hour($hourId)
+	{
+		$sql = "DELETE FROM `hour` WHERE `id` = ?";
+		$this->db->query($sql, array($hourId));
+	}
+
+	function getHour($sessionId, $timestamp)
+	{
+		$startofday = strtotime(date("Y-m-d", $timestamp));
+		$hourofday = date("Gi", $timestamp);
+		$dayofweek = DChop($startofday);
+
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND (`date` = ? OR `day` = ?)";
+		$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $dayofweek));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}
+
+	function getHourForUser($sessionId, $timestamp, $userId)
+	{
+		$startofday = strtotime(date("Y-m-d", $timestamp));
+		$hourofday = date("Gi", $timestamp);
+		$dayofweek = DChop($startofday);
+
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND (`date` = ? OR `day` = ?) AND `userId` = ?";
+		$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $dayofweek, $userId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}
+
 }
 
 ?>
