@@ -8,16 +8,16 @@
 			<?php } ?>
 		</tr>
 		<!-- END Top Date/Days -->
-
 		<!-- Time/Schedule Rows -->
 		<?php foreach($firstcolumn as $columntime) { ?>
 				
 		<tr>
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
-				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
+				<?php if($sessiondata->scheduleType == "r") { $index = "dayindex"; } else  { $index = "unixdate"; } ?>
+				<?php foreach($toprow[$index] as $rowdate) { ?>
 				<td class="schedule-main-table-normal-cell cell-valid-clickable" id="<?=$schedule[$columntime][$rowdate][0]->celldate ?>">
 					<?php if(isset($schedule[$columntime][$rowdate]) && $schedule[$columntime][$rowdate][0]->userid === 0): ?>
-						 <div class="cell"><span class="cell-name cell-userid-0"></span></div>
+						<div class="cell"><span class="cell-name cell-userid-0"></span></div>
 					<?php elseif(isset($schedule[$columntime][$rowdate])): ?>
 						<div class="cell"><span class="cell-name"></span></div>
 					<?php endif ?>

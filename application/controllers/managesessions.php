@@ -113,7 +113,10 @@ class Managesessions extends MY_Controller {
 			// Handle a invalid hour cell
 			if($row['userId'] == 0)
 			{
-				$schedule[$row['time']][$row['day']][0]->userid = 0;
+				if($sessionType == "s")
+					$schedule[$row['time']][$row['date']][0]->userid = 0;
+				else
+					$schedule[$row['time']][$row['day']][0]->userid = 0;
 				//$schedule[$row['time']][$row['day']] = array();
 				//$schedule[$row['time']][$row['day']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID, );
 			}

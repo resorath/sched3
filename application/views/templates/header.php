@@ -76,7 +76,7 @@
 	    	<div class="btn-group">
 			    <a class="btn btn-mini dropdown-toggle" data-toggle="dropdown" href="#" id="settings-cog-button"><i class="icon-cog" id="settings-cog"></i></a>
 			    <ul class="dropdown-menu pull-right">
-			    <li><a href="#"><i class="icon-pencil"></i> Change My Availability</a></li>
+			    <li><a href="<?=base_url("changeavailability") ?>"><i class="icon-pencil"></i> Change My Availability</a></li>
 			    <li><a href="#"><i class="icon-cogs"></i> Manage my Settings</a></li>
 			    <li class="divider"></li>
 			    <li><a href="<?=base_url("authenticate/logout") ?>"><i class="icon-signout"></i> Log Out</a></li>
