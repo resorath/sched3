@@ -7,7 +7,7 @@
 		<button class="btn btn-primary" type="button" id="new">New</button>
 	</div>
 	<div class="pull-left">
-
+		<div style="height: 20px;"></div>
 		<table class="table table-bordered table-hover table-responsive middlealign">
 			<tr><th></th><th>Exception Day</th><th>Exception Hours</th></tr>
 
@@ -29,9 +29,13 @@
 
 			</tr>
 		<?php endforeach ?>
+		<?php if(sizeof($exceptions) == 0): ?>
+			<td colspan="3" style="width: 800px">No Exceptions... Yet</td>
+		<?php endif ?>
 		</table>
 
 	</div>
 
+	<div class="clearfix"></div>
+
 </form>
-<br><br><br><br><br><br>

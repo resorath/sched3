@@ -91,24 +91,31 @@ class Managesessions extends MY_Controller {
 
 		// transform the data into day[hour] tuples
 		$i=0;
-		foreach($data['holidayhours'] as $holidayhour)
-		{
-			$datecode = strtotime(date("Y-m-d", $holidayhour['time']));
-			$timecode = strtotime(date("H:i", $holidayhour['time']));
 
-			$exceptions[$datecode][$i]['type'] = 'valid';
-			$exceptions[$datecode][$i]['timecode'] = $timecode;	
-			$i++;
+		if($data['holidayhours'] != null)
+		{
+			foreach($data['holidayhours'] as $holidayhour)
+			{
+				$datecode = strtotime(date("Y-m-d", $holidayhour['time']));
+				$timecode = strtotime(date("H:i", $holidayhour['time']));
+
+				$exceptions[$datecode][$i]['type'] = 'valid';
+				$exceptions[$datecode][$i]['timecode'] = $timecode;	
+				$i++;
+			}
 		}
 
-		foreach($data['exceptiontime'] as $invalidhour)
+		if($data['exceptiontime'] != null)
 		{
-			$datecode = $invalidhour['date'];
-			$timecode = strtotime(addColonToTime($invalidhour['time']));
+			foreach($data['exceptiontime'] as $invalidhour)
+			{
+				$datecode = $invalidhour['date'];
+				$timecode = strtotime(addColonToTime($invalidhour['time']));
 
-			$exceptions[$datecode][$i]['type'] = 'invalid';
-			$exceptions[$datecode][$i]['timecode'] = $timecode;
-			$i++;
+				$exceptions[$datecode][$i]['type'] = 'invalid';
+				$exceptions[$datecode][$i]['timecode'] = $timecode;
+				$i++;
+			}
 		}
 
 		$exceptions_sorted = array();
