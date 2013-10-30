@@ -51,6 +51,88 @@ a:hover
 }
 
 
+/*********************DATETAGS******************/
+.datetag {
+	margin: 1em 0;
+	padding: 0;
+	list-style-type: none;
+	display: inline-block;
+}
+.datetag li {
+	float: left;
+	height: 20px;
+	line-height: 26px;
+	position: relative;
+	margin: 0 1em 0.6em 0;
+	padding-bottom: 5px;
+}
+
+
+.datetag a {
+	background: #fea500;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: none;
+	-webkit-border-top-left-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	border-top-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+	padding: 8px 10px;
+}
+
+.datetag a:before {
+	content: "";
+	float: left;
+	width: 0;
+	height: 0;
+	border-top: 14px solid transparent;
+	border-right: 14px solid #fea500;
+	border-bottom: 14px solid transparent;
+}
+
+.datetag a:after
+{
+	content: "x";
+	position: absolute;
+	left: 8px;
+
+}
+
+
+.datetag a:hover {
+	background: #ff0000;
+}
+.datetag a:hover:before {
+	border-color: transparent #ff0000 transparent transparent;
+}
+
+.datetag-dark a
+{
+	background: #AAAAAA;
+}
+
+.datetag-dark a:before
+{
+	border-color: transparent #AAAAAA transparent transparent;
+}
+
+
+
+/************************************************/
+
+.hoverred:hover
+{
+	color: #ff0000;
+}
+
+.middlealign td, th
+{
+	vertical-align: middle;
+}
+
 .header
 {
 	position: relative;

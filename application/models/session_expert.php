@@ -41,8 +41,8 @@ class Session_expert extends CI_Model
 	function get_session_group($sessionId)
 	{
 		$session = $this->get_session($sessionId);
-		echo("SESSION@");
-		print_r($session);
+		//echo("SESSION@");
+		//print_r($session);
 		return $session->groupId;
 	}
 

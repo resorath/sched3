@@ -27,23 +27,7 @@
 			"file": "application/models/schedule_expert.php",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/models/session_expert.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/models/person_expert.php",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 6452,
 				"line_ending": "Windows"
 			}
 		},
@@ -51,31 +35,23 @@
 			"file": "application/models/role_expert.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 2352,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
+			"file": "application/models/session_expert.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 4617,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "assets/css/base.css",
+			"file": "application/models/person_expert.php",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/managesessions.php",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 2617,
 				"line_ending": "Windows"
 			}
 		},
@@ -83,15 +59,7 @@
 			"file": "application/controllers/populatetestdata.php",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/controllers/schedule.php",
-			"settings":
-			{
-				"buffer_size": 0,
+				"buffer_size": 7332,
 				"line_ending": "Windows"
 			}
 		},
@@ -99,40 +67,40 @@
 			"file": "application/controllers/formscapture.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 1630,
 				"line_ending": "Windows",
 				"name": "formscapture"
 			}
 		},
 		{
-			"file": "application/models/Cell.php",
+			"file": "application/controllers/managesessions.php",
 			"settings":
 			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/managesessions/invalidatehours.php",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Windows"
+				"buffer_size": 6879,
+				"line_ending": "Unix"
 			}
 		},
 		{
 			"file": "application/helpers/scheduler_builder_helper.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 3644,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/views/schedule.php",
+			"file": "application/views/managesessions/holidayhours.php",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 534,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/managesessions/edit.php",
+			"settings":
+			{
+				"buffer_size": 12146,
 				"line_ending": "Windows"
 			}
 		}
@@ -181,19 +149,27 @@
 	},
 	"file_history":
 	[
+		"/E/xampp/htdocs/sched3/application/models/role_expert.php",
+		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
+		"/E/xampp/htdocs/sched3/application/views/schedule.php",
+		"/E/xampp/htdocs/sched3/application/controllers/changeavailability.php",
+		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
+		"/E/xampp/htdocs/sched3/application/views/managesessions/invalidatehours.php",
+		"/E/xampp/htdocs/sched3/application/helpers/scheduler_builder_helper.php",
+		"/E/xampp/htdocs/sched3/application/controllers/managesessions.php",
+		"/E/xampp/htdocs/sched3/application/models/Cell.php",
+		"/E/xampp/htdocs/sched3/application/views/managesessions/edit.php",
+		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
+		"/E/xampp/htdocs/sched3/assets/css/base.css",
 		"//dvacctman.ucalgary.ca/d$/inetpub/wwwroot/recover/Web.Config",
 		"//acctman.ucalgary.ca/d$/inetpub/wwwroot/recover/Web.Config",
 		"//acctman.ucalgary.ca/d$/inetpub/wwwroot/recover/backup20130911/Web.Config",
 		"//acctman.ucalgary.ca/d$/inetpub/wwwroot/register/Web.Config",
 		"//acctman.ucalgary.ca/d$/log/IdentityLibrary.20130912.log",
-		"/E/xampp/htdocs/sched3/application/views/schedule.php",
-		"/E/xampp/htdocs/sched3/application/views/managesessions/edit.php",
-		"/E/xampp/htdocs/sched3/application/helpers/scheduler_builder_helper.php",
 		"/E/xampp/htdocs/sched3/application/helpers/log_helper.php",
 		"/E/xampp/htdocs/sched3/application/config/autoload.php",
 		"/E/xampp/htdocs/sched3/application/helpers/role_helper.php",
 		"/E/xampp/htdocs/sched3/application/views/managesessions/create.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
 		"/E/xampp/htdocs/sched3/application/core/MY_Controller.php",
 		"/E/xampp/htdocs/sched3/application/controllers/authenticate.php",
 		"/E/xampp/htdocs/sched3/overhead/planning/database.txt",
@@ -205,9 +181,6 @@
 		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
 		"/E/xampp/htdocs/sched3/application/models/group_expert.php",
 		"/E/xampp/htdocs/sched3/application/controllers/settingscapture.php",
-		"/E/xampp/htdocs/sched3/assets/css/base.css",
-		"/E/xampp/htdocs/sched3/assets/js/com.tophatandmonocle.jquery.interface.js",
-		"/E/xampp/htdocs/sched3/application/controllers/managesessions.php",
 		"/E/xampp/htdocs/sched3/application/views/managesessions/select.php",
 		"/E/xampp/htdocs/sched3/overhead/planning/session",
 		"/C/Users/Sean/AppData/Local/Temp/Rar$DR17.920/datepicker/css/datepicker.css",
@@ -237,7 +210,6 @@
 		"/E/xampp/htdocs/sched3/application/.htaccess",
 		"/E/xampp/htdocs/sched3/application/errors/error_general.php",
 		"/E/xampp/htdocs/sched3/.htaccess",
-		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
 		"/E/xampp/htdocs/sched3/application/helpers/index.html",
 		"/E/xampp/htdocs/sched3/application/views/message.php",
 		"/E/xampp/htdocs/sched3/application/errors/error_404.php",
@@ -245,7 +217,6 @@
 		"/E/xampp/htdocs/sched3/application/views/templates/master.php",
 		"/E/xampp/htdocs/sched3/application/config/config.php",
 		"/E/xampp/apache/conf/httpd.conf",
-		"/E/xampp/htdocs/sched3/application/models/Cell.php",
 		"/E/xampp/htdocs/sched3/application/config/hooks.php",
 		"/E/xampp/htdocs/sched3/application/libraries/CustomAutoLoader.php",
 		"/E/xampp/htdocs/sched3/application/objects/cell.php",
@@ -311,6 +282,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"load_exception_schedule",
+			"load_exception_schedule();",
+			"add_exception_hour",
+			"form",
 			"150px",
 			"PRINT_R",
 			"$_SESSION['roles']",
@@ -384,7 +359,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -392,15 +367,15 @@
 					"file": "application/models/schedule_expert.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6452,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4013,
+								3994
 							]
 						],
 						"settings":
@@ -409,17 +384,17 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1567.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/models/session_expert.php",
+					"file": "application/models/role_expert.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2352,
 						"regions":
 						{
 						},
@@ -443,18 +418,18 @@
 				},
 				{
 					"buffer": 2,
-					"file": "application/models/person_expert.php",
+					"file": "application/models/session_expert.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 4617,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								117,
+								117
 							]
 						],
 						"settings":
@@ -470,10 +445,10 @@
 				},
 				{
 					"buffer": 3,
-					"file": "application/models/role_expert.php",
+					"file": "application/models/person_expert.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 2617,
 						"regions":
 						{
 						},
@@ -497,53 +472,55 @@
 				},
 				{
 					"buffer": 4,
-					"file": "assets/js/com.tophatandmonocle.jquery.interface.js",
+					"file": "application/controllers/populatetestdata.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 7332,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								4606,
+								4606
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1359.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "assets/css/base.css",
+					"file": "application/controllers/formscapture.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1630,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								213,
+								213
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"auto_name": "formscapture",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 117.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -553,15 +530,15 @@
 					"file": "application/controllers/managesessions.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 6879,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2850,
+								2850
 							]
 						],
 						"settings":
@@ -570,34 +547,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "application/controllers/populatetestdata.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 585.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -605,23 +555,50 @@
 			]
 		},
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
-					"buffer": 8,
-					"file": "application/controllers/schedule.php",
+					"buffer": 7,
+					"file": "application/helpers/scheduler_builder_helper.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 3644,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1965,
+								1973
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 546.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "application/views/managesessions/holidayhours.php",
+					"settings":
+					{
+						"buffer_size": 534,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								523,
+								523
 							]
 						],
 						"settings":
@@ -637,127 +614,18 @@
 				},
 				{
 					"buffer": 9,
-					"file": "application/controllers/formscapture.php",
+					"file": "application/views/managesessions/edit.php",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 12146,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "formscapture",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "application/models/Cell.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "application/views/managesessions/invalidatehours.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "application/helpers/scheduler_builder_helper.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 13,
-					"file": "application/views/schedule.php",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
+								1521,
+								1177
 							]
 						],
 						"settings":
@@ -802,7 +670,7 @@
 		"cols":
 		[
 			0.0,
-			0.4520187244,
+			0.5239906378,
 			1.0
 		],
 		"rows":
@@ -833,7 +701,7 @@
 		],
 		"width": 0.0
 	},
-	"show_minimap": true,
+	"show_minimap": false,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,

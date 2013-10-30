@@ -115,6 +115,18 @@ class Schedule_expert extends CI_Model
 		return null;
 	}
 
+	function get_exception_time_invalid_hours($sessionId)
+	{
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isScheduled` = ? AND `isException` = ? and `userId` = ?";
+		$result = $this->db->query($sql, array($sessionId, 1, 1, 0));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+
+		return null;
+	}
+
 	function get_current_weekly_static_schedule($sessionId, $date)
 	{
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `date` >= ? AND `date` <= ? AND isScheduled = ? AND `isException`= ?";

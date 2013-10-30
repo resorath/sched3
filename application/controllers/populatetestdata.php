@@ -140,22 +140,7 @@ class Populatetestdata extends MY_Controller {
 		$this->Schedule_expert->add_hour(1, 0, "1500", $date, null, TRUE, TRUE);
 		$this->Schedule_expert->add_hour(1, 0, "1600", $date, null, TRUE, TRUE);
 
-	}
-
-	private function load_repeating_schedule()
-	{
-		$this->Schedule_expert->truncate_hours();
-
-		// Do invalid hours
-		$this->Schedule_expert->add_hour(1, 0, "800", null, "sa", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "900", null, "sa", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "1500", null, "sa", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "1600", null, "sa", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "800", null, "su", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "900", null, "su", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "1500", null, "su", TRUE);
-		$this->Schedule_expert->add_hour(1, 0, "1600", null, "su", TRUE);
-
+		
 		// Wed July 24 is a Holiday for some reason - no one
 		$bottomhour = 8;
 		$tophour = 16;
@@ -176,6 +161,23 @@ class Populatetestdata extends MY_Controller {
 			$this->Schedule_expert->add_hour(1, 9, $i."00", $date, null, TRUE, TRUE);
 			$this->Schedule_expert->add_hour(1, 7, $i."00", $date, null, TRUE, TRUE);
 		}
+
+	}
+
+	private function load_repeating_schedule()
+	{
+		$this->Schedule_expert->truncate_hours();
+
+		// Do invalid hours
+		$this->Schedule_expert->add_hour(1, 0, "800", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "900", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1500", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1600", null, "sa", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "800", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "900", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1500", null, "su", TRUE);
+		$this->Schedule_expert->add_hour(1, 0, "1600", null, "su", TRUE);
+
 
 
 		// alincoln always works, floor the table

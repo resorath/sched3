@@ -84,8 +84,53 @@ class Managesessions extends MY_Controller {
 		$data['title'] = "Holiday Hours - Manage Sessions";
 		$data['sessiondata'] = $this->Session_expert->get_session($session);
 		$data['holidayhours'] = $this->Schedule_expert->get_exception_hours($session);
+		$data['exceptiontime'] = $this->Schedule_expert->get_exception_time_invalid_hours($session);
+
+		$exceptions = array();
+		$exceptionsinvalid = array();
+
+		// transform the data into day[hour] tuples
+		$i=0;
+		foreach($data['holidayhours'] as $holidayhour)
+		{
+			$datecode = strtotime(date("Y-m-d", $holidayhour['time']));
+			$timecode = strtotime(date("H:i", $holidayhour['time']));
+
+			$exceptions[$datecode][$i]['type'] = 'valid';
+			$exceptions[$datecode][$i]['timecode'] = $timecode;	
+			$i++;
+		}
+
+		foreach($data['exceptiontime'] as $invalidhour)
+		{
+			$datecode = $invalidhour['date'];
+			$timecode = strtotime(addColonToTime($invalidhour['time']));
+
+			$exceptions[$datecode][$i]['type'] = 'invalid';
+			$exceptions[$datecode][$i]['timecode'] = $timecode;
+			$i++;
+		}
+
+		$exceptions_sorted = array();
+		foreach($exceptions as $ekey => $exception)
+		{
+			$exceptions_sorted[$ekey] = $exception;
+			usort($exceptions_sorted[$ekey], array('Managesessions', 'sortdatecodes'));
+
+		}
+
+		$data['exceptions'] = $exceptions_sorted;
 
 		$this->loadview('managesessions/holidayhours', $data);
+	}
+
+	private static function sortdatecodes($a, $b)
+	{
+		if ($a['timecode'] == $b['timecode']) {
+        	return 0;
+	    }
+	    return ($a['timecode'] < $b['timecode']) ? -1 : 1;
+
 	}
 
 	public function invalidatehours($session)

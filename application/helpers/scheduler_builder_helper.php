@@ -159,13 +159,18 @@ function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $e
 // takes a date(unix timestamp) and time (hhmm) and converts to unix timestamp
 function realTime($date, $time)
 {
-	$timeparsed = strrev(substr(strrev($time), 0, 2) . ":" . substr(strrev($time), 2));
+	$timeparsed = addColonToTime($time);
 	$dateparsed = date("Y-m-d", $date);
 
 	$rval = strtotime($dateparsed . " " . $timeparsed);
 	
 	return $rval;
 
+}
+
+function addColonToTime($time)
+{
+	return strrev(substr(strrev($time), 0, 2) . ":" . substr(strrev($time), 2));
 }
 
 function DChop($date)
