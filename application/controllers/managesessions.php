@@ -237,7 +237,21 @@ class Managesessions extends MY_Controller {
 
 
 	}
-}
 
-/* End of file welcome.php */
-/* Location: ./application/controllers/welcome.php */
+	// Form action
+	public function deleteFullDayException($sessionId, $datecode)
+	{
+		//datecode comes in as unix time
+		$this->Schedule_expert->delete_hour_exceptions_full_day($sessionId, $datecode);
+
+	} 
+
+	// Form action
+	public function deleteSpecificTimeException($sessionId, $datecode)
+	{
+		//datecode comes in as daytime-hourtime
+		$splitcode = explode("-", $datecode);
+		$this->Schedule_expert->delete_hour_exceptions($sessionId, date("Gi", $splitcode[1]), $splitcode[0]);
+
+	}
+}

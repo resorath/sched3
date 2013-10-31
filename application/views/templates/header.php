@@ -22,6 +22,7 @@
 
 		
 		<script src="<?php echo(base_url()); ?>assets/js/jquery.dataTables.min.js"></script>
+		<script src="<?php echo(base_url()); ?>assets/js/jquery.color.js"></script>
 
 		<script src="<?php echo(base_url()); ?>assets/js/com.tophatandmonocle.jquery.interface.js"></script>
 		<script>

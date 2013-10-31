@@ -14,7 +14,7 @@
 		<?php foreach($exceptions as $exceptionday => $exception): ?>
 			<tr>
 				<td>
-					<a href="#"><i class="icon-remove icon-2x hoverred"></i></a>
+					<a href="#" id="<?=$exceptionday ?>" class="dayremoval"><i class="icon-remove icon-2x hoverred"></i></a>
 				</td>
 				<td>
 					<?=date("Y-m-d", $exceptionday) ?>
@@ -22,7 +22,7 @@
 				<td>
 					<ul class="datetag">
 				<?php foreach($exception as $exceptionhour): ?>
-						<li<?php if($exceptionhour['type'] == "invalid"): ?> class="datetag-dark"<?php endif ?>><a href="#"><?=date("H:i", $exceptionhour['timecode']) ?></a></li> 
+						<li<?php if($exceptionhour['type'] == "invalid"): ?> class="datetag-dark"<?php endif ?>><a href="#" class="timeremoval" id="<?=$exceptionday ?>-<?=$exceptionhour['timecode'] ?>"><?=date("H:i", $exceptionhour['timecode']) ?></a></li> 
 				<?php endforeach ?>
 					</ul>
 				</td>
@@ -39,3 +39,45 @@
 	<div class="clearfix"></div>
 
 </form>
+
+<script>
+$(document).ready(function() {
+	$('.dayremoval').click(function() {
+		_this = $(this);
+		$.ajax({
+			type: "GET",
+			url: config.base + "/managesessions/deleteFullDayException/" + <?=$sessiondata->id ?> + "/" + _this.attr("id"),
+			dataType: "text",
+			success: function(data) {
+				deleteDay(_this);
+			}
+		});
+	});	
+
+	$('.timeremoval').click(function() {
+		_this = $(this);
+		$.ajax({
+			type: "GET",
+			url: config.base + "/managesessions/deleteSpecificTimeException/" + <?=$sessiondata->id ?> + "/" + _this.attr("id"),
+			dataType: "text",
+			success: function(data) {
+				deleteTime(_this);
+			}
+		});
+	});
+
+});
+
+function deleteDay(elem)
+{
+	elem.parent().parent().fadeOut();
+
+}
+
+function deleteTime(elem)
+{
+	elem.hide();
+
+}
+
+</script>

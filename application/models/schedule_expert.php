@@ -214,6 +214,29 @@ class Schedule_expert extends CI_Model
 		$this->db->query($sql, array($hourId));
 	}
 
+	// hourcode = HHMM, timecode = unix time for day only
+	function delete_hour_exceptions($sessionId, $hourcode, $timecode)
+	{
+		$sql = "DELETE FROM `hour` WHERE `date` = ? AND `time` = ? AND `sessionId` = ?";
+		$this->db->query($sql, array($timecode, $hourcode, $sessionId));
+		
+		$sql = "DELETE FROM `hourexception` WHERE `time` = ? AND `sessionId` = ?";
+		$this->db->query($sql, array(realTime($timecode, $hourcode), $sessionId));
+	}
+
+	// timecode = unix time for that day
+	function delete_hour_exceptions_full_day($sessionId, $timecode)
+	{
+		$sql = "DELETE FROM `hour` WHERE `date` = ? AND `isException` = ?";
+		$this->db->query($sql, array($timecode, 1));
+
+		$startOfDay = strtotime("midnight", $timecode);
+		$endOfDay = strtotime("tomorrow", $startOfDay) - 1;
+
+		$sql = "DELETE FROM `hourexception` WHERE (`time` >= ? AND `time` <= ?) AND `sessionId` = ?";
+		$this->db->query($sql, array($startOfDay, $endOfDay, $sessionId));
+	}
+
 	function getHour($sessionId, $timestamp)
 	{
 		$startofday = strtotime(date("Y-m-d", $timestamp));
