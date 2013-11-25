@@ -173,6 +173,11 @@ function addColonToTime($time)
 	return strrev(substr(strrev($time), 0, 2) . ":" . substr(strrev($time), 2));
 }
 
+function removeColonFromTime($time)
+{
+	return str_replace(":", "", $time);
+}
+
 function DChop($date)
 {
 	return substr(strtolower(date("D", $date)), 0, 2);

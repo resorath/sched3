@@ -254,4 +254,23 @@ class Managesessions extends MY_Controller {
 		$this->Schedule_expert->delete_hour_exceptions($sessionId, date("Gi", $splitcode[1]), $splitcode[0]);
 
 	}
+
+	//Post action
+	public function createExceptionHour()
+	{
+		print_r($_POST);
+		$exceptiondate = "";
+		foreach($_POST as $key => $value)
+		{
+			if($key == "exceptiondate")
+			{
+				$exceptiondate = value;
+				continue;
+			}
+
+			
+
+		}
+
+	}
 }

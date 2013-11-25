@@ -123,6 +123,53 @@ a:hover
 
 /************************************************/
 
+/*********************DATELUMP******************/
+.datelump {
+	margin: 1em 0;
+	padding: 0;
+	list-style-type: none;
+	display: inline-block;
+}
+.datelump li {
+	float: left;
+	height: 20px;
+	line-height: 26px;
+	position: relative;
+	margin: 0 0.3em 0.6em 0;
+	padding-bottom: 5px;
+}
+
+
+.datelump a {
+	background: #fea500;
+	color: #fff;
+	font-weight: bold;
+	font-size: 12px;
+	text-decoration: none;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	padding: 8px 10px;
+}
+
+.datelump a:hover {
+	background: #ff0000;
+}
+
+.datelump-dark a
+{
+	background: #AAAAAA;
+}
+
+.datelump-green a
+{
+	background: #11CC11;
+}
+
+
+
+/************************************************/
+
 .hoverred:hover
 {
 	color: #ff0000;

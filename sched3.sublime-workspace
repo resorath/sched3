@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"i",
+				"if	if …"
+			],
+			[
 				"session_",
 				"session_write_close"
 			],
@@ -27,7 +31,7 @@
 			"file": "application/models/schedule_expert.php",
 			"settings":
 			{
-				"buffer_size": 6452,
+				"buffer_size": 7717,
 				"line_ending": "Windows"
 			}
 		},
@@ -59,40 +63,39 @@
 			"file": "application/controllers/populatetestdata.php",
 			"settings":
 			{
-				"buffer_size": 7332,
+				"buffer_size": 7336,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/controllers/formscapture.php",
+			"file": "assets/css/base.css",
 			"settings":
 			{
-				"buffer_size": 1630,
-				"line_ending": "Windows",
-				"name": "formscapture"
+				"buffer_size": 10442,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "application/controllers/managesessions.php",
 			"settings":
 			{
-				"buffer_size": 6879,
+				"buffer_size": 8597,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/helpers/scheduler_builder_helper.php",
-			"settings":
-			{
-				"buffer_size": 3644,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "application/views/managesessions/holidayhours.php",
 			"settings":
 			{
-				"buffer_size": 534,
+				"buffer_size": 2162,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/helpers/scheduler_builder_helper.php",
+			"settings":
+			{
+				"buffer_size": 3711,
 				"line_ending": "Windows"
 			}
 		},
@@ -149,11 +152,14 @@
 	},
 	"file_history":
 	[
-		"/E/xampp/htdocs/sched3/application/models/role_expert.php",
+		"/E/xampp/htdocs/sched3/application/controllers/formscapture.php",
 		"/E/xampp/htdocs/sched3/application/views/templates/header.php",
+		"/E/xampp/htdocs/sched3/assets/js/jquery.color.js",
+		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
+		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
+		"/E/xampp/htdocs/sched3/application/models/role_expert.php",
 		"/E/xampp/htdocs/sched3/application/views/schedule.php",
 		"/E/xampp/htdocs/sched3/application/controllers/changeavailability.php",
-		"/E/xampp/htdocs/sched3/application/controllers/schedule.php",
 		"/E/xampp/htdocs/sched3/application/views/managesessions/invalidatehours.php",
 		"/E/xampp/htdocs/sched3/application/helpers/scheduler_builder_helper.php",
 		"/E/xampp/htdocs/sched3/application/controllers/managesessions.php",
@@ -178,7 +184,6 @@
 		"/E/xampp/htdocs/sched3/application/views/test/tooltips.php",
 		"/E/xampp/htdocs/sched3/application/controllers/test.php",
 		"/E/xampp/htdocs/sched3/application/views/test.php",
-		"/E/xampp/htdocs/sched3/application/views/templates/footer.php",
 		"/E/xampp/htdocs/sched3/application/models/group_expert.php",
 		"/E/xampp/htdocs/sched3/application/controllers/settingscapture.php",
 		"/E/xampp/htdocs/sched3/application/views/managesessions/select.php",
@@ -282,6 +287,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"]),",
+			"this",
+			"add_hour",
 			"load_exception_schedule",
 			"load_exception_schedule();",
 			"add_exception_hour",
@@ -359,7 +367,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -367,15 +375,15 @@
 					"file": "application/models/schedule_expert.php",
 					"settings":
 					{
-						"buffer_size": 6452,
+						"buffer_size": 7717,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4013,
-								3994
+								5944,
+								5944
 							]
 						],
 						"settings":
@@ -384,7 +392,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1567.0,
+						"translation.y": 2562.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -475,15 +483,15 @@
 					"file": "application/controllers/populatetestdata.php",
 					"settings":
 					{
-						"buffer_size": 7332,
+						"buffer_size": 7336,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4606,
-								4606
+								4952,
+								4952
 							]
 						],
 						"settings":
@@ -492,62 +500,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1359.0,
+						"translation.y": 2281.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "application/controllers/formscapture.php",
+					"file": "assets/css/base.css",
 					"settings":
 					{
-						"buffer_size": 1630,
+						"buffer_size": 10442,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								213,
-								213
+								1047,
+								1047
 							]
 						],
 						"settings":
 						{
-							"auto_name": "formscapture",
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 117.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "application/controllers/managesessions.php",
-					"settings":
-					{
-						"buffer_size": 6879,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2850,
-								2850
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 585.0,
+						"translation.y": 681.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -559,19 +539,19 @@
 			"sheets":
 			[
 				{
-					"buffer": 7,
-					"file": "application/helpers/scheduler_builder_helper.php",
+					"buffer": 6,
+					"file": "application/controllers/managesessions.php",
 					"settings":
 					{
-						"buffer_size": 3644,
+						"buffer_size": 8597,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1965,
-								1973
+								8220,
+								8220
 							]
 						],
 						"settings":
@@ -580,25 +560,52 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 546.0,
+						"translation.y": 2772.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "application/views/managesessions/holidayhours.php",
+					"settings":
+					{
+						"buffer_size": 2162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1995,
+								1995
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 336.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 8,
-					"file": "application/views/managesessions/holidayhours.php",
+					"file": "application/helpers/scheduler_builder_helper.php",
 					"settings":
 					{
-						"buffer_size": 534,
+						"buffer_size": 3711,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								523,
-								523
+								3711,
+								3711
 							]
 						],
 						"settings":
@@ -607,7 +614,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1638.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -624,8 +631,8 @@
 						"selection":
 						[
 							[
-								1521,
-								1177
+								10279,
+								10297
 							]
 						],
 						"settings":
@@ -634,7 +641,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3266.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -670,7 +677,7 @@
 		"cols":
 		[
 			0.0,
-			0.5239906378,
+			0.415155061439,
 			1.0
 		],
 		"rows":

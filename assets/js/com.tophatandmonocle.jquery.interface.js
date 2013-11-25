@@ -94,6 +94,31 @@ function blinkForTime(id, blinkTime, blinkColor) {
 }
 // /blinking elements
 
+// blinking textbox
+
+function toggleBgColor(id, color) {
+    var e = $(id);
+    var currentColor = $(id).css('borderColor');
+    if (currentColor == defaultColor) {
+      $(id).css('borderColor', color);
+    }
+    else {
+      $(id).css('borderColor', defaultColor);
+    }
+}
+
+function stopBgBlinking(id) {
+    clearInterval(idArray[id]);
+    $(id).css('borderColor', defaultColor);
+}
+
+function bgBlinkForTime(id, blinkTime, blinkColor) {
+	defaultColor = $(id).css('borderColor');
+    idArray[id] = setInterval(function() {toggleBgColor(id, blinkColor)}, 200);
+    setTimeout(function() {stopBgBlinking(id)}, blinkTime);
+}
+// /blinking textbox
+
 function highlightHours(userid)
 {
 	$('.' + userid).parent().parent().css('background-color', 'yellow');

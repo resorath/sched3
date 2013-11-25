@@ -3,9 +3,13 @@
 
 <?=form_open('managesessions/holidayhoursedit', array('class' => 'form-horizontal', 'id'=>'holidayhoursform')) ?>
 
-	<div class="pull-right">
-		<button class="btn btn-primary" type="button" id="new">New</button>
-	</div>
+	<div class="input-append date datepicker" id="holidaydate" data-date="" data-date-format="dd-mm-yyyy">
+	    <input title="Holiday Date" class="span2" name="holidaydate" size="16" id="holidaydateinput" type="text" value="">
+	    <span class="add-on"><i title="The first day of the session." rel="tooltip" class="icon-calendar"></i></span>
+	 </div>
+	<button class="btn btn-primary" type="button" id="new">New Exception Day</button>
+
+
 	<div class="pull-left">
 		<div style="height: 20px;"></div>
 		<table class="table table-bordered table-hover table-responsive middlealign">
@@ -20,11 +24,17 @@
 					<?=date("Y-m-d", $exceptionday) ?>
 				</td>
 				<td>
-					<ul class="datetag">
+					<ul class="datelump">
 				<?php foreach($exception as $exceptionhour): ?>
-						<li<?php if($exceptionhour['type'] == "invalid"): ?> class="datetag-dark"<?php endif ?>><a href="#" class="timeremoval" id="<?=$exceptionday ?>-<?=$exceptionhour['timecode'] ?>"><?=date("H:i", $exceptionhour['timecode']) ?></a></li> 
+						<li<?php if($exceptionhour['type'] == "invalid"): ?> class="datelump-dark"<?php endif ?>>
+							<a href="#" class="timeremoval" id="<?=$exceptionday ?>-<?=$exceptionhour['timecode'] ?>">x <?=date("H:i", $exceptionhour['timecode']) ?></a>
+						</li> 
 				<?php endforeach ?>
+						<li class="datelump-green">
+							<a href="#" class>+</a>
+						</li>
 					</ul>
+
 				</td>
 
 			</tr>
@@ -40,8 +50,57 @@
 
 </form>
 
+<!-- Modal -->
+<div id="addexceptionhourmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+		<h3 id="myModalLabel">Add Exception Hours</h3>
+	</div>
+	<div class="modal-body">
+		<?=form_open('managesessions/createExceptionHour', array('id'=>'createexceptionhourform')) ?>
+		<input type="hidden" name="exceptiondate" id="exceptiondate" value="">
+		<?php
+			$i=realTime(now(), $sessiondata->startTime);
+			do
+			{
+				?>
+				<table width="100%"><tr>
+					<td><b><?=date("H:i", $i) ?></b></td>
+					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="invalid" checked> Not Available</label></td>
+					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="available"> Available</label></td>
+					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="ignore"> Ignore</label></td>
+				</tr></table>
+
+
+				<?php
+				$i = $i + (3600 * $sessiondata->timeIncrementAmount);
+			}while($i < realTime(now(), $sessiondata->endTime));
+		?>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button type="submit" class="btn btn-primary" id="createexceptionhours">Create</button>
+	</div>
+
+	</form>
+</div>
+
 <script>
 $(document).ready(function() {
+
+	$('.datepicker').datepicker(); 
+
+	$('#new').click(function() {
+		if($('#holidaydateinput').val() == '')
+			bgBlinkForTime('#holidaydateinput', 2200, '#ff0000');
+		else
+		{
+			$('#exceptiondate').val($('#holidaydateinput').val());
+			$('#addexceptionhourmodal').modal()
+		}
+
+	});
+
 	$('.dayremoval').click(function() {
 		_this = $(this);
 		$.ajax({
