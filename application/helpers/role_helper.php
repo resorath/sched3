@@ -20,7 +20,7 @@ if ( ! function_exists('user_has_role'))
 
         foreach($_SESSION['roles'][$group] as $userrole)
         {
-        	if($userrole == $role)
+        	if($userrole == $role || $userrole == "ISSUPER")
         		return TRUE;
         }
         return FALSE;
