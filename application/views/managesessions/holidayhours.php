@@ -98,7 +98,7 @@ $(document).ready(function() {
 		{
 			var alreadyexists = false;
 			$('.exceptiondayexisting').each(function(i, obj) {
-				if(String.trim($(this).html()) == $('#holidaydateinput').val())
+				if($.trim($(this).html()) == $('#holidaydateinput').val())
 				{
 					alreadyexists = true;
 					bgBlinkForTime($(this), 2200, '#ff0000');

@@ -258,7 +258,6 @@ class Managesessions extends MY_Controller {
 	//Post action
 	public function createExceptionHour()
 	{
-		print_r($_POST);
 		$exceptiondate = "";
 		$sessionid = "";
 		$availables = array();
@@ -289,9 +288,6 @@ class Managesessions extends MY_Controller {
 
 		}
 
-		print_r($availables);
-		print_r($unavailables);
-
 		foreach($availables as $value)
 		{
 			$this->Schedule_expert->add_exception_hour($sessionid, strtotime($exceptiondate . " " . $value));
@@ -302,7 +298,7 @@ class Managesessions extends MY_Controller {
 			$this->Schedule_expert->add_hour($sessionid, 0, removeColonFromTime($value), strtotime($exceptiondate), null, TRUE, TRUE);
 		}
 
-
+		$this->holidayhours($sessionid);
 
 	}
 }
