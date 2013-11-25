@@ -20,8 +20,8 @@
 				<td>
 					<a href="#" id="<?=$exceptionday ?>" class="dayremoval"><i class="icon-remove icon-2x hoverred"></i></a>
 				</td>
-				<td>
-					<?=date("Y-m-d", $exceptionday) ?>
+				<td class="exceptiondayexisting">
+					<?=date("d-m-Y", $exceptionday) ?>
 				</td>
 				<td>
 					<ul class="datelump">
@@ -30,9 +30,9 @@
 							<a href="#" class="timeremoval" id="<?=$exceptionday ?>-<?=$exceptionhour['timecode'] ?>">x <?=date("H:i", $exceptionhour['timecode']) ?></a>
 						</li> 
 				<?php endforeach ?>
-						<li class="datelump-green">
+						<!--<li class="datelump-green">
 							<a href="#" class>+</a>
-						</li>
+						</li>-->
 					</ul>
 
 				</td>
@@ -59,6 +59,7 @@
 	<div class="modal-body">
 		<?=form_open('managesessions/createExceptionHour', array('id'=>'createexceptionhourform')) ?>
 		<input type="hidden" name="exceptiondate" id="exceptiondate" value="">
+		<input type="hidden" name="sessionid" id="sessionid" value="<?=$sessiondata->id ?>">
 		<?php
 			$i=realTime(now(), $sessiondata->startTime);
 			do
@@ -66,9 +67,9 @@
 				?>
 				<table width="100%"><tr>
 					<td><b><?=date("H:i", $i) ?></b></td>
-					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="invalid" checked> Not Available</label></td>
-					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="available"> Available</label></td>
-					<td><label><input type="radio" name="<?=removeColonFromTime(date("H:i", $i)) ?>" value="ignore"> Ignore</label></td>
+					<td><label><input type="radio" name="<?=date("H:i", $i) ?>" value="invalid" checked> Not Available</label></td>
+					<td><label><input type="radio" name="<?=date("H:i", $i) ?>" value="available"> Available</label></td>
+					<td><label><input type="radio" name="<?=date("H:i", $i) ?>" value="ignore"> Ignore</label></td>
 				</tr></table>
 
 
@@ -95,8 +96,20 @@ $(document).ready(function() {
 			bgBlinkForTime('#holidaydateinput', 2200, '#ff0000');
 		else
 		{
-			$('#exceptiondate').val($('#holidaydateinput').val());
-			$('#addexceptionhourmodal').modal()
+			var alreadyexists = false;
+			$('.exceptiondayexisting').each(function(i, obj) {
+				if(String.trim($(this).html()) == $('#holidaydateinput').val())
+				{
+					alreadyexists = true;
+					bgBlinkForTime($(this), 2200, '#ff0000');
+				}
+			});
+
+			if(!alreadyexists)
+			{
+				$('#exceptiondate').val($('#holidaydateinput').val());
+				$('#addexceptionhourmodal').modal()
+			}
 		}
 
 	});

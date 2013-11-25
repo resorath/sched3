@@ -260,17 +260,49 @@ class Managesessions extends MY_Controller {
 	{
 		print_r($_POST);
 		$exceptiondate = "";
+		$sessionid = "";
+		$availables = array();
+		$unavailables = array();
 		foreach($_POST as $key => $value)
 		{
 			if($key == "exceptiondate")
 			{
-				$exceptiondate = value;
+				$exceptiondate = $value;
 				continue;
 			}
 
-			
+			if($key == "sessionid")
+			{
+				$sessionid = $value;
+				continue;
+			}
+
+			if($value == "available")
+			{
+				$availables[] = $key;
+			}
+
+			if($value == "invalid")
+			{
+				$unavailables[] = $key;
+			}
 
 		}
+
+		print_r($availables);
+		print_r($unavailables);
+
+		foreach($availables as $value)
+		{
+			$this->Schedule_expert->add_exception_hour($sessionid, strtotime($exceptiondate . " " . $value));
+		}
+
+		foreach($unavailables as $value)
+		{
+			$this->Schedule_expert->add_hour($sessionid, 0, removeColonFromTime($value), strtotime($exceptiondate), null, TRUE, TRUE);
+		}
+
+
 
 	}
 }

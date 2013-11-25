@@ -98,22 +98,22 @@ function blinkForTime(id, blinkTime, blinkColor) {
 
 function toggleBgColor(id, color) {
     var e = $(id);
-    var currentColor = $(id).css('borderColor');
+    var currentColor = $(id).css('backgroundColor');
     if (currentColor == defaultColor) {
-      $(id).css('borderColor', color);
+      $(id).css('backgroundColor', color);
     }
     else {
-      $(id).css('borderColor', defaultColor);
+      $(id).css('backgroundColor', defaultColor);
     }
 }
 
 function stopBgBlinking(id) {
     clearInterval(idArray[id]);
-    $(id).css('borderColor', defaultColor);
+    $(id).css('backgroundColor', defaultColor);
 }
 
 function bgBlinkForTime(id, blinkTime, blinkColor) {
-	defaultColor = $(id).css('borderColor');
+	defaultColor = $(id).css('backgroundColor');
     idArray[id] = setInterval(function() {toggleBgColor(id, blinkColor)}, 200);
     setTimeout(function() {stopBgBlinking(id)}, blinkTime);
 }
