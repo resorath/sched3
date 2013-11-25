@@ -267,6 +267,42 @@ class Schedule_expert extends CI_Model
 		return null;
 	}
 
+	function getAvailabilityForUser($sessionId, $userId)
+	{		
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `userId` = ? AND `isException` = '0'";
+		$result = $this->db->query($sql, array($sessionId, $userId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}
+
+	function userRemoveAvailability($session, $user, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user);
+		
+		foreach($hours as $hour)
+		{
+			$this->Schedule_expert->delete_hour($hour['id']);
+		}
+	}
+
+	function userAddAvailability($session, $user, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user);
+		
+		if(count($hours) > 0)
+			return;
+
+		$startofday = strtotime(date("Y-m-d", $hour));
+		$hourofday = date("Gi", $hour);
+		$dayofweek = DChop($startofday);
+
+		$this->Schedule_expert->add_hour($session, $user, $hourofday, $startofday, $dayofweek, 0, 0);
+
+	}
+
 }
 
 ?>

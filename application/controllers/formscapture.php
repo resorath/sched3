@@ -81,4 +81,22 @@ class Formscapture extends MY_Controller {
 		$this->Session_expert->validateHour($sessionId, $hour);
 	}
 
+	public function userAddAvailability($sid, $uid, $tid)
+	{
+		if(!user_has_role("ISSUPER") && $uid != $_SESSION['userid'])
+			return false;
+
+		$this->Schedule_expert->userAddAvailability($sid, $uid, $tid);
+
+	}
+
+	public function userRemoveAvailability($sid, $uid, $tid)
+	{
+		if(!user_has_role("ISSUPER") && $uid != $_SESSION['userid'])
+			return false;
+
+		$this->Schedule_expert->userRemoveAvailability($sid, $uid, $tid);
+
+	}
+
 }

@@ -296,6 +296,21 @@ td.schedule-main-table-old-time-cell
 	background-color: #FF0000;
 }
 
+.cell-available-clickable, .cell-unavailable-clickable
+{
+	cursor: pointer;
+}
+
+.cell-available-clickable:hover
+{
+	background-color: #00FF00;
+}
+
+.cell-unavailable-clickable:hover
+{
+	background-color: #33FF33;
+}
+
 
 .date-aligner
 {
@@ -413,6 +428,12 @@ td.schedule-main-table-old-time-cell
 .invalid-hour
 {
 	background-color: lightgrey;
+}
+
+
+.available-hour
+{
+	background-color: lightgreen;
 }
 
 /* squaredOne */
