@@ -21,10 +21,21 @@ class Changeavailability extends MY_Controller {
 
 		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount, $_SESSION['displayDate']);
 
+		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
+
 		$this->buildSchedule($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
 
 		$this->loadview('changeavailability', $data);
 		
+	}
+
+	public function changesession($sessionid)
+	{
+		// need some group security here
+		$_SESSION['sessionId'] = $sessionid;
+		$_SESSION['groupid'] = $this->Session_expert->get_session_group($sessionid);
+
+		redirect($this->router->class);
 	}
 
 	public function buildSchedule(&$schedule, $sessionType, $sessionId, $userId)
@@ -33,26 +44,41 @@ class Changeavailability extends MY_Controller {
 		$scheduledata =$this->Schedule_expert->getAvailabilityForUser($sessionId, $userId);
 		$invalidblocks =$this->Schedule_expert->get_regular_invalid_hours($sessionId);
 
-		if(empty($scheduledata))
-			return NULL;
-
-		foreach($scheduledata as $row)
+		if(is_array($scheduledata))
 		{
-			if($sessionType == "s")
-				$schedule[$row['time']][$row['date']][0]->userid = $userId;
-			else
-				$schedule[$row['time']][$row['day']][0]->userid = $userId;
+			foreach($scheduledata as $row)
+			{
+				if($sessionType == "s")
+					$schedule[$row['time']][$row['date']][0]->userid = $userId;
+				else
+					$schedule[$row['time']][$row['day']][0]->userid = $userId;
+			}
 		}
 
-		foreach($invalidblocks as $row)
+		if(is_array($invalidblocks))
 		{
-			if($sessionType == "s")
-				$schedule[$row['time']][$row['date']][0]->userid = 0;
-			else
-				$schedule[$row['time']][$row['day']][0]->userid = 0;
+			foreach($invalidblocks as $row)
+			{
+				if($sessionType == "s")
+					$schedule[$row['time']][$row['date']][0]->userid = 0;
+				else
+					$schedule[$row['time']][$row['day']][0]->userid = 0;
+			}
 		}
 
 		return $schedule;
+	}
+
+	private function buildSessionTree($sessionArray)
+	{
+		$returnVal = array();
+
+		foreach($sessionArray as $session)
+		{
+			$returnVal[$session['groupname']][] = $session;
+		}
+
+		return $returnVal;
 	}
 
 }

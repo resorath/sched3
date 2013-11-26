@@ -38,6 +38,14 @@ class Session_expert extends CI_Model
 		return "";
 	}
 
+	function get_session_type($sessionId)
+	{
+		$session = $this->get_session($sessionId);
+
+		return $session->scheduleType;
+
+	}
+
 	function get_session_group($sessionId)
 	{
 		$session = $this->get_session($sessionId);
@@ -147,7 +155,9 @@ class Session_expert extends CI_Model
 	function invalidateHour($session, $hour)
 	{
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, 0);
-		
+
+		print_r($hours);
+
 		if(count($hours) > 0)
 			return;
 

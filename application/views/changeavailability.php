@@ -1,4 +1,47 @@
-<div class="schedule buffer">
+<div class="headeradjuster">
+	<div class="header">
+		<h3><?=$sessiondata->title ?></h3>
+    	<div class="schedulecontrolicons-options">
+		    <div class="dropdown">
+			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list icon-large options-blacken"></i></a>
+			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			    	<li class="dropdown-submenu">
+			    		<a href="#" tabindex="-1"><i class="icon-fixed-width icon-calendar"></i> View a Different Calendar</a>
+			    		<ul class="dropdown-menu">
+			    			<?php
+			    			$i = 0;
+			    			foreach($availablesessions as $sessiongroupname => $sessiongroup) {
+			    				?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
+			    				foreach($sessiongroup as $sesgroupindex => $session)
+			    				{
+			    					?><li><a href="<?=base_url("changeavailability/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
+			    				}
+			    				if(++$i !== count($availablesessions))
+			    				{
+			    					?><li class="divider"></li><?php
+			    				}
+			    			}
+			    			?>
+
+
+
+			    		</ul>
+			   		</li>
+			   		<li><a href="#"><i class="icon-fixed-width icon-th"></i> Show Compiled Availability</a></li>
+			    </ul>
+			</div>
+		</div>
+    </div>
+</div>
+<div class="container well">
+	<p>Please list your availability for this session. You can change your availability until a couple days before the start of the session.</p>
+	<?php if($sessiondata->scheduleType == "r"): ?>
+		<p>This session runs from <?=date("M dS, Y", $sessiondata->startDate) ?> to <?=date("M dS, Y", $sessiondata->endDate) ?></p>
+
+	<?php endif ?>
+</div>
+
+<div class="schedule">
 	<table class="schedule-main-table">
 		<!-- Top Date/Days -->
 		<tr class="schedule-main-table-top-row">

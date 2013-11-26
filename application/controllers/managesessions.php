@@ -79,6 +79,75 @@ class Managesessions extends MY_Controller {
 
 	}
 
+	public function createschedule($session)
+	{
+		// set variables
+		$data['title'] = "Create Schedule";
+
+		$data['sessiondata'] = $this->Session_expert->get_session($session);
+
+		if($data['sessiondata']->scheduleType == "s")
+			$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
+		else
+			$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
+
+
+		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
+
+		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount, $_SESSION['displayDate']);
+		
+		$this->buildScheduleWithInvalids($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
+
+		$this->buildScheduleWithAvailability($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
+
+		$this->loadview('managesessions/createschedule', $data);
+
+	}
+
+
+	public function buildScheduleWithAvailability(&$schedule, $sessionType, $sessionId)
+	{
+		// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
+		$scheduledata =$this->Schedule_expert->getCompiledAvailability($sessionId);
+		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
+
+		if(empty($scheduledata))
+			return NULL;
+
+		foreach($scheduledata as $row)
+		{
+			if($sessionType == "r") // repeating weekly
+			{
+				if($schedule[$row['time']][$row['day']][0]->userid === 0)
+				{
+
+					$schedule[$row['time']][$row['day']] = array();
+					$schedule[$row['time']][$row['day']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID);
+				}
+				else
+				{
+					$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+				}
+			}
+			else // static
+			{
+				if($schedule[$row['time']][$row['date']][0]->userid === 0)
+				{
+
+					$schedule[$row['time']][$row['date']] = array();
+					$schedule[$row['time']][$row['date']][] = new models\Cell(null, 0, models\Cell::$CELLTYPEVOID);
+				}
+				else
+				{
+					$schedule[$row['time']][$row['date']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+				}
+
+			}
+		}
+
+		return $schedule;
+	}
+
 	public function holidayhours($session)
 	{
 		$data['title'] = "Holiday Hours - Manage Sessions";
@@ -156,23 +225,23 @@ class Managesessions extends MY_Controller {
 
 		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount, $_SESSION['displayDate']);
 
-		$this->buildSchedule($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id);
+		$this->buildScheduleWithInvalids($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id);
 
 		$this->loadview('managesessions/invalidatehours', $data);
 	}
 
-	public function buildSchedule(&$schedule, $sessionType, $sessionId)
+	public function buildScheduleWithInvalids(&$schedule, $sessionType, $sessionId)
 	{
 		// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
 		$scheduledata =$this->Schedule_expert->get_regular_invalid_hours($sessionId);
 
 		if(empty($scheduledata))
 			return NULL;
-
+		
 		foreach($scheduledata as $row)
 		{
 			// Handle a invalid hour cell
-			if($row['userId'] == 0)
+			if($row['userId'] === '0')
 			{
 				if($sessionType == "s")
 					$schedule[$row['time']][$row['date']][0]->userid = 0;

@@ -14,6 +14,7 @@
 		<link href="<?php echo(base_url()); ?>assets/css/bootstrap-overrides.css" rel="stylesheet" media="screen">
 		<link href="<?php echo(base_url()); ?>assets/css/base.css" rel="stylesheet" media="screen">
 		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<!-- header scripts -->
 		<script src="http://code.jquery.com/jquery.js"></script>
 		<script src="<?php echo(base_url()); ?>assets/js/bootstrap.min.js"></script>

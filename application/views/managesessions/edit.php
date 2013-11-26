@@ -325,13 +325,16 @@ $(document).ready(function(){
 	});
 
 	$('#invalidatehours').click(function() {
-		window.location = config.base + "/managesessions/invalidatehours/<?=$session->id ?>";
+		window.location = config.base + "managesessions/invalidatehours/<?=$session->id ?>";
 	});
 
 	$('#holidayhours').click(function() {
-		window.location = config.base + "/managesessions/holidayhours/<?=$session->id ?>";
+		window.location = config.base + "managesessions/holidayhours/<?=$session->id ?>";
 	});
 
+	$('#makeschedule').click(function() {
+		window.location = config.base + "managesessions/createschedule/<?=$session->id ?>";
+	});
 
 	// alert for changed data
 	dirty=false;

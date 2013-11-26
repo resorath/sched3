@@ -242,9 +242,22 @@ class Schedule_expert extends CI_Model
 		$startofday = strtotime(date("Y-m-d", $timestamp));
 		$hourofday = date("Gi", $timestamp);
 		$dayofweek = DChop($startofday);
+		$sessionType = $this->Session_expert->get_session_type($sessionId);
+		$result = "";
 
-		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND (`date` = ? OR `day` = ?)";
-		$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $dayofweek));
+		if($sessionType == "s") // static
+		{
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `date` = ?";
+			$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday));
+		}
+		else // repeating
+		{
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `day` = ?";
+			$result = $this->db->query($sql, array($sessionId, $hourofday, $dayofweek));
+		}
+
+
+		
 		if($result->num_rows() > 0)
 		{
 			return $result->result_array();
@@ -257,9 +270,20 @@ class Schedule_expert extends CI_Model
 		$startofday = strtotime(date("Y-m-d", $timestamp));
 		$hourofday = date("Gi", $timestamp);
 		$dayofweek = DChop($startofday);
+		$sessionType = $this->Session_expert->get_session_type($sessionId);
+		$result = "";
 
-		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND (`date` = ? OR `day` = ?) AND `userId` = ?";
-		$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $dayofweek, $userId));
+		if($sessionType == "s") // static
+		{
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `date` = ? AND `userId` = ?";
+			$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $userId));
+		}
+		else // repeating
+		{
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `day` = ? AND `userId` = ?";
+			$result = $this->db->query($sql, array($sessionId, $hourofday, $dayofweek, $userId));
+		}
+		
 		if($result->num_rows() > 0)
 		{
 			return $result->result_array();
@@ -271,6 +295,17 @@ class Schedule_expert extends CI_Model
 	{		
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `userId` = ? AND `isException` = '0'";
 		$result = $this->db->query($sql, array($sessionId, $userId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}
+
+	function getCompiledAvailability($sessionId)
+	{		
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isScheduled` = '0' AND `isException` = '0'";
+		$result = $this->db->query($sql, array($sessionId));
 		if($result->num_rows() > 0)
 		{
 			return $result->result_array();

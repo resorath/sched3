@@ -34,10 +34,14 @@ class Schedule extends MY_Controller {
 
 		// Build top schedule row
 		$data['toprow'] = buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
+		
+		// Build the left schedule column
 		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
+		// Creates the schedule object containing the schedule of hours
 		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id); // sessionId
 
+		// Generates the list of available sessions for the dropdown
 		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
 
 		if($this->input->get('start') !== FALSE)

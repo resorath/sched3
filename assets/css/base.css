@@ -7,6 +7,8 @@ body {
     padding-top: 20px;
     padding-bottom: 60px;
     text-align: center;
+
+    font-family: 'Open Sans', sans-serif;
  }
 
 a:hover
@@ -303,7 +305,7 @@ td.schedule-main-table-old-time-cell
 
 .cell-available-clickable:hover
 {
-	background-color: #00FF00;
+	background-color: #FF0000;
 }
 
 .cell-unavailable-clickable:hover

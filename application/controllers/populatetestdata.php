@@ -12,6 +12,7 @@ class Populatetestdata extends MY_Controller {
 		$this->load_repeating_schedule();
 		$this->load_static_schedule();
 		$this->load_exception_schedule();
+		$this->load_availability_schedule();
 		
 		//$data['newsdata'] = $this->News_expert->get_news();
 		
@@ -28,15 +29,15 @@ class Populatetestdata extends MY_Controller {
 	{
 		$this->Person_expert->truncate_people();
 
-		$this->Person_expert->add_person('00100201', 'Abraham', 'Lincoln', 'alincoln');
-		$this->Person_expert->add_person('00100202', 'Gerald', 'Ford', 'gford');
-		$this->Person_expert->add_person('00100203', 'George', 'Washington', 'gwashing');
-		$this->Person_expert->add_person('00100204', 'Ulysses S', 'Grant', 'usgrant');
-		$this->Person_expert->add_person('00100205', 'Ronald', 'Reagan', 'rreagan');
-		$this->Person_expert->add_person('00100206', 'Harry', 'Truman', 'htruman');
-		$this->Person_expert->add_person('00100207', 'Richard', 'Nixon', 'rnixon');
-		$this->Person_expert->add_person('00100208', 'Franklin Delano', 'Roosevelt', 'fdroosev');
-		$this->Person_expert->add_person('00282497', 'Sean', 'Feil', 'sfeil');
+		$this->Person_expert->add_person('00100201', 'Abraham', 'Lincoln', 'alincoln'); // 1
+		$this->Person_expert->add_person('00100202', 'Gerald', 'Ford', 'gford'); // 2
+		$this->Person_expert->add_person('00100203', 'George', 'Washington', 'gwashing'); //3
+		$this->Person_expert->add_person('00100204', 'Ulysses S', 'Grant', 'usgrant'); //4
+		$this->Person_expert->add_person('00100205', 'Ronald', 'Reagan', 'rreagan'); //5
+		$this->Person_expert->add_person('00100206', 'Harry', 'Truman', 'htruman'); //6
+		$this->Person_expert->add_person('00100207', 'Richard', 'Nixon', 'rnixon');// 7
+		$this->Person_expert->add_person('00100208', 'Franklin Delano', 'Roosevelt', 'fdroosev');//8
+		$this->Person_expert->add_person('00282497', 'Sean', 'Feil', 'sfeil'); //9
 	}
  
 	private function load_sessions()
@@ -99,7 +100,7 @@ class Populatetestdata extends MY_Controller {
 
 	private function load_static_schedule()
 	{
-		for($i=1; $i < 30; $i++)
+		for($i=1; $i <= 30; $i++)
 		{
 			$datespre[] = "July $i, 2013";
 		}
@@ -115,6 +116,26 @@ class Populatetestdata extends MY_Controller {
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
 				$this->Schedule_expert->add_hour(2, 1, $i."00", $date, null, TRUE);
+			}
+		}
+
+		$datespre = array();
+		for($i=25; $i <= 25; $i++)
+		{
+			$datespre[] = "July $i, 2013";
+		}
+
+		$dates = array_map("strtotime", $datespre);
+
+		$bottomhour = 8;
+		$tophour = 13;
+
+		//gford works all the 25th 8 - 1
+		foreach($dates as $date)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(2, 2, $i."00", $date, null, TRUE);
 			}
 		}
 
@@ -228,6 +249,39 @@ class Populatetestdata extends MY_Controller {
 			for($i=$bottomhour;$i<=$tophour;$i++)
 			{
 				$this->Schedule_expert->add_hour(1, 9, $i."00", null, $day, TRUE);
+			}
+
+		}
+
+
+	}
+
+	private function load_availability_schedule()
+	{
+		// truman is always available
+		$days = array("su", "mo", "tu", "we", "th", "fr", "sa");
+		$bottomhour = 8;
+		$tophour = 16;
+
+		foreach($days as $day)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(1, 6, $i."00", null, $day, FALSE);
+			}
+
+		}
+
+
+		//roosevelt works 8 to 12 every day
+		$days = array("mo", "tu", "we", "th", "fr");
+		$bottomhour = 8;
+		$tophour = 12;
+		foreach($days as $day)
+		{
+			for($i=$bottomhour;$i<=$tophour;$i++)
+			{
+				$this->Schedule_expert->add_hour(1, 8, $i."00", null, $day, FALSE);
 			}
 
 		}
