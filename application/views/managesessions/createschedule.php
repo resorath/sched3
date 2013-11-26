@@ -22,7 +22,9 @@
 					<?php if(isset($schedule[$columntime][$rowdate])) 
 						   {
 						   		foreach($schedule[$columntime][$rowdate] as $cell) { ?>
-									<div class="cell"><span class="cell-name cell-userid-<?= $cell->userid ?>"><?= $cell->realname ?></span></div>
+						   			<?php if($cell->userid > 0): ?>
+										<div class="cell"><span class="cell-name cell-userid-<?= $cell->userid ?>"><label><input type="checkbox"><?= $cell->realname ?></label></span></div>
+									<?php endif ?>
 								<?php } // end members of a timeslot "for" loop ?>
 					<?php } // end if ?>
 				</td>
@@ -49,6 +51,24 @@
 <script>
 	$(document).ready(function(){
 		$(".cell-userid-0").parent().parent().addClass("invalid-hour");
+
+		var colored = new Array();
+		$(".cell-name").hover(function(){
+			var similar = $(this).attr('class').split(' ');
+			var i = 0;
+			$('.' + similar[1]).each(function(i, obj) {
+			    $(obj).parent().parent().css('backgroundColor', 'lightGreen');
+			    colored[i++] = obj;
+			});
+		},
+		function(){
+			for(i = 0; i < colored.length; i++)
+			{
+				$(colored[i]).parent().parent().css('backgroundColor', 'white');
+			}
+			colored = new Array();
+
+		});
 
 	});
 
