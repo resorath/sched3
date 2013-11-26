@@ -86,11 +86,7 @@ class Managesessions extends MY_Controller {
 
 		$data['sessiondata'] = $this->Session_expert->get_session($session);
 
-		if($data['sessiondata']->scheduleType == "s")
-			$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
-		else
-			$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
-
+		$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
 
 		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
@@ -237,7 +233,7 @@ class Managesessions extends MY_Controller {
 
 		if(empty($scheduledata))
 			return NULL;
-		
+
 		foreach($scheduledata as $row)
 		{
 			// Handle a invalid hour cell

@@ -16,7 +16,8 @@
 				
 		<tr>
 			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
-				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
+				<?php if($sessiondata->scheduleType == "r") { $index = "dayindex"; } else  { $index = "unixdate"; } ?>
+				<?php foreach($toprow[$index] as $rowdate) { ?>
 				<td class="schedule-main-table-normal-cell" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
 					<?php if(isset($schedule[$columntime][$rowdate])) 
 						   {
