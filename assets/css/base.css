@@ -313,6 +313,10 @@ td.schedule-main-table-old-time-cell
 	background-color: #33FF33;
 }
 
+.tiny-name
+{
+	font-size: 10px;
+}
 
 .date-aligner
 {
@@ -343,6 +347,11 @@ td.schedule-main-table-old-time-cell
 .large-day
 {
 	font-size: 18px;
+}
+
+.cell-narrow
+{
+	margin-top: -12px;
 }
 
 

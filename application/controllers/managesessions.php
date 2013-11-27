@@ -86,11 +86,11 @@ class Managesessions extends MY_Controller {
 
 		$data['sessiondata'] = $this->Session_expert->get_session($session);
 
-		$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
+		$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate);
 
 		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
-		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount, $_SESSION['displayDate']);
+		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 		
 		$this->buildScheduleWithInvalids($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
 
@@ -104,7 +104,7 @@ class Managesessions extends MY_Controller {
 	public function buildScheduleWithAvailability(&$schedule, $sessionType, $sessionId)
 	{
 		// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
-		$scheduledata =$this->Schedule_expert->getCompiledAvailability($sessionId);
+		$scheduledata =$this->Schedule_expert->getCombinedAvailability($sessionId);
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
 		if(empty($scheduledata))
@@ -122,7 +122,11 @@ class Managesessions extends MY_Controller {
 				}
 				else
 				{
-					$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+					if($row['isScheduled'] == 0)
+						$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEAVAILABILITY);
+					else if($row['isScheduled'] == 1)
+						$schedule[$row['time']][$row['day']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+
 				}
 			}
 			else // static
@@ -135,7 +139,11 @@ class Managesessions extends MY_Controller {
 				}
 				else
 				{
-					$schedule[$row['time']][$row['date']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+					if($row['isScheduled'] == 0)
+						$schedule[$row['time']][$row['date']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEAVAILABILITY);
+					else if($row['isScheduled'] == 1)
+						$schedule[$row['time']][$row['date']][] = new models\Cell($userrelations[$row['userId']], $row['userId'], models\Cell::$CELLTYPEPERSON);
+
 				}
 
 			}

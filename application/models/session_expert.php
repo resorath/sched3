@@ -169,6 +169,27 @@ class Session_expert extends CI_Model
 
 	}
 
+	function buildHour($session, $time, $dayte, $user)
+	{
+		$hour = $this->Schedule_expert->getHourForUser($session, toTime($dayte, $time), $user);
+
+		if(count($hour) == 0)
+			return;
+
+		$this->Schedule_expert->schedule_hour($hour[0]['id']);
+
+	}
+
+	function unbuildHour($session, $time, $dayte, $user)
+	{
+		$hour = $this->Schedule_expert->getHourForUser($session, toTime($dayte, $time), $user);
+		if(count($hour) == 0)
+			return;
+
+		$this->Schedule_expert->unschedule_hour($hour[0]['id']);
+
+	}
+
 
 
 }

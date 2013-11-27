@@ -214,6 +214,18 @@ class Schedule_expert extends CI_Model
 		$this->db->query($sql, array($hourId));
 	}
 
+	function schedule_hour($hourId)
+	{
+		$sql = "UPDATE `hour` SET `isScheduled` = '1' WHERE `id` = ?";
+		$this->db->query($sql, array($hourId));
+	}
+
+	function unschedule_hour($hourId)
+	{
+		$sql = "UPDATE `hour` SET `isScheduled` = '1' WHERE `id` = ?";
+		$this->db->query($sql, array($hourId));
+	}
+
 	// hourcode = HHMM, timecode = unix time for day only
 	function delete_hour_exceptions($sessionId, $hourcode, $timecode)
 	{
@@ -305,6 +317,17 @@ class Schedule_expert extends CI_Model
 	function getCompiledAvailability($sessionId)
 	{		
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isScheduled` = '0' AND `isException` = '0'";
+		$result = $this->db->query($sql, array($sessionId));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+		return null;
+	}
+
+	function getCombinedAvailability($sessionId)
+	{		
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isException` = '0'";
 		$result = $this->db->query($sql, array($sessionId));
 		if($result->num_rows() > 0)
 		{

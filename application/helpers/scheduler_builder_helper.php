@@ -2,9 +2,12 @@
 
 
 
-function buildTopRow($sessionType, $startDate, $endDate, $displayDate)
+function buildTopRow($sessionType, $startDate, $endDate, $displayDate = null)
 {		
 	$ci=& get_instance();
+
+	if($displayDate == null)
+		$displayDate = now();
 
 	/* first we need to know the schedule type
 		r = repeating weekly
@@ -117,10 +120,13 @@ function buildFirstColumns($startTime, $endTime, $timeIncrementAmount)
 	return $returnVal;
 }
 
-function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $displayDate)
+function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $endTime, $timeIncrementAmount, $displayDate = null)
 {	
 	// index[i,j] = members: objects(name, userid, celltype, $date, shiftData?)
 	$returnVal = array();
+
+	if($displayDate == null)
+		$displayDate = now();
 
 	if($sessionType == "s")
 	{
@@ -168,6 +174,26 @@ function realTime($date, $time)
 
 }
 
+// takes a day (mo, tu, etc) and time (hhmm) and converts it to a relative unix timestamp
+function virtualTime($day, $time)
+{
+	$timeparsed = addColonToTime($time);
+	$dateparsed = date("Y-m-d", strtotime(DMap($day)));
+
+	$rval = strtotime($dateparsed . " " . $timeparsed);
+	
+	return $rval;
+}
+
+function toTime($dayte, $time)
+{
+	if(is_numeric($dayte)) // unix date
+		return realTime($dayte, $time);
+	else // relative day
+		return virtualTime($dayte, $time);
+
+}
+
 function addColonToTime($time)
 {
 	return strrev(substr(strrev($time), 0, 2) . ":" . substr(strrev($time), 2));
@@ -178,8 +204,34 @@ function removeColonFromTime($time)
 	return str_replace(":", "", $time);
 }
 
+// converts a datestamp to a two character day
 function DChop($date)
 {
 	return substr(strtolower(date("D", $date)), 0, 2);
 
 }
+
+// Converts a two character day to a full day
+function DMap($da)
+{
+	switch($da)
+	{
+		case "mo":
+			return "Monday";
+		case "tu":
+			return "Tuesday";
+		case "we":
+			return "Wednesday";
+		case "th":
+			return "Thursday";
+		case "fr":
+			return "Friday";
+		case "sa":
+			return "Saturday";
+		case "su":
+			return "Sunday";
+		default:
+			return null;
+	}
+}
+

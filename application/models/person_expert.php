@@ -63,6 +63,24 @@ class Person_expert extends CI_Model
 		return "";
 	}
 
+	function getPeopleAsCellFormatInitials()
+	{
+		$sql = "SELECT `id`, `firstName`, `lastName` FROM `user`";
+		$result = $this->db->query($sql);
+		if($result->num_rows() > 0)
+		{
+			$rdata = $result->result_array();
+
+			foreach($rdata as $pdata)
+			{
+				$returnVal[$pdata['id']] = substr($pdata['firstName'], 0, 1) . substr($pdata['lastName'], 0, 1);
+			}
+
+			return $returnVal;
+		}
+		return "";
+	}
+
 	function getPrimaryGroup($userid)
 	{
 		$sql = "SELECT `groupId` FROM `userGroup` WHERE `userId` = ? AND `isPrimary` = ?";
