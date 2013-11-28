@@ -398,6 +398,32 @@ td.schedule-main-table-old-time-cell
 	padding-top: 40px;
 }
 
+.stuckrightdisplay
+{
+	position: absolute;
+	right: 0px;
+	top: 100px;
+	width: 200px;
+	padding: 5px 5px 5px 5px;
+	font-size: 12px;
+	text-align: left;
+	border-bottom-right-radius: 0px;
+	border-top-right-radius: 0px;
+}
+
+.bold
+{
+	font-weight: bold;
+}
+
+@media all and (max-width: 1250px)
+{
+	.stuckrightdisplay
+	{
+		display: none;
+	}
+}
+
 .tutbg img
 {
 	max-width: 100%;

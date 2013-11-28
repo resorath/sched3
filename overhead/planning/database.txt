@@ -64,3 +64,13 @@ controllerRole
 - id
 - controllerName
 - roleId
+
+auditlog
+- id
+- table
+- key
+- oldvalue
+- newvalue
+- userid
+- sessionid
+- datestamp

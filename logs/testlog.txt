@@ -88,3 +88,4 @@
 2013-11-25 20:11:48 [DEBUG] (schedule) saving destination to schedule
 2013-11-26 18:11:47 [DEBUG] (schedule) saving destination to schedule
 2013-11-26 19:11:43 [DEBUG] (managesessions) saving destination to managesessions
+2013-11-27 20:11:16 [DEBUG] (schedule) saving destination to schedule

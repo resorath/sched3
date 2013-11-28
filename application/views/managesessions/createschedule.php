@@ -55,15 +55,30 @@
 
 </div>
 
+<div class="stuckrightdisplay well">
+	<p><strong>Total Hours</strong></p>
+	<p style="margin-top: -17px;"><small>Scheduled and Available</small></p>
+	<table class="table table-striped table-bordered table-condensed">
+		<tbody>
+			<?php foreach($users as $userid => $fullname): ?>		
+			<tr class="totalhoursrow" data-userid="<?=$userid ?>"><td><?=$fullname ?></td><td><?=$totalhours['scheduled'][$userid] ?></td><td><?=$totalhours['available'][$userid] ?></td>
+			<?php endforeach ?>
+		</tbody>
+	</table>
+</div>
+
 <script>
 	$(document).ready(function(){
 		$(".cell-userid-0").parent().parent().addClass("invalid-hour");
 
 		var colored = new Array();
 		var coloredcb = new Array();
+		var activeuser = -1;
 		$(".cell-name").hover(function(){
 			var similar = $(this).attr('class').split(' ');
 			var i = 0;
+			activeuser = similar[1].split('-')[2];
+			$('.totalhoursrow[data-userid="'+ activeuser +'"').addClass('success bold');
 			$('.' + similar[1]).each(function(i, obj) {
 			    $(obj).parent().parent().css('backgroundColor', 'lightGreen');
 			    colored[i++] = obj;
@@ -75,6 +90,7 @@
 			});
 		},
 		function(){
+			$('.totalhoursrow[data-userid="'+ activeuser +'"').removeClass('success bold');
 			for(i = 0; i < colored.length; i++)
 			{
 				$(colored[i]).parent().parent().css('backgroundColor', 'white');

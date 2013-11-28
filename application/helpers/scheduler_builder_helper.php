@@ -162,6 +162,65 @@ function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $e
 
 }
 
+/* Get users bound to this session with their full name
+ * return value:
+ * $returnval[USERID] = fullname
+ */
+function getScheduledUsers($session)
+{
+	$ci=& get_instance();
+
+	$users = $ci->Person_expert->getPeopleWorkingSession($session);
+
+	$returnval = array();
+
+	foreach($users as $user)
+	{
+		$returnval[$user['id']] = $user['firstName'] . " " . $user['lastName'];
+	}
+
+	return $returnval;
+
+
+}
+
+
+/* Gets total hours as a session
+ * return value:
+ * $returnval['scheduled'][USERID] = total scheduled hours
+ * $returnval['available'][USERID] = total available hours
+ */ 
+function getTotalHours($session)
+{
+	$ci=& get_instance();
+
+	$hours = $ci->Schedule_expert->getCombinedAvailability($session);
+
+	$returnval = array();
+
+	// This is going to save us on database lookups
+	foreach($hours as $hour)
+	{
+		if($hour['isScheduled'] == 1)
+		{
+			if(isset($returnval['scheduled'][$hour['userId']]))
+				$returnval['scheduled'][$hour['userId']]++;
+			else
+				$returnval['scheduled'][$hour['userId']] = 1;
+		}
+
+		if(isset($returnval['available'][$hour['userId']]))
+			$returnval['available'][$hour['userId']]++;
+		else
+			$returnval['available'][$hour['userId']] = 1;
+
+	}
+
+	return $returnval;
+
+
+}
+
 // takes a date(unix timestamp) and time (hhmm) and converts to unix timestamp
 function realTime($date, $time)
 {

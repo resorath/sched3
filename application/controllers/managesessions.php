@@ -92,6 +92,10 @@ class Managesessions extends MY_Controller {
 
 		$data['schedule'] = buildInitialSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 		
+		$data['totalhours'] = getTotalHours($session);
+
+		$data['users'] = getScheduledUsers($session);
+
 		$this->buildScheduleWithInvalids($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
 
 		$this->buildScheduleWithAvailability($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
