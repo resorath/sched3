@@ -118,6 +118,8 @@
 				scheduled.html(parseInt(scheduled.html()) - 1);
 			}
 
+			hoverHightlightCells($(this).parent().parent());
+			
 		});
 
 	});
