@@ -61,7 +61,7 @@
 	<table class="table table-striped table-bordered table-condensed">
 		<tbody>
 			<?php foreach($users as $userid => $fullname): ?>		
-			<tr class="totalhoursrow" data-userid="<?=$userid ?>"><td><?=$fullname ?></td><td><?=$totalhours['scheduled'][$userid] ?></td><td><?=$totalhours['available'][$userid] ?></td>
+			<tr class="totalhoursrow" data-userid="<?=$userid ?>"><td><?=$fullname ?></td><td class="scheduledhours" data-userid="<?=$userid ?>"><?=$totalhours['scheduled'][$userid] ?></td><td class="availablehours" data-userid="<?=$userid ?>"><?=$totalhours['available'][$userid] ?></td>
 			<?php endforeach ?>
 		</tbody>
 	</table>
@@ -95,6 +95,7 @@
 
 
 		$('.cell-checkbox').click(function(){
+			var scheduled = $('.scheduledhours[data-userid="' + $(this).data('userid') + '"]');
 			if($(this).is(':checked'))
 			{
 				$.ajax({
@@ -102,6 +103,9 @@
 					url: config.base + "/formscapture/sessionBuildHour/<?=$sessiondata->id ?>/"+$(this).data("userid")+"/" + $(this).data("time") + "/" + $(this).data("date"),
 					dataType: "text"
 				});
+
+				var scheduled = $('.scheduledhours[data-userid="' + $(this).data('userid') + '"]');
+				scheduled.html(parseInt(scheduled.html()) + 1);
 
 			}
 			else
@@ -111,6 +115,7 @@
 					url: config.base + "/formscapture/sessionUnbuildHour/<?=$sessiondata->id ?>/"+$(this).data("userid")+"/" + $(this).data("time") + "/" + $(this).data("date"),
 					dataType: "text"
 				});
+				scheduled.html(parseInt(scheduled.html()) - 1);
 			}
 
 		});
