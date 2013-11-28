@@ -118,7 +118,6 @@ class Formscapture extends MY_Controller {
 		if($sessionId == null || $user == null || $time == null || $dayte == null)
 			return false;
 
-
 		$this->Session_expert->unbuildHour($sessionId, $time, $dayte, $user);
 	}
 }

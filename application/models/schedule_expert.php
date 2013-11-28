@@ -222,7 +222,7 @@ class Schedule_expert extends CI_Model
 
 	function unschedule_hour($hourId)
 	{
-		$sql = "UPDATE `hour` SET `isScheduled` = '1' WHERE `id` = ?";
+		$sql = "UPDATE `hour` SET `isScheduled` = '0' WHERE `id` = ?";
 		$this->db->query($sql, array($hourId));
 	}
 
