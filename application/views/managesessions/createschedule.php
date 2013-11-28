@@ -68,36 +68,31 @@
 </div>
 
 <script>
+	
+	var colored = new Array();
+	var coloredcb = new Array();
+	var activeuser = -1;
+
 	$(document).ready(function(){
 		$(".cell-userid-0").parent().parent().addClass("invalid-hour");
 
-		var colored = new Array();
-		var coloredcb = new Array();
-		var activeuser = -1;
-		$(".cell-name").hover(function(){
-			var similar = $(this).attr('class').split(' ');
-			var i = 0;
-			activeuser = similar[1].split('-')[2];
-			$('.totalhoursrow[data-userid="'+ activeuser +'"').addClass('success bold');
-			$('.' + similar[1]).each(function(i, obj) {
-			    $(obj).parent().parent().css('backgroundColor', 'lightGreen');
-			    colored[i++] = obj;
 
-			    if($(obj).find('input').is(':checked'))
-			    {
-			    	$(obj).parent().parent().css('backgroundColor', 'orangered');
-			    }
-			});
+		$(".cell-name").hover(function(){
+			hoverHightlightCells($(this));
 		},
 		function(){
-			$('.totalhoursrow[data-userid="'+ activeuser +'"').removeClass('success bold');
-			for(i = 0; i < colored.length; i++)
-			{
-				$(colored[i]).parent().parent().css('backgroundColor', 'white');
-			}
-			colored = new Array();
+			unhoverHighlightCells();
+		});
+
+		$(".totalhoursrow").hover(function(){
+			hoverHightlightCells($('.cell-userid-' + $(this).data('userid')))
+		},
+		function(){
+			unhoverHighlightCells();
 
 		});
+
+
 
 		$('.cell-checkbox').click(function(){
 			if($(this).is(':checked'))
@@ -121,6 +116,36 @@
 		});
 
 	});
+
+	function hoverHightlightCells(hovertarget)
+	{
+
+		var similar = hovertarget.attr('class').split(' ');
+		var i = 0;
+		activeuser = similar[1].split('-')[2];
+		$('.totalhoursrow[data-userid="'+ activeuser +'"').addClass('success bold');
+		$('.' + similar[1]).each(function(i, obj) {
+		    $(obj).parent().parent().css('backgroundColor', 'lightGreen');
+		    colored[i++] = obj;
+
+		    if($(obj).find('input').is(':checked'))
+		    {
+		    	$(obj).parent().parent().css('backgroundColor', 'orangered');
+		    }
+		});
+	}
+
+	function unhoverHighlightCells()
+	{
+		$('.totalhoursrow[data-userid="'+ activeuser +'"').removeClass('success bold');
+		for(i = 0; i < colored.length; i++)
+		{
+			$(colored[i]).parent().parent().css('backgroundColor', 'white');
+		}
+		colored = new Array();
+
+
+	}
 
 
 </script>
