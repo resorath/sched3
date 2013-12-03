@@ -78,6 +78,17 @@
 
 </div>
 
+<?php if(@count($exceptions) > 0): ?>
+<div class="exceptionscontainer">
+	<p>Special Holiday Hours</p>
+	<?php foreach($exceptions as $exception): ?>
+		<div class="cell"><span class="cell-name cell-<?=($exception['scheduled']?"un":""); ?>available-clickable"><?=date("l, F jS Y h:i A", $exception['date']) ?></span></div>
+	
+	<?php endforeach ?>
+</div>
+
+<?php endif ?>
+
 <script>
 	$(document).ready(function(){
 
