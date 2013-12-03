@@ -86,7 +86,10 @@ class Formscapture extends MY_Controller {
 		if(!user_has_role("ISSUPER") && $uid != $_SESSION['userid'])
 			return false;
 
-		$this->Schedule_expert->userAddAvailability($sid, $uid, $tid);
+		if($tid[0] == "e")
+			$this->Schedule_expert->userAddAvailabilityException($sid, $uid, substr($tid, 1));
+		else
+			$this->Schedule_expert->userAddAvailability($sid, $uid, $tid);
 
 	}
 
@@ -95,7 +98,10 @@ class Formscapture extends MY_Controller {
 		if(!user_has_role("ISSUPER") && $uid != $_SESSION['userid'])
 			return false;
 
-		$this->Schedule_expert->userRemoveAvailability($sid, $uid, $tid);
+		if($tid[0] == "e")
+			$this->Schedule_expert->userRemoveAvailabilityException($sid, $uid, substr($tid, 1));
+		else
+			$this->Schedule_expert->userRemoveAvailability($sid, $uid, $tid);
 
 	}
 

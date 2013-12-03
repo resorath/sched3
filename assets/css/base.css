@@ -52,6 +52,29 @@ a:hover
 	width: 50px;
 }
 
+.exceptionscontainer
+{
+	margin: 30px auto 10px auto;
+	padding: 00px 10px 10px 10px;
+	border: 8px groove pink;
+	width: 700px;
+}
+
+.exceptionscontainer > h2
+{
+	font-size: 20px;
+}
+
+.exceptioncell
+{
+	background-position: 0 -30px !important;
+}
+
+.exceptioncelldiv
+{
+	
+}
+
 
 /*********************DATETAGS******************/
 .datetag {

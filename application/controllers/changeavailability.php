@@ -46,14 +46,17 @@ class Changeavailability extends MY_Controller {
 			$returnval[$i]['date'] = $exception['time'];
 			$returnval[$i]['scheduled'] = false;
 
-			foreach($userexceptions as $userexception)
+			if(count($userexceptions) > 0)
 			{
-				if($exception['time'] == toTime($userexception['date'], $userexception['time']))
+				foreach($userexceptions as $userexception)
 				{
-					$returnval[$i]['scheduled'] = true;
-					break;
-				}
+					if($exception['time'] == toTime($userexception['date'], $userexception['time']))
+					{
+						$returnval[$i]['scheduled'] = true;
+						break;
+					}
 
+				}
 			}
 
 

@@ -289,7 +289,7 @@ class Schedule_expert extends CI_Model
 		return null;
 	}
 
-	function getHourForUser($sessionId, $timestamp, $userId)
+	function getHourForUser($sessionId, $timestamp, $userId, $isException = false)
 	{
 		$startofday = strtotime(date("Y-m-d", $timestamp));
 		$hourofday = date("Gi", $timestamp);
@@ -302,10 +302,15 @@ class Schedule_expert extends CI_Model
 			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `date` = ? AND `userId` = ?";
 			$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $userId));
 		}
-		else // repeating
+		else if($sessionType == "r" && !$isException) // repeating
 		{
-			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `day` = ? AND `userId` = ?";
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `day` = ? AND `userId` = ? AND `isException` = 0";
 			$result = $this->db->query($sql, array($sessionId, $hourofday, $dayofweek, $userId));
+		}
+		else // repeating w/ exceptions
+		{
+			$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `time` = ? AND `date` = ? AND `userId` = ? AND `isException` = 1";
+			$result = $this->db->query($sql, array($sessionId, $hourofday, $startofday, $userId));
 		}
 		
 		if($result->num_rows() > 0)
@@ -358,6 +363,19 @@ class Schedule_expert extends CI_Model
 		}
 	}
 
+	function userRemoveAvailabilityException($session, $user, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user, true);
+
+		if(count($hours) == 0)
+			return;
+		
+		foreach($hours as $hour)
+		{
+			$this->Schedule_expert->delete_hour($hour['id']);
+		}
+	}
+
 	function userAddAvailability($session, $user, $hour)
 	{
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user);
@@ -370,6 +388,22 @@ class Schedule_expert extends CI_Model
 		$dayofweek = DChop($startofday);
 
 		$this->Schedule_expert->add_hour($session, $user, $hourofday, $startofday, $dayofweek, 0, 0);
+
+	}
+
+
+	function userAddAvailabilityException($session, $user, $hour)
+	{
+		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user, true);
+		
+		if(count($hours) > 0)
+			return;
+
+		$startofday = strtotime(date("Y-m-d", $hour));
+		$hourofday = date("Gi", $hour);
+		$dayofweek = DChop($startofday);
+
+		$this->Schedule_expert->add_hour($session, $user, $hourofday, $startofday, $dayofweek, 0, 1);
 
 	}
 

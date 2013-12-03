@@ -80,9 +80,14 @@
 
 <?php if(@count($exceptions) > 0): ?>
 <div class="exceptionscontainer">
-	<p>Special Holiday Hours</p>
+	<h2>Special Holiday Hours</h2>
+	<p>These hours are an exception to the above schedule. Please select if you can work these hours.
 	<?php foreach($exceptions as $exception): ?>
-		<div class="cell"><span class="cell-name cell-<?=($exception['scheduled']?"un":""); ?>available-clickable"><?=date("l, F jS Y h:i A", $exception['date']) ?></span></div>
+		<div class="cell">
+			<span id="e<?=$exception['date'] ?>" class="btn exceptioncell <?=($exception['scheduled']?"available-hour":"") ?> cell-name cell-<?=($exception['scheduled']?"":"un"); ?>available-clickable">
+				<?=date("l, F jS Y h:i A", $exception['date']) ?>
+			</span>
+		</div>
 	
 	<?php endforeach ?>
 </div>
