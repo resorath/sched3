@@ -33,7 +33,7 @@ class Person_expert extends CI_Model
 
 	function getPeopleWorkingSession($session)
 	{
-		$sql = "SELECT DISTINCT `user`.`id`, `user`.`firstName`, `user`.`lastName` FROM `user` LEFT JOIN `hour` ON `user`.`id` = `hour`.`userId` WHERE `hour`.`sessionid` = ? AND `hour`.`isException` = 0";
+		$sql = "SELECT DISTINCT `user`.`id`, `user`.`firstName`, `user`.`lastName` FROM `user` LEFT JOIN `hour` ON `user`.`id` = `hour`.`userId` WHERE `hour`.`sessionid` = ?";
 		$result = $this->db->query($sql, array($session));
 
 		if($result->num_rows() > 0)

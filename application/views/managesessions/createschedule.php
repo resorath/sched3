@@ -58,16 +58,21 @@
 <?php if(@count($exceptions) > 0): ?>
 <div class="exceptionscontainer">
 	<h2>Special Holiday Hours</h2>
-	<p>These hours are an exception to the above schedule. Please select if you can work these hours.
-	<?php foreach($exceptions as $exception): ?>
+	<?php foreach($exceptions as $time => $userarray): ?>
 		<div class="cell">
-			<span id="e<?=$exception['date'] ?>" class="btn exceptioncell <?=($exception['scheduled']?"available-hour":"") ?> cell-name cell-<?=($exception['scheduled']?"":"un"); ?>available-clickable">
-				<?=date("l, F jS Y h:i A", $exception['date']) ?>
+			<span class="cell-name">
+				<p><?=$time ?></p>
+				<?php foreach($userarray as $userid => $isscheduled): ?>
+				<label class="tiny-name">
+					<input type="checkbox" data-time="<?=$columntime ?>" data-date="<?=$rowdate ?>" data-userid="<?= $cell->userid ?>" class="cell-checkbox cell-checkbox-corrid-<?= $cell->userid ?>" <?php if($isscheduled) { echo("checked"); } ?>> <?=$users[$userid] ?>
+				</label>
+				<?php endforeach ?>
 			</span>
 		</div>
-	
 	<?php endforeach ?>
 </div>
+
+<!-- TODO: BUILD EXCEPTION HOURS -->
 
 <?php endif ?>
 
@@ -79,8 +84,8 @@
 			<?php foreach($users as $userid => $fullname): ?>		
 			<tr class="totalhoursrow" data-userid="<?=$userid ?>">
 				<td><?=$fullname ?></td>
-				<td class="scheduledhours" data-userid="<?=$userid ?>"><?=$totalhours['scheduled'][$userid] ?></td>
-				<td class="availablehours" data-userid="<?=$userid ?>"><?=$totalhours['available'][$userid] ?></td>
+				<td class="scheduledhours" data-userid="<?=$userid ?>"><?=@$totalhours['scheduled'][$userid] ?></td>
+				<td class="availablehours" data-userid="<?=$userid ?>"><?=@$totalhours['available'][$userid] ?></td>
 			</tr>
 			<?php endforeach ?>
 		</tbody>
