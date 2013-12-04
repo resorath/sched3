@@ -96,6 +96,9 @@ class Managesessions extends MY_Controller {
 
 		$data['users'] = getScheduledUsers($session);
 
+		if($data['sessiondata']->scheduleType == "r")
+			$data['exceptions'] = buildExceptionsAllUsers($this->Schedule_expert->get_exception_hours($session), $this->Schedule_expert->get_exception_time_including_availability($session));
+
 		$this->buildScheduleWithInvalids($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);
 
 		$this->buildScheduleWithAvailability($data['schedule'], $data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['userid']);

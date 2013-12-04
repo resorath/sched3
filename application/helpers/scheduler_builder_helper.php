@@ -162,6 +162,71 @@ function buildInitialSchedule($sessionType, $startDate, $endDate, $startTime, $e
 
 }
 
+function buildExceptions($availableexceptions, $userexceptions)
+{
+	$returnval = array();
+
+
+	$i = 0;
+	foreach($availableexceptions as $exception)
+	{
+		$returnval[$i]['date'] = $exception['time'];
+		$returnval[$i]['scheduled'] = false;
+
+		if(count($userexceptions) > 0)
+		{
+			foreach($userexceptions as $userexception)
+			{
+				if($exception['time'] == toTime($userexception['date'], $userexception['time']))
+				{
+					$returnval[$i]['scheduled'] = true;
+					break;
+				}
+
+			}
+		}
+
+
+		$i++;
+	}
+
+
+	return $returnval;
+
+}
+
+function buildExceptionsAllUsers($availableexceptions, $userexceptions)
+{
+	$returnval = array();
+
+	$i = 0;
+	foreach($availableexceptions as $exception)
+	{
+		$returnval[$exception['time']] = array();
+
+		if(count($userexceptions) > 0)
+		{
+			foreach($userexceptions as $userexception)
+			{
+				if($exception['time'] == toTime($userexception['date'], $userexception['time']))
+				{
+					$returnval[$exception['time']][$userexception['userId']] = $userexception['isScheduled'];
+				}
+
+			}
+		}
+
+
+		$i++;
+	}
+
+	print_r($returnval);
+
+
+	return $returnval;
+
+}
+
 /* Get users bound to this session with their full name
  * return value:
  * $returnval[USERID] = fullname
@@ -185,6 +250,8 @@ function getScheduledUsers($session)
 }
 
 
+
+
 /* Gets total hours as a session
  * return value:
  * $returnval['scheduled'][USERID] = total scheduled hours
@@ -201,6 +268,7 @@ function getTotalHours($session)
 	// This is going to save us on database lookups
 	foreach($hours as $hour)
 	{
+		// Count scheduled
 		if($hour['isScheduled'] == 1)
 		{
 			if(isset($returnval['scheduled'][$hour['userId']]))
@@ -208,12 +276,13 @@ function getTotalHours($session)
 			else
 				$returnval['scheduled'][$hour['userId']] = 1;
 		}
-		else
+		else // Nil non scheduled
 		{
 			if(!isset($returnval['scheduled'][$hour['userId']]))
 				$returnval['scheduled'][$hour['userId']] = 0;
 		}
 
+		// Count available
 		if(isset($returnval['available'][$hour['userId']]))
 			$returnval['available'][$hour['userId']]++;
 		else

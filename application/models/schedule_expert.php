@@ -115,6 +115,18 @@ class Schedule_expert extends CI_Model
 		return null;
 	}
 
+	function get_exception_time_including_availability($sessionId)
+	{
+		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isException` = ? AND `userId` > 0";
+		$result = $this->db->query($sql, array($sessionId, 1));
+		if($result->num_rows() > 0)
+		{
+			return $result->result_array();
+		}
+
+		return null;
+	}
+
 	function get_exception_time_including_availability_for_user($sessionId, $userid)
 	{
 		$sql = "SELECT * FROM `hour` WHERE `sessionId` = ? AND `isException` = ? AND `userId` = ?";

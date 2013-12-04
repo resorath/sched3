@@ -19,7 +19,7 @@ class Changeavailability extends MY_Controller {
 		else
 		{
 			$data['toprow'] = buildTopRowFreeWeek($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
-			$data['exceptions'] = $this->buildExceptions($this->Schedule_expert->get_exception_hours($session), $this->Schedule_expert->get_exception_time_including_availability_for_user($session, $_SESSION['userid']));
+			$data['exceptions'] = buildExceptions($this->Schedule_expert->get_exception_hours($session), $this->Schedule_expert->get_exception_time_including_availability_for_user($session, $_SESSION['userid']));
 		
 		}
 
@@ -35,38 +35,6 @@ class Changeavailability extends MY_Controller {
 		
 	}
 
-	public function buildExceptions($availableexceptions, $userexceptions)
-	{
-		$returnval = array();
-
-
-		$i = 0;
-		foreach($availableexceptions as $exception)
-		{
-			$returnval[$i]['date'] = $exception['time'];
-			$returnval[$i]['scheduled'] = false;
-
-			if(count($userexceptions) > 0)
-			{
-				foreach($userexceptions as $userexception)
-				{
-					if($exception['time'] == toTime($userexception['date'], $userexception['time']))
-					{
-						$returnval[$i]['scheduled'] = true;
-						break;
-					}
-
-				}
-			}
-
-
-			$i++;
-		}
-
-
-		return $returnval;
-
-	}
 
 	public function changesession($sessionid)
 	{
