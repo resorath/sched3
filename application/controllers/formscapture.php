@@ -99,9 +99,22 @@ class Formscapture extends MY_Controller {
 			return false;
 
 		if($tid[0] == "e")
-			$this->Schedule_expert->userRemoveAvailabilityException($sid, $uid, substr($tid, 1));
+		{
+			if(!$this->Schedule_expert->userRemoveAvailabilityException($sid, $uid, substr($tid, 1)))
+			{
+				echo "scheduled";
+				return;
+			}
+		}
 		else
-			$this->Schedule_expert->userRemoveAvailability($sid, $uid, $tid);
+		{
+			if(!$this->Schedule_expert->userRemoveAvailability($sid, $uid, $tid))
+			{
+				echo "scheduled";
+				return;
+			}
+		}
+		echo "cleared";
 
 	}
 

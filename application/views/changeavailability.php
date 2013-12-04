@@ -112,11 +112,22 @@
 		$("body").on("click", ".cell-available-clickable", function(){
 			$(this).removeClass("available-hour cell-available-clickable");	
 			$(this).addClass("cell-unavailable-clickable");
-			$.ajax({
+			var _this = $(this);
+			$.get(config.base + "/formscapture/userRemoveAvailability/<?=$sessiondata->id ?>/<?=$_SESSION['userid'] ?>/" + $(this).attr("id"), function(data){
+				if(data == "scheduled")
+				{
+					_this.removeClass("cell-unavailable-clickable");
+					_this.addClass("available-hour cell-available-clickable");	
+
+					notify("Sorry, you can not remove availability for hours you are scheduled for.", "error");
+				}
+
+			});
+			/*$.ajax({
 				type: "GET",
 				url: config.base + "/formscapture/userRemoveAvailability/<?=$sessiondata->id ?>/<?=$_SESSION['userid'] ?>/" + $(this).attr("id"),
 				dataType: "text"
-			});
+			});*/
 
 		});
 

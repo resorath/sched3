@@ -356,11 +356,19 @@ class Schedule_expert extends CI_Model
 	function userRemoveAvailability($session, $user, $hour)
 	{
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user);
-		
+
+		if(count($hours) == 0)
+			return false;
+
 		foreach($hours as $hour)
 		{
-			$this->Schedule_expert->delete_hour($hour['id']);
+			if($hour['isScheduled'] == 0) // only unschedule hours that aren't scheduled
+				$this->Schedule_expert->delete_hour($hour['id']);
+			else
+				return false;
 		}
+
+		return true;
 	}
 
 	function userRemoveAvailabilityException($session, $user, $hour)
@@ -368,12 +376,17 @@ class Schedule_expert extends CI_Model
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user, true);
 
 		if(count($hours) == 0)
-			return;
+			return false;
 		
 		foreach($hours as $hour)
 		{
-			$this->Schedule_expert->delete_hour($hour['id']);
+			if($hour['isScheduled'] == 0) // only unschedule hours that aren't scheduled
+				$this->Schedule_expert->delete_hour($hour['id']);
+			else
+				return false;
 		}
+
+		return true;
 	}
 
 	function userAddAvailability($session, $user, $hour)
@@ -381,7 +394,7 @@ class Schedule_expert extends CI_Model
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user);
 		
 		if(count($hours) > 0)
-			return;
+			return false;
 
 		$startofday = strtotime(date("Y-m-d", $hour));
 		$hourofday = date("Gi", $hour);
@@ -389,6 +402,7 @@ class Schedule_expert extends CI_Model
 
 		$this->Schedule_expert->add_hour($session, $user, $hourofday, $startofday, $dayofweek, 0, 0);
 
+		return true;
 	}
 
 
@@ -397,14 +411,14 @@ class Schedule_expert extends CI_Model
 		$hours = $this->Schedule_expert->getHourForUser($session, $hour, $user, true);
 		
 		if(count($hours) > 0)
-			return;
-
+			return false;
 		$startofday = strtotime(date("Y-m-d", $hour));
 		$hourofday = date("Gi", $hour);
 		$dayofweek = DChop($startofday);
 
 		$this->Schedule_expert->add_hour($session, $user, $hourofday, $startofday, $dayofweek, 0, 1);
 
+		return true;
 	}
 
 }

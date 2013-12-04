@@ -91,3 +91,4 @@
 2013-11-27 20:11:16 [DEBUG] (schedule) saving destination to schedule
 2013-12-02 20:12:18 [DEBUG] (schedule) saving destination to schedule
 2013-12-02 21:12:47 [DEBUG] (changeavailability) saving destination to changeavailability
+2013-12-03 21:12:27 [DEBUG] (schedule) saving destination to schedule
