@@ -362,7 +362,7 @@ class Schedule_expert extends CI_Model
 
 		foreach($hours as $hour)
 		{
-			if($hour['isScheduled'] == 0) // only unschedule hours that aren't scheduled
+			if($hour['isScheduled'] == 0) // only unavailable hours that aren't scheduled
 				$this->Schedule_expert->delete_hour($hour['id']);
 			else
 				return false;
@@ -380,7 +380,7 @@ class Schedule_expert extends CI_Model
 		
 		foreach($hours as $hour)
 		{
-			if($hour['isScheduled'] == 0) // only unschedule hours that aren't scheduled
+			if($hour['isScheduled'] == 0) // only unavailable hours that aren't scheduled
 				$this->Schedule_expert->delete_hour($hour['id']);
 			else
 				return false;

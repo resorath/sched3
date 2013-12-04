@@ -208,6 +208,11 @@ function getTotalHours($session)
 			else
 				$returnval['scheduled'][$hour['userId']] = 1;
 		}
+		else
+		{
+			if(!isset($returnval['scheduled'][$hour['userId']]))
+				$returnval['scheduled'][$hour['userId']] = 0;
+		}
 
 		if(isset($returnval['available'][$hour['userId']]))
 			$returnval['available'][$hour['userId']]++;

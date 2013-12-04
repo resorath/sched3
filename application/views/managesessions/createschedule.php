@@ -61,7 +61,11 @@
 	<table class="table table-striped table-bordered table-condensed">
 		<tbody>
 			<?php foreach($users as $userid => $fullname): ?>		
-			<tr class="totalhoursrow" data-userid="<?=$userid ?>"><td><?=$fullname ?></td><td class="scheduledhours" data-userid="<?=$userid ?>"><?=$totalhours['scheduled'][$userid] ?></td><td class="availablehours" data-userid="<?=$userid ?>"><?=$totalhours['available'][$userid] ?></td>
+			<tr class="totalhoursrow" data-userid="<?=$userid ?>">
+				<td><?=$fullname ?></td>
+				<td class="scheduledhours" data-userid="<?=$userid ?>"><?=$totalhours['scheduled'][$userid] ?></td>
+				<td class="availablehours" data-userid="<?=$userid ?>"><?=$totalhours['available'][$userid] ?></td>
+			</tr>
 			<?php endforeach ?>
 		</tbody>
 	</table>
