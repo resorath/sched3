@@ -60,12 +60,14 @@
 	<h2>Special Holiday Hours</h2>
 	<?php foreach($exceptions as $time => $userarray): ?>
 		<div class="cell">
-			<span class="cell-name">
-				<p><?=$time ?></p>
+			<span>
+				<p><?=date("Y-m-d h:i", $time); ?></p>
 				<?php foreach($userarray as $userid => $isscheduled): ?>
-				<label class="tiny-name">
-					<input type="checkbox" data-time="<?=$columntime ?>" data-date="<?=$rowdate ?>" data-userid="<?= $cell->userid ?>" class="cell-checkbox cell-checkbox-corrid-<?= $cell->userid ?>" <?php if($isscheduled) { echo("checked"); } ?>> <?=$users[$userid] ?>
-				</label>
+				<span class="cell-name cell-userid-<?= $userid ?>">
+					<label class="tiny-name">
+						<input type="checkbox" data-time="<?=$columntime ?>" data-date="<?=$time ?>" data-userid="<?= $userid ?>" class="cell-exception cell-checkbox-corrid-<?= $cell->userid ?>" <?php if($isscheduled) { echo("checked"); } ?>> <?=$users[$userid] ?>
+					</label>
+				</span>
 				<?php endforeach ?>
 			</span>
 		</div>
@@ -118,7 +120,7 @@
 		});
 
 
-
+		// Normal Cells
 		$('.cell-checkbox').click(function(){
 			var scheduled = $('.scheduledhours[data-userid="' + $(this).data('userid') + '"]');
 			if($(this).is(':checked'))
@@ -138,6 +140,35 @@
 				$.ajax({
 					type: "GET",
 					url: config.base + "/formscapture/sessionUnbuildHour/<?=$sessiondata->id ?>/"+$(this).data("userid")+"/" + $(this).data("time") + "/" + $(this).data("date"),
+					dataType: "text"
+				});
+				scheduled.html(parseInt(scheduled.html()) - 1);
+			}
+
+			hoverHightlightCells($(this).parent().parent());
+			
+		});
+
+		// Holiday Cells
+		$('.cell-exception').click(function(){
+			var scheduled = $('.scheduledhours[data-userid="' + $(this).data('userid') + '"]');
+			if($(this).is(':checked'))
+			{
+				$.ajax({
+					type: "GET",
+					url: config.base + "/formscapture/sessionBuildHourException/<?=$sessiondata->id ?>/"+$(this).data("userid")+"/" + $(this).data("time") + "/" + $(this).data("date"),
+					dataType: "text"
+				});
+
+				var scheduled = $('.scheduledhours[data-userid="' + $(this).data('userid') + '"]');
+				scheduled.html(parseInt(scheduled.html()) + 1);
+
+			}
+			else
+			{
+				$.ajax({
+					type: "GET",
+					url: config.base + "/formscapture/sessionUnbuildHourException/<?=$sessiondata->id ?>/"+$(this).data("userid")+"/" + $(this).data("time") + "/" + $(this).data("date"),
 					dataType: "text"
 				});
 				scheduled.html(parseInt(scheduled.html()) - 1);

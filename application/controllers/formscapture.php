@@ -139,4 +139,27 @@ class Formscapture extends MY_Controller {
 
 		$this->Session_expert->unbuildHour($sessionId, $time, $dayte, $user);
 	}
+
+	public function sessionBuildHourException($sessionId, $user, $time, $dayte)
+	{
+		if(!user_has_role("CANCHANGESESSIONS"))
+			return false;
+
+		if($sessionId == null || $user == null || $time == null || $dayte == null)
+			return false;
+
+		$this->Session_expert->buildHour($sessionId, $time, $dayte, $user);
+	}
+
+	public function sessionUnbuildHourException($sessionId, $user, $time, $dayte)
+	{
+		if(!user_has_role("CANCHANGESESSIONS"))
+			return false;
+
+		if($sessionId == null || $user == null || $time == null || $dayte == null)
+			return false;
+
+		$this->Session_expert->unbuildHour($sessionId, $time, $dayte, $user);
+	}
+
 }
