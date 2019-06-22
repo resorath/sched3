@@ -39,7 +39,7 @@
 */
 
 $route['default_controller'] = "schedule";
-#$route['404_override'] = 'error/h404';
+$route['404_override'] = 'myerror/h404';
 
 
 /* End of file routes.php */

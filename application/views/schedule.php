@@ -47,7 +47,7 @@
     </div>
 </div>
 
-<?php if($schedule != NULL): ?>
+<?php if($schedule != NULL) ?>
 <div class="schedule-previous" id="schedule-previous">
 	<a href="<?=base_url("schedule/recedeWeek"); ?>"><i class="icon-chevron-left icon-2x"></i></a>
 </div>
@@ -56,7 +56,7 @@
 	<a href="<?=base_url("schedule/advanceWeek"); ?>"><i class="icon-chevron-right icon-2x"></i></a>
 
 </div>
-<? endif ?>
+<? endif; ?>
 
 <div class="schedule">
 

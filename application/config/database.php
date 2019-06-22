@@ -45,14 +45,14 @@
 | the active record class
 */
 
-$active_group = 'local';
-$active_record = TRUE;
+$active_group = 'default';
+$query_builder = TRUE;
 
 $db['default']['hostname'] = 'mysql.tophatandmonocle.com';
 $db['default']['username'] = 'sched3';
 $db['default']['password'] = '3sched';
 $db['default']['database'] = 'sched3';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbdriver'] = 'mysqli';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;
@@ -68,7 +68,7 @@ $db['local']['hostname'] = 'localhost';
 $db['local']['username'] = 'root';
 $db['local']['password'] = '';
 $db['local']['database'] = 'sched3';
-$db['local']['dbdriver'] = 'mysql';
+$db['local']['dbdriver'] = 'mysqli';
 $db['local']['dbprefix'] = '';
 $db['local']['pconnect'] = TRUE;
 $db['local']['db_debug'] = TRUE;
