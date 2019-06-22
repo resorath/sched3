@@ -432,7 +432,11 @@
 	"groups":
 	[
 		{
+<<<<<<< HEAD
 			"selected": 7,
+=======
+			"selected": 2,
+>>>>>>> f476e54eff6280b99ca795fee9909b1270c50245
 			"sheets":
 			[
 				{
@@ -501,8 +505,13 @@
 						"selection":
 						[
 							[
+<<<<<<< HEAD
 								4151,
 								4151
+=======
+								4135,
+								4092
+>>>>>>> f476e54eff6280b99ca795fee9909b1270c50245
 							]
 						],
 						"settings":
@@ -511,7 +520,11 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
+<<<<<<< HEAD
 						"translation.y": 922.0,
+=======
+						"translation.y": 1804.0,
+>>>>>>> f476e54eff6280b99ca795fee9909b1270c50245
 						"zoom_level": 1.0
 					},
 					"type": "text"
