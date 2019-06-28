@@ -1,0 +1,7 @@
+2019-06-22 12:06:55 [DEBUG] (schedule) saving destination to schedule
+2019-06-24 18:06:52 [DEBUG] (schedule) saving destination to schedule
+2019-06-24 18:06:54 [DEBUG] (undefined) saving destination to undefined
+2019-06-27 21:06:46 [DEBUG] (schedule) saving destination to schedule
+2019-06-27 21:06:47 [DEBUG] (undefined) saving destination to undefined
+2019-06-27 22:06:08 [DEBUG] (schedule) saving destination to schedule
+2019-06-27 22:06:09 [DEBUG] (undefined) saving destination to undefined
