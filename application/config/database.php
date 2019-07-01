@@ -45,7 +45,7 @@
 | the active record class
 */
 
-$active_group = 'default';
+$active_group = 'local';
 $query_builder = TRUE;
 
 $db['default']['hostname'] = 'mysql.tophatandmonocle.com';

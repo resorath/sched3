@@ -51,13 +51,16 @@
 </form>
 
 <!-- Modal -->
-<div id="addexceptionhourmodal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
-		<h3 id="myModalLabel">Add Exception Hours</h3>
-	</div>
-	<div class="modal-body">
-		<?=form_open('managesessions/createExceptionHour', array('id'=>'createexceptionhourform')) ?>
+
+<div id="addexceptionhourmodal" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Exception Hours</h4>
+      </div>
+      <div class="modal-body">
+	  <?=form_open('managesessions/createExceptionHour', array('id'=>'createexceptionhourform')) ?>
 		<input type="hidden" name="exceptiondate" id="exceptiondate" value="">
 		<input type="hidden" name="sessionid" id="sessionid" value="<?=$sessiondata->id ?>">
 		<?php
@@ -77,14 +80,15 @@
 				$i = $i + (3600 * $sessiondata->timeIncrementAmount);
 			}while($i < realTime(now(), $sessiondata->endTime));
 		?>
-	</div>
-	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+      <div class="modal-footer">
+	  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 		<button type="submit" class="btn btn-primary" id="createexceptionhours">Create</button>
-	</div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
-	</form>
-</div>
 
 <script>
 $(document).ready(function() {
@@ -108,7 +112,7 @@ $(document).ready(function() {
 			if(!alreadyexists)
 			{
 				$('#exceptiondate').val($('#holidaydateinput').val());
-				$('#addexceptionhourmodal').modal()
+				$('#addexceptionhourmodal').modal('show')
 			}
 		}
 

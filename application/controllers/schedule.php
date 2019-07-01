@@ -1,5 +1,4 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-
 class Schedule extends MY_Controller {
 
 	public function index()
@@ -39,7 +38,7 @@ class Schedule extends MY_Controller {
 		$data['firstcolumn'] = buildFirstColumns($data['sessiondata']->startTime, $data['sessiondata']->endTime, $data['sessiondata']->timeIncrementAmount);
 
 		// Creates the schedule object containing the schedule of hours
-		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id); // sessionId
+		$data['schedule'] = $this->buildSchedule($data['sessiondata']->scheduleType, $data['sessiondata']->id, $_SESSION['displayDate']); // sessionId
 
 		// Generates the list of available sessions for the dropdown
 		$data['availablesessions'] = $this->buildSessionTree($this->Session_expert->get_all_active_sessions_for_user($_SESSION['userid']));
@@ -54,10 +53,10 @@ class Schedule extends MY_Controller {
 		
 	}
 
-	public function buildSchedule($sessionType, $sessionId)
+	public function buildSchedule($sessionType, $sessionId, $displayDate)
 	{
 		// index[i,j] = members: objects(name, userid, celltype, shiftData?)
-		$scheduledata = $this->Schedule_expert->get_weekly_schedule($sessionType, $sessionId, $_SESSION['displayDate']);
+		$scheduledata = $this->Schedule_expert->get_weekly_schedule($sessionType, $sessionId, $displayDate);
 		$userrelations = $this->Person_expert->getPeopleAsCellFormat();
 
 		//$hello = new models\Cell("Sean");
