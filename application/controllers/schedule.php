@@ -28,6 +28,16 @@ class Schedule extends MY_Controller {
 			}
 		}
 
+		if($_SESSION['displayDate'] < $data['sessiondata']->startDate)
+		{
+			$_SESSION['displayDate'] = $data['sessiondata']->startDate;
+			if(time() < $data['sessiondata']->startDate)
+			{
+				$data['notify_message'] = "This session hasn't started.";
+				$data['notify_type'] = "error";
+			}
+		}
+
 		// set variables
 		$data['title'] = "Schedule";
 

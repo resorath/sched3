@@ -44,9 +44,9 @@ class Populatetestdata extends MY_Controller {
 	{
 		$this->Session_expert->truncate_sessions();
 
-		$this->Session_expert->add_session('Test Session Spring 2013', 'r', '1367388000', '1375336800', '800', '1700', '1', 1,  '1', '1', '0');
-		$this->Session_expert->add_session('Test Session Spring 2013 NR', 's', strtotime("July 1st, 2013"), strtotime("July 30th, 2013"), '800', '1700', '1', 1, '1', '0', '0');
-		$this->Session_expert->add_session('Cowbell Session Spring 2013 NR', 'r', '1367388000', '1375336800', '800', '1700', '1', 2, '1', '0', '0');
+		$this->Session_expert->add_session('Test Session Spring 2019', 'r', strtotime("May 1st, 2019"), strtotime("August 1st, 2019"), '800', '1700', '1', 1,  '1', '1', '0');
+		$this->Session_expert->add_session('Test Session Spring 2019 NR', 's', strtotime("July 1st, 2019"), strtotime("July 30th, 2019"), '800', '1700', '1', 1, '1', '0', '0');
+		$this->Session_expert->add_session('Cowbell Session Spring 2019 NR', 'r', strtotime("May 1st, 2013"), strtotime("August 1st, 2013"), '800', '1700', '1', 2, '1', '0', '0');
 	}
 
 	private function load_groups()
@@ -102,7 +102,7 @@ class Populatetestdata extends MY_Controller {
 	{
 		for($i=1; $i <= 30; $i++)
 		{
-			$datespre[] = "July $i, 2013";
+			$datespre[] = "July $i, 2019";
 		}
 
 		$dates = array_map("strtotime", $datespre);
@@ -122,7 +122,7 @@ class Populatetestdata extends MY_Controller {
 		$datespre = array();
 		for($i=25; $i <= 25; $i++)
 		{
-			$datespre[] = "July $i, 2013";
+			$datespre[] = "July $i, 2019";
 		}
 
 		$dates = array_map("strtotime", $datespre);
@@ -148,11 +148,11 @@ class Populatetestdata extends MY_Controller {
 		// Wed July 23 is a Holiday for some reason -  10 - 2
 		$bottomhour = 10;
 		$tophour = 14;
-		$date = strtotime("July 23, 2013");
+		$date = strtotime("July 23, 2019");
 		for($i=$bottomhour;$i<=$tophour;$i++)
 		{
 			// Exception hours
-			$this->Schedule_expert->add_exception_hour(1, strtotime("July 23, 2013 " . $i . ":00"));
+			$this->Schedule_expert->add_exception_hour(1, strtotime("July 23, 2019 " . $i . ":00"));
 		}
 
 		// Fill the rest with invalid exception hours
@@ -165,7 +165,7 @@ class Populatetestdata extends MY_Controller {
 		// Wed July 24 is a Holiday for some reason - no one
 		$bottomhour = 8;
 		$tophour = 16;
-		$date = strtotime("July 24, 2013");
+		$date = strtotime("July 24, 2019");
 		for($i=$bottomhour;$i<=$tophour;$i++)
 		{
 			// Exception hours
@@ -175,7 +175,7 @@ class Populatetestdata extends MY_Controller {
 		// Tues, July 23 only sean and nixon works exception 10 - 2
 		$bottomhour = 10;
 		$tophour = 14;
-		$date = strtotime("July 23, 2013");
+		$date = strtotime("July 23, 2019");
 		for($i=$bottomhour;$i<=$tophour;$i++)
 		{
 			// Exception hours
