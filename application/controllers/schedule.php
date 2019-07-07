@@ -15,28 +15,8 @@ class Schedule extends MY_Controller {
 			$data['sessiondata'] = $this->Session_expert->get_session($_SESSION['sessionId']);
 		}
 
-		if(!isset($_SESSION['displayDate']))
-			$_SESSION['displayDate'] = time();
-
-		if($_SESSION['displayDate'] > $data['sessiondata']->endDate)
-		{
-			$_SESSION['displayDate'] = $data['sessiondata']->endDate;
-			if(time() > $data['sessiondata']->endDate)
-			{
-				$data['notify_message'] = "This session has ended.";
-				$data['notify_type'] = "error";
-			}
-		}
-
-		if($_SESSION['displayDate'] < $data['sessiondata']->startDate)
-		{
-			$_SESSION['displayDate'] = $data['sessiondata']->startDate;
-			if(time() < $data['sessiondata']->startDate)
-			{
-				$data['notify_message'] = "This session hasn't started.";
-				$data['notify_type'] = "error";
-			}
-		}
+		// Check and modify "displayDate" session variable if its not set or out of range.
+		$this->checkSessionValidity($data);
 
 		// set variables
 		$data['title'] = "Schedule";
@@ -61,6 +41,33 @@ class Schedule extends MY_Controller {
 
 		$this->loadview('schedule', $data);
 		
+	}
+
+	public function checkSessionValidity(&$data)
+	{
+		if(!isset($_SESSION['displayDate']))
+			$_SESSION['displayDate'] = time();
+
+		if($_SESSION['displayDate'] > $data['sessiondata']->endDate)
+		{
+			$_SESSION['displayDate'] = $data['sessiondata']->endDate;
+			if(time() > $data['sessiondata']->endDate)
+			{
+				$data['notify_message'] = "This session has ended.";
+				$data['notify_type'] = "error";
+			}
+		}
+
+		if($_SESSION['displayDate'] < $data['sessiondata']->startDate)
+		{
+			$_SESSION['displayDate'] = $data['sessiondata']->startDate;
+			if(time() < $data['sessiondata']->startDate)
+			{
+				$data['notify_message'] = "This session hasn't started.";
+				$data['notify_type'] = "error";
+			}
+		}
+
 	}
 
 	public function buildSchedule($sessionType, $sessionId, $displayDate)
