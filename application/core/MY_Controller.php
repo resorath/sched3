@@ -54,7 +54,7 @@ class MY_Controller extends CI_Controller {
         {
             // Don't redirect the user to an error page just in principle
             // @todo possible @bug why would it do this?
-            if($this->_controller != "error")
+            if($this->_controller != "error" && $this->_controller != "undefined")
             {
                 $this->slogger->slog("saving destination to " . $this->_controller, SLOG_DEBUG);
                 $_SESSION['destination'] = $this->_controller;
