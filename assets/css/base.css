@@ -216,6 +216,40 @@ td.schedule-main-table-old-time-cell
 
 /******************* ENDS Schedule table *******************/
 
+/******************* Date navigation on schedule ***********/
+
+#date-select
+{
+	border: 2px solid #000000;
+	padding: 0px;
+}
+
+#date-select-current
+{
+	border: 1px solid #000000;
+	padding: 0px;
+}
+
+#date-select-previous
+{
+	border: 1px solid #000000;
+	padding: 0px;
+}
+
+#date-select-next
+{
+	border: 1px solid #000000;
+	padding: 0px;
+}
+
+#date-select-now
+{
+	border: 1px solid #000000;
+	padding: 0px;
+}
+
+
+/******************* ENDS navigation on schedule ***********/
 
 .date-aligner-large
 {

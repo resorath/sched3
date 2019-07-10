@@ -21,6 +21,9 @@ class Schedule extends MY_Controller {
 		// set variables
 		$data['title'] = "Schedule";
 
+		// Set date range of shown week
+		$data['daterange'] = $this->Schedule_expert->week_range($_SESSION['displayDate']);
+
 		// Build top schedule row
 		$data['toprow'] = buildTopRow($data['sessiondata']->scheduleType, $data['sessiondata']->startDate, $data['sessiondata']->endDate, $_SESSION['displayDate']);
 		

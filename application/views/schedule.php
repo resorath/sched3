@@ -1,47 +1,47 @@
 <div id="maincontent">
-<div class="headeradjuster">
-	<div class="header">
-		<h3><?=$sessiondata->title ?></h3>
-    	<div class="schedulecontrolicons-options">
-		    <div class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-list icon-large options-blacken"></i></a>
-			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			    	<li><a href="<?=base_url("schedule/today") ?>"><i class="icon-fixed-width icon-map-marker"></i> Jump to Today</a></li>
-			    	<li><a href="#" onClick="nyi()"><i class="icon-fixed-width icon-screenshot"></i> Jump to...</a></li>
-			    </ul>
-			</div>
-		</div>
-		<div class="schedulecontrolicons-changeschedule">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-calendar icon-large options-blacken"></i></a>
-			<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-				<?php
-				$i = 0;
-				foreach($availablesessions as $sessiongroupname => $sessiongroup) {
-					?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
-					foreach($sessiongroup as $sesgroupindex => $session)
-					{
-						?><li><a href="<?=base_url("schedule/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
-					}
-					if(++$i !== count($availablesessions))
-					{
-						?><li class="divider"></li><?php
-					}
+
+<div id="schedule-header">
+	<span id="schedule-name">
+		<?=$sessiondata->title ?>
+	</span>
+	<span id="date-select">
+		<span id="date-select-previous">P</span>
+		<span id="date-select-current">
+			<?=$daterange[0] ?> to <?=$daterange[1] ?>
+		</span>
+		<span id="date-select-now">T</span>
+		<span id="date-select-next">N</span>
+	</span>
+	<span id="change-schedule" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-calendar icon-large options-blacken"></i></a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<?php
+			$i = 0;
+			foreach($availablesessions as $sessiongroupname => $sessiongroup) {
+				?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
+				foreach($sessiongroup as $sesgroupindex => $session)
+				{
+					?><li><a href="<?=base_url("schedule/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
 				}
-				?>
-			</ul>
-		</div>
-		<div class="schedulecontrolicons-highlights">
-			<div class="dropdown">
-			    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-lightbulb icon-large bulb-yellow"></i></i></a>
-			    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			    	<li><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
-			    	<li><a href="#" onClick="highlightAvailableShifts()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
-			    	<li class="divider"></li>
-			    	<li><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
-			    </ul>
-			</div>
-    	</div>
-    </div>
+				if(++$i !== count($availablesessions))
+				{
+					?><li class="divider"></li><?php
+				}
+			}
+			?>
+		</ul>
+	</span>
+	<span id="highlight-mode" class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-lightbulb icon-large bulb-yellow"></i></i></a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+			<li><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
+			<li><a href="#" onClick="highlightAvailableShifts()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
+			<li class="divider"></li>
+			<li><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
+		</ul>
+	</span>
+
+
 </div>
 
 <?php if($schedule != NULL) ?>
