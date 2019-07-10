@@ -1,16 +1,18 @@
 <div id="maincontent">
 
+
+<?php if($schedule != NULL): ?>
 <div id="schedule-header">
 	<span id="schedule-name">
 		<?=$sessiondata->title ?>
 	</span>
 	<span id="date-select">
-		<span id="date-select-previous">P</span>
+		<span id="date-select-previous"><a href="<?=base_url("schedule/recedeWeek"); ?>">P</a></span>
 		<span id="date-select-current">
 			<?=$daterange[0] ?> to <?=$daterange[1] ?>
 		</span>
-		<span id="date-select-now">T</span>
-		<span id="date-select-next">N</span>
+		<span id="date-select-now"><a href="<?=base_url("schedule/today"); ?>">T</a></span>
+		<span id="date-select-next"><a href="<?=base_url("schedule/advanceWeek"); ?>">N</a></span>
 	</span>
 	<span id="change-schedule" class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-calendar icon-large options-blacken"></i></a>
@@ -43,17 +45,7 @@
 
 
 </div>
-
-<?php if($schedule != NULL) ?>
-<div class="schedule-previous" id="schedule-previous">
-	<a href="<?=base_url("schedule/recedeWeek"); ?>"><i class="icon-chevron-left icon-2x"></i></a>
-</div>
-
-<div class="schedule-next" id="schedule-next">
-	<a href="<?=base_url("schedule/advanceWeek"); ?>"><i class="icon-chevron-right icon-2x"></i></a>
-
-</div>
-<? endif; ?>
+<?php endif ?>
 
 <div class="schedule">
 
