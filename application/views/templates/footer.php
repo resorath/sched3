@@ -7,7 +7,7 @@
 				<a href="<?=base_url("populatetestdata") ?>">Reload database from test data</a>
 
 				<!-- Debugger -->
-				<?php if(user_has_role("DEBUGGER")): ?>
+				<?php if(user_has_role("DEBUGGER") && false): ?>
 					<br/>
 					<div class="well well-small" id="sessiondebug" style="text-align: left;">
 						<p><b>Session</b></p>
