@@ -7,12 +7,12 @@
 		<?=$sessiondata->title ?>
 	</span>
 	<span id="date-select">
-		<span id="date-select-previous"><a href="<?=base_url("schedule/recedeWeek"); ?>">P</a></span>
-		<span id="date-select-current">
+		<div id="date-select-previous" class="date-select-control"><a href="<?=base_url("schedule/recedeWeek"); ?>">P</a></div>
+		<div id="date-select-current">
 			<?=$daterange[0] ?> to <?=$daterange[1] ?>
-		</span>
-		<span id="date-select-now"><a href="<?=base_url("schedule/today"); ?>">T</a></span>
-		<span id="date-select-next"><a href="<?=base_url("schedule/advanceWeek"); ?>">N</a></span>
+		</div>
+		<div id="date-select-now"" class="date-select-control"><a href="<?=base_url("schedule/today"); ?>">T</a></div>
+		<div id="date-select-next"" class="date-select-control"><a href="<?=base_url("schedule/advanceWeek"); ?>">N</a></div>
 	</span>
 	<span id="change-schedule" class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-calendar icon-large options-blacken"></i></a>

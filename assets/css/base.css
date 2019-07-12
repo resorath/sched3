@@ -112,10 +112,13 @@ a:hover
 
 .schedule-main-table
 {
+	width: 100%;
 	margin: 0 auto; 
     text-align: left;
     border-collapse: collapse;
 }
+
+/* Core cells */
 
 .schedule-main-table td
 {
@@ -143,6 +146,80 @@ td.schedule-main-table-corner
 	border: none;
 }
 
+
+@media(min-width:768px){
+	.schedule-main-table td
+	{
+		width: 100px;
+	}
+	
+	.schedule-main-table-top-row td
+	{
+		height: 40px;
+	}
+	
+	td.schedule-main-table-first-column
+	{
+		width: 50px;
+	}
+	
+	td.schedule-main-table-corner
+	{
+		width: 50px;
+		height: 30px;
+	}
+
+}
+@media(min-width:992px){
+	.schedule-main-table td
+	{
+		width: 150px;
+	}
+	
+	.schedule-main-table-top-row td
+	{
+		height: 60px;
+	}
+	
+	td.schedule-main-table-first-column
+	{
+		width: 50px;
+	}
+	
+	td.schedule-main-table-corner
+	{
+		width: 50px;
+		height: 30px;
+	}
+
+}
+@media(min-width:1200px){
+	.schedule-main-table td
+	{
+		width: 220px;
+		height: 70px;
+	}
+	
+	.schedule-main-table-top-row td
+	{
+		height: 60px;
+	}
+	
+	td.schedule-main-table-first-column
+	{
+		width: 50px;
+	}
+	
+	td.schedule-main-table-corner
+	{
+		width: 50px;
+		height: 30px;
+	}
+
+}
+
+/* Ends Core Cells */
+
 td.schedule-main-table-normal-cell
 {
 	padding-left: 5px;
@@ -150,7 +227,6 @@ td.schedule-main-table-normal-cell
 	padding-bottom: 5px;
 	font-size: 12px;
 	line-height: 12px;
-	height: 30px;
 }
 
 td.schedule-main-table-invalid-cell
@@ -218,34 +294,68 @@ td.schedule-main-table-old-time-cell
 
 /******************* Date navigation on schedule ***********/
 
+#schedule-header
+{
+	margin-bottom: 20px;
+}
+
+#schedule-name
+{
+	font-size: 1.5em;
+	padding-right: 20px;
+}
+
 #date-select
 {
-	border: 2px solid #000000;
-	padding: 0px;
+	border: 1px solid black;
+	margin: 0px;
+	display: inline-block;
+	margin-bottom: -10px;
+	margin-right: 10px;
 }
 
 #date-select-current
 {
-	border: 1px solid #000000;
-	padding: 0px;
+	margin: 0px;
+	padding: 7px;
+	float: left;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.date-select-control
+{
+	margin: 0px;
+	float: left;
+	padding: 7px;
+	padding-right: 15px;
+	padding-left: 15px;
 }
 
 #date-select-previous
 {
-	border: 1px solid #000000;
-	padding: 0px;
+
 }
 
 #date-select-next
 {
-	border: 1px solid #000000;
-	padding: 0px;
+
 }
 
 #date-select-now
 {
-	border: 1px solid #000000;
-	padding: 0px;
+	border-right: 1px solid black;
+}
+
+#change-schedule
+{
+	margin-left: 20px;
+}
+
+#highlight-mode
+{
+	margin-left: 20px;
+
 }
 
 
