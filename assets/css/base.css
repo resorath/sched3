@@ -102,10 +102,12 @@ a:hover
 	color: #000;
 }
 
-.schedule
+#schedule
 {
 	text-align: center;
 	position: relative;
+	min-width: 800px;
+	max-width: 3000px;
 }
 
 /******************* Schedule table *******************/
@@ -118,141 +120,41 @@ a:hover
     border-collapse: collapse;
 }
 
+.schedule-cell
+{
+	min-width: 100px;
+	flex-grow: 1;
+	flex-shrink: 0;
+}
+
 /* Core cells */
-
-.schedule-main-table td
+.schedule-main-table-normal-cell
 {
-	border: 1px solid black;
-	width: 100px;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
-.schedule-main-table-top-row td
+.schedule-main-table-first-column
 {
-	height: 40px;
-	margin-bottom: -20px;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
 }
 
-td.schedule-main-table-first-column
+.schedule-main-top-row
 {
-	width: 50px;
-	text-align: center;
-	font-weight: bold;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+	border-top: 1px solid black;
 }
 
-td.schedule-main-table-corner
+#schedule-main-table-corner
 {
-	width: 50px;
-	height: 30px;
-	border: none;
-}
-
-
-@media(min-width:768px){
-	.schedule-main-table td
-	{
-		width: 100px;
-	}
-	
-	.schedule-main-table-top-row td
-	{
-		height: 40px;
-	}
-	
-	td.schedule-main-table-first-column
-	{
-		width: 50px;
-	}
-	
-	td.schedule-main-table-corner
-	{
-		width: 50px;
-		height: 30px;
-	}
-
-}
-@media(min-width:992px){
-	.schedule-main-table td
-	{
-		width: 150px;
-	}
-	
-	.schedule-main-table-top-row td
-	{
-		height: 60px;
-	}
-	
-	td.schedule-main-table-first-column
-	{
-		width: 50px;
-	}
-	
-	td.schedule-main-table-corner
-	{
-		width: 50px;
-		height: 30px;
-	}
-
-}
-@media(min-width:1200px){
-	.schedule-main-table td
-	{
-		width: 220px;
-		height: 70px;
-	}
-	
-	.schedule-main-table-top-row td
-	{
-		height: 60px;
-	}
-	
-	td.schedule-main-table-first-column
-	{
-		width: 50px;
-	}
-	
-	td.schedule-main-table-corner
-	{
-		width: 50px;
-		height: 30px;
-	}
-
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 }
 
 /* Ends Core Cells */
-
-td.schedule-main-table-normal-cell
-{
-	padding-left: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 12px;
-	line-height: 12px;
-}
-
-td.schedule-main-table-invalid-cell
-{
-	background-color: #DDDDDD;
-}
-
-td.schedule-main-table-current-time-cell
-{
-	padding-left: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 12px;
-	line-height: 12px;
-	background-color: #74C2E1;
-}
-
-td.schedule-main-table-old-time-cell
-{
-	padding-left: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	font-size: 12px;
-	line-height: 12px;
-	color: #777777;
-}
 
 .cell-invalid-clickable, .cell-valid-clickable
 {
@@ -404,6 +306,7 @@ td.schedule-main-table-old-time-cell
 	display: inline-block;
 	margin: 0 auto;
 	position: relative;
+	width: 100%;
 }
 
 .modal_message

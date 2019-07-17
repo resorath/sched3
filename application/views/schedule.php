@@ -47,38 +47,35 @@
 </div>
 <?php endif ?>
 
-<div class="schedule">
-
+<div id="schedule" class="container-fluid">
 	<?php if($schedule != NULL): ?>
+	
+	<!-- Top Date/Days -->
+	<div class="row">
+		<div id="schedule-main-table-corner" class="col"></div>
+		<?php for($i = 0; $i<sizeof($toprow['days']); $i++) { ?>
+			<div class="col schedule-main-top-row schedule-cell"><div class="date-aligner"><span class="large-date"><?=$toprow['date'][$i] ?></span> <span class="small-day"><?=$toprow['days'][$i] ?></span></div></div>
+		<?php } ?>
+	</div>
+	<!-- END Top Date/Days -->
 
-	<table class="schedule-main-table">
-		<!-- Top Date/Days -->
-		<tr class="schedule-main-table-top-row">
-			<td class="schedule-main-table-corner"></td>
-			<?php for($i = 0; $i<sizeof($toprow['days']); $i++) { ?>
-			<td><div class="date-aligner"><span class="large-date"><?=$toprow['date'][$i] ?></span> <span class="small-day"><?=$toprow['days'][$i] ?></span></div></td>
-			<?php } ?>
-		</tr>
-		<!-- END Top Date/Days -->
+	<!-- Time/Schedule Rows -->
+	<?php foreach($firstcolumn as $columntime) { ?>
+	<div class="row">
+		<div class="col schedule-main-table-first-column schedule-cell"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></div>
+			<?php foreach($toprow['dayindex'] as $rowdate) { ?>
+			<div class="col schedule-main-table-normal-cell schedule-cell <?php if(isInvalidCell($schedule[$columntime][$rowdate])) { ?>invalid-hour<?php } ?>" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
+				<?php if(isset($schedule[$columntime][$rowdate])) 
+						{
+						foreach($schedule[$columntime][$rowdate] as $cell) { ?>
+							<div class="cell"><span class="cell-name cell-userid-<?= $cell->userid ?>"><?= $cell->realname ?></span></div>
+						<?php } // end members of a timeslot "for" loop ?>
+				<?php } // end if ?>
+			</div>
+			<?php } // end of rows "for" loop ?>
+	</div>
+	<?php } // end of columns "for" loop ?>
 
-		<!-- Time/Schedule Rows -->
-		<?php foreach($firstcolumn as $columntime) { ?>
-		<tr>
-			<td class="schedule-main-table-first-column"><?=strrev(substr_replace(strrev($columntime), ":", 2, 0)); ?></td>
-				<?php foreach($toprow['dayindex'] as $rowdate) { ?>
-				<td class="schedule-main-table-normal-cell <?php if(isInvalidCell($schedule[$columntime][$rowdate])) { ?>invalid-hour<?php } ?>" id="cell-<?=$columntime ?>-<?=$rowdate ?>">
-					<?php if(isset($schedule[$columntime][$rowdate])) 
-						   {
-							foreach($schedule[$columntime][$rowdate] as $cell) { ?>
-								<div class="cell"><span class="cell-name cell-userid-<?= $cell->userid ?>"><?= $cell->realname ?></span></div>
-							<?php } // end members of a timeslot "for" loop ?>
-					<?php } // end if ?>
-				</td>
-				<?php } // end of rows "for" loop ?>
-		</tr>
-		<?php } // end of columns "for" loop ?>
-
-	</table>
 	<?php else: ?>
 	<div class="container">
 		There doesn't seem to be anything here...
@@ -87,30 +84,12 @@
 		yet
 	</div>
 	<?php endif ?>
-
-
 </div>
 
 
 
+
 <!-- extra script calls -->
-<?php if(isset($flash_left_arrow)): ?>
-	<script>
-		blinkForTime('#schedule-previous > a', 1400, '#ff0000');
-	</script>
-<?php endif ?>
-
-<?php if(isset($flash_right_arrow)): ?>
-	<script>
-		$(document).ready(function() { blinkForTime('#schedule-next > a', 1400, '#ff0000'); });
-	</script>
-<?php endif ?>
-
-<?php if(isset($_SESSION['highlighthours']) && $_SESSION['highlighthours'] == TRUE): ?>
-	<script>
-		highlightHours('cell-userid-<?=$_SESSION['userid']?>');
-	</script>
-<?php endif ?>
 
 <!-- END extra script calls -->
 
