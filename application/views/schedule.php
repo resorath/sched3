@@ -20,14 +20,14 @@
 			<?php
 			$i = 0;
 			foreach($availablesessions as $sessiongroupname => $sessiongroup) {
-				?><li class="disabled"><a href="#"><?=$sessiongroupname ?></a></li><?php
+				?><li class="dropdown-disabled"><?=$sessiongroupname ?></li><?php
 				foreach($sessiongroup as $sesgroupindex => $session)
 				{
-					?><li><a href="<?=base_url("schedule/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
+					?><li><a class="dropdown-item" href="<?=base_url("schedule/changesession/" . $session['sessionId']) ?>"><?=$session['title'] ?></a></li><?php
 				}
 				if(++$i !== count($availablesessions))
 				{
-					?><li class="divider"></li><?php
+					?><li class="dropdown-divider"></li><?php
 				}
 			}
 			?>
@@ -36,10 +36,10 @@
 	<span id="highlight-mode" class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-lightbulb icon-large bulb-yellow"></i></i></a>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-			<li><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
-			<li><a href="#" onClick="highlightAvailableShifts()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
-			<li class="divider"></li>
-			<li><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
+			<li class="dropdown-item"><a href="#" onClick="highlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-user"></i> Highlight my Hours</a></li>
+			<li class="dropdown-item"><a href="#" onClick="highlightAvailableShifts()"><i class="icon-shopping-cart icon-user"></i> Highlight Available Hours</a></li>
+			<li class="dropdown-divider"></li>
+			<li class="dropdown-item"><a href="#" onClick="stophighlightHours('cell-userid-<?=$_SESSION['userid']?>')"><i class="icon-fixed-width icon-ban-circle"></i> Turn off Highlighting</a></li>
 		</ul>
 	</span>
 
