@@ -106,7 +106,7 @@ a:hover
 {
 	text-align: center;
 	position: relative;
-	min-width: 800px;
+	min-width: 1000px;
 	max-width: 3000px;
 }
 
@@ -152,6 +152,10 @@ a:hover
 {
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
+	padding-right: 16px;
+	
+	flex-grow: 1;
+	flex-shrink: 0;
 }
 
 /* Ends Core Cells */

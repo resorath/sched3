@@ -47,7 +47,7 @@
 </div>
 <?php endif ?>
 
-<div id="schedule" class="container-fluid">
+<div id="schedule" class="container-fluid p-4">
 	<?php if($schedule != NULL): ?>
 	
 	<!-- Top Date/Days -->
